@@ -15,9 +15,10 @@ export function Home() {
                             <img src={fgts} alt="Logo" className="h-20 mx-auto" />
                             <div className="px-8 text-center">Você sabia que o seu <span className="font-bold">FGTS</span> gera <span className="font-bold">empregos</span> e investimentos para o <span className="font-bold">Brasil?</span></div>
                             <div className="flex justify-center">
-                                <button className="bg-orange-400 w-80 font-bold rounded-sm">
-                                    Entrar no aplicativo
-                                </button>
+                                <a href="/login">
+                                    <button className="bg-orange-400 w-80 font-bold rounded-sm">
+                                        Entrar no aplicativo
+                                    </button></a>
                             </div>
 
                             <p className="underline">Veja como seu FGTS é aplicado</p>
