@@ -30,7 +30,7 @@ export function Menu() {
     };
 
     return (
-        <div className="w-screen h-screen flex flex-col items-center text-white">
+        <div className="w-screen h-screen flex flex-col items-center text-white mb-20">
             <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] pb-8">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
