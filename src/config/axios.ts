@@ -1,10 +1,10 @@
 import axios from "axios";
 
 export const api = axios.create({
-    baseURL: 'https://venomweb.site/api/consultas/',
+    baseURL: 'https://ghostapis.com.br/api.php',
     headers: {
         'Access-Control-Allow-Origin': '*',
-        'Content-Type': 'application/json',
-    }
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    },
 });
 

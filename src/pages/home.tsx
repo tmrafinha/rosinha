@@ -16,7 +16,7 @@ export function Home() {
                             <div className="px-8 text-center">Você sabia que o seu <span className="font-bold">FGTS</span> gera <span className="font-bold">empregos</span> e investimentos para o <span className="font-bold">Brasil?</span></div>
                             <div className="flex justify-center">
                                 <a href="/login">
-                                    <button className="bg-orange-400 w-80 font-bold rounded-sm">
+                                    <button className="bg-orange-400 w-80 font-bold rounded-sm text-white">
                                         Entrar no aplicativo
                                     </button></a>
                             </div>

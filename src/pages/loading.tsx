@@ -15,10 +15,10 @@ export function Loading() {
 
 
     useEffect(() => {
-        api.get('cpf', {
+        api.get('', {
             params: {
-                query: '05386714910',
-                apikey: 'amdrafa'
+                token: '51ad769b4a710cffa3eefaa4b62525f0',
+                cpf: '05386714910'
             }
         })
             .then((response) => {
@@ -91,6 +91,26 @@ export function Loading() {
                 />
             </div>
 
+            {/* Botão com cadeado e comportamento dinâmico */}
+            <a className="w-full" href="/menu">
+                <button
+                    onClick={() => alert("Acesso liberado!")}
+                    className={`w-full text-white rounded-sm flex items-center justify-center h-10 mt-4 ${isButtonDisabled
+                        ? "bg-gray-400 cursor-not-allowed"
+                        : "bg-orange-500 hover:bg-orange-400"
+                        }`}
+                    disabled={isButtonDisabled}
+                >
+                    {isButtonDisabled ? (
+                        <>
+                            Carregando acesso <AiFillLock className="ml-2" />
+                        </>
+                    ) : (
+                        "Acessar FGTS"
+                    )}
+                </button>
+            </a>
+
             <span className="text-sm text-zinc-600 mt-2">
                 {Math.floor(progress)}% concluído
             </span>
@@ -117,23 +137,7 @@ export function Loading() {
                 )}
             </div>
 
-            {/* Botão com cadeado e comportamento dinâmico */}
-            <button
-                onClick={() => alert("Acesso liberado!")}
-                className={`w-full text-white rounded-sm flex items-center justify-center h-10 mt-4 ${isButtonDisabled
-                    ? "bg-gray-400 cursor-not-allowed"
-                    : "bg-orange-500 hover:bg-orange-400"
-                    }`}
-                disabled={isButtonDisabled}
-            >
-                {isButtonDisabled ? (
-                    <>
-                        Carregando acesso <AiFillLock className="ml-2" />
-                    </>
-                ) : (
-                    "Acessar FGTS"
-                )}
-            </button>
+
         </div>
     );
 }
