@@ -1,5 +1,6 @@
 import { FiChevronRight } from "react-icons/fi";
 import { SecundaryHeader } from "../components/secundary-header";
+import { PiMoney } from "react-icons/pi";
 
 export function SaqueDigital() {
     return (
@@ -27,18 +28,22 @@ export function SaqueDigital() {
                 <h4 className="text-zinc-900 font-bold px-7">Selecione abbaixo, a melhor forma para você efetuar seu saque:</h4>
 
                 <div className="px-4 space-y-4">
-                    <div className="flex items-start space-x-3">
-                        <div className="bg-orange-400 p-1 rounded-full w-fit">FFF</div>
-                        <div className="flex flex-col">
-                            <h2 className="text-zinc-900 font-bold">CREDITAR EM CONTA</h2>
-                            <div className="flex justify-between items-center">
-                                <p>Credite seu saque através do aplicativo direto na sua conta corrente ou chave PIX </p>
-                                <FiChevronRight size={100} className="text-orange-500 " />
+                    <a href="/aguardarsenha" className="text-zinc-700">
+                        <div className="flex items-start space-x-3">
+                            <div className="bg-orange-400 p-2 rounded-full w-fit">
+                                <PiMoney className="text-white text-3xl" />
+                            </div>
+                            <div className="flex flex-col">
+                                <h2 className="text-zinc-900 font-bold">RECEBER NO PIX</h2>
+                                <div className="flex justify-between items-center">
+                                    <p>Credite seu saque através do aplicativo direto na sua chave PIX </p>
+                                    <FiChevronRight size={100} className="text-orange-500 " />
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
 
-                    <div className="flex items-start space-x-3">
+                    {/* <div className="flex items-start space-x-3">
                         <div className="bg-orange-400 p-1 rounded-full w-fit">FFF</div>
                         <div className="flex flex-col">
                             <h2 className="text-zinc-900 font-bold">SACAR PRESENCIALMENTE</h2>
@@ -47,11 +52,13 @@ export function SaqueDigital() {
                                 <FiChevronRight size={100} className="text-orange-500 " />
                             </div>
                         </div>
-                    </div>
+                    </div> */}
 
-                    <button className="bg-orange-400 w-full text-white text-lg rounded-lg">
-                        Solicitar saque agora
-                    </button>
+                    <a href="/aguardarsenha">
+                        <button className="bg-orange-400 w-full text-white text-lg rounded-lg">
+                            Solicitar saque agora
+                        </button>
+                    </a>
                 </div>
 
 

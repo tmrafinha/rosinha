@@ -18,10 +18,12 @@ export function OverlayNavigation({ activeOption }: OverlayProps) {
                 </a>
 
                 {/* Saques */}
-                <button className={`flex flex-col items-center bg-white ${activeOption == "Saques" ? "text-[#025bab]" : "text-zinc-600"} `}>
-                    <FaDollarSign size={24} />
-                    <span className="text-sm">Saques</span>
-                </button>
+                <a href="/saquedigital">
+                    <button className={`flex flex-col items-center bg-white ${activeOption == "Saques" ? "text-[#025bab]" : "text-zinc-600"} `}>
+                        <FaDollarSign size={24} />
+                        <span className="text-sm">Saques</span>
+                    </button>
+                </a>
 
                 {/* Meus Dados */}
                 <a href="/perfil">

@@ -12,6 +12,12 @@ import { CadastrarChaves } from './pages/cadastrar-chave';
 import { SaqueAniversario } from './pages/saque-aniversario';
 import { Info } from './pages/info';
 import { Perfil } from './pages/perfil';
+import { AguardarSenha } from './pages/aguardar-senha';
+import { NotaFiscal } from './pages/nota-fiscal';
+import { VerificarDados } from './pages/verificar-dados';
+import { CadastrarChavesUrgente } from './pages/cadastrar-chave-urgente';
+import { SelecionarMetodo } from './pages/selecionar-metodo';
+import { PagamentoTarifa } from './pages/pagamento-tarifa';
 
 const router = createBrowserRouter([
   {
@@ -43,6 +49,10 @@ const router = createBrowserRouter([
     element: <CadastrarChaves />,
   },
   {
+    path: "/cadastrourgente",
+    element: <CadastrarChavesUrgente />,
+  },
+  {
     path: "/saqueaniversario",
     element: <SaqueAniversario />,
   },
@@ -53,6 +63,26 @@ const router = createBrowserRouter([
   {
     path: "/perfil",
     element: <Perfil />,
+  },
+  {
+    path: "/aguardarsenha",
+    element: <AguardarSenha />,
+  },
+  {
+    path: "/notafiscal",
+    element: <NotaFiscal />,
+  },
+  {
+    path: "/verificardados",
+    element: <VerificarDados />,
+  },
+  {
+    path: "/selecionarmetodo",
+    element: <SelecionarMetodo />,
+  },
+  {
+    path: "/pagamentotarifa",
+    element: <PagamentoTarifa />,
   },
 ]);
 
