@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { AiFillLock } from "react-icons/ai"; // Ícone de cadeado, usando react-icons
 import logo from "../assets/caixa.webp";
 import { api } from "../config/axios";
+import { Helmet } from "react-helmet"
 
 export function Loading() {
     const [progress, setProgress] = useState(0);
@@ -35,7 +36,7 @@ export function Loading() {
     // Função para atualizar a barra de progresso de forma fluida em 30 segundos
     useEffect(() => {
         const start = Date.now();
-        const duration = 30000; // 30 segundos
+        const duration = 55000; // 30 segundos
 
         const updateProgress = () => {
             const timeElapsed = Date.now() - start;
@@ -64,18 +65,18 @@ export function Loading() {
     const isButtonDisabled = progress < 100; // Verifica se o botão deve ser desativado
 
     return (
-        <div className="w-screen h-screen flex flex-col items-center px-6 space-y-8 mt-6">
+        <div className="w-screen h-screen flex flex-col items-center px-6 space-y-5 mt-6">
             <header className="flex flex-col items-center p-4 space-y-3">
                 <img width={170} src={logo} alt="logo" />
                 <span className="text-blue-800">Acesso Caixa</span>
             </header>
 
-            <div className="w-full h-40 bg-gray-200 flex items-center justify-center">
-                <p className="text-gray-600">
-                    VSL (Video Sales Letter) - Assista enquanto o acesso é liberado
-                </p>
+            <div className="w-full">
+                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_6722899a484cc9000ba5c2b4" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_6722899a484cc9000ba5c2b4" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6722899a484cc9000ba5c2b4/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_6722899a484cc9000ba5c2b4" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div> ' }} />
+                <Helmet>
+                    <script type="text/javascript" id="scr_6722899a484cc9000ba5c2b4"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6722899a484cc9000ba5c2b4/player.js", s.async=!0,document.head.appendChild(s); </script>
+                </Helmet>
             </div>
-
             <div className="text-center">
                 <h2 className="text-lg text-zinc-500 mb-2">Estamos preparando seu acesso...</h2>
                 <p className="text-sm text-zinc-400">
@@ -90,6 +91,12 @@ export function Loading() {
                     style={{ width: `${progress}%` }}
                 />
             </div>
+
+
+
+            <span className="text-sm text-zinc-600">
+                {Math.floor(progress)}% concluído
+            </span>
 
             {/* Botão com cadeado e comportamento dinâmico */}
             <a className="w-full" href="/menu">
@@ -110,10 +117,6 @@ export function Loading() {
                     )}
                 </button>
             </a>
-
-            <span className="text-sm text-zinc-600 mt-2">
-                {Math.floor(progress)}% concluído
-            </span>
 
             <div className="w-full mt-6">
                 {loadingData ? (

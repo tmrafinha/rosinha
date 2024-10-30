@@ -58,7 +58,7 @@ export function Menu() {
 
             <div className="rounded-lg bg-white w-full -mt-3">
                 <div className="p-4 border-2 m-2 rounded-lg space-y-4">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 mb-4">
                         <div className="bg-orange-400 p-2 rounded-full w-fit">
                             <img src={flogo} alt="flogo" width={20} />
                         </div>
@@ -67,14 +67,16 @@ export function Menu() {
                         </h2>
                     </div>
 
-                    <div className="font-bold text-xl flex flex-col space-y-2">
-                        <div className="flex items-center justify-between text-[#025bab]">
-                            <h3>VICTOR SOUZA ALMEIDA</h3>
-                            <FaAngleRight />
-                        </div>
+                    <a className="" href="/saquedigital">
+                        <div className="font-bold text-xl flex flex-col space-y-2">
+                            <div className="flex items-center justify-between text-[#025bab]">
+                                <h3>VICTOR SOUZA ALMEIDA</h3>
+                                <FaAngleRight />
+                            </div>
 
-                        <span className="text-zinc-700">R$6.439,23</span>
-                    </div>
+                            <span className="text-zinc-700">R$6.439,23</span>
+                        </div>
+                    </a>
                     <span className="border-b border-b-zinc-800 my-2" />
                 </div>
             </div>

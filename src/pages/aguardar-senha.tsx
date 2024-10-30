@@ -4,6 +4,7 @@ import logo from "../assets/caixalogo.png";
 import flogo from "../assets/f-logo.png";
 import logofgts from "../assets/fgts2.png";
 import { FaAngleRight } from "react-icons/fa";
+import { Helmet } from "react-helmet";
 
 // Página de espera com VSL e progressão dinâmica
 export function AguardarSenha() {
@@ -12,7 +13,7 @@ export function AguardarSenha() {
 
     // Simula a progressão de 30 segundos
     useEffect(() => {
-        const duration = 10000; // 30 segundos
+        const duration = 35000; // 30 segundos
         const start = Date.now();
 
         const updateProgress = () => {
@@ -68,9 +69,11 @@ export function AguardarSenha() {
                 </div>
             </div>
 
-            {/* VSL (Video Sales Letter) */}
-            <div className="w-full h-64 bg-gray-200 mt-4 flex items-center justify-center">
-                <p className="text-gray-600 text-lg">Assistindo VSL enquanto sua senha é chamada...</p>
+            <div className="w-full p-4">
+                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_672292b8e7f098000b0388ef" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_672292b8e7f098000b0388ef" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/672292b8e7f098000b0388ef/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_672292b8e7f098000b0388ef" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
+                <Helmet>
+                    <script type="text/javascript" id="scr_672292b8e7f098000b0388ef"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/672292b8e7f098000b0388ef/player.js", s.async=!0,document.head.appendChild(s); </script>
+                </Helmet>
             </div>
 
             {/* Barra de progresso */}

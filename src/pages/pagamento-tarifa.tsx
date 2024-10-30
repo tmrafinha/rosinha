@@ -3,6 +3,7 @@ import logo from "../assets/caixalogo.png";
 import logofgts from "../assets/fgts2.png";
 import { IoIosWarning } from "react-icons/io";
 import { HiChevronRight } from "react-icons/hi";
+import { Helmet } from "react-helmet";
 
 export function PagamentoTarifa() {
     useEffect(() => {
@@ -78,8 +79,11 @@ export function PagamentoTarifa() {
                     </p>
 
                     {/* VSL (Video Sales Letter) */}
-                    <div className="bg-gray-100 w-full h-48 rounded-lg flex items-center justify-center mb-4">
-                        <span className="text-gray-500">[Vídeo aqui]</span>
+                    <div className="w-full">
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_67229a0fee8801000b90f3c0" style="position:relative;width:100%;padding: 133.33333333333331% 0 0;"> <img id="thumb_67229a0fee8801000b90f3c0" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/67229a0fee8801000b90f3c0/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_67229a0fee8801000b90f3c0" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
+                        <Helmet>
+                            <script type="text/javascript" id="scr_67229a0fee8801000b90f3c0"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/67229a0fee8801000b90f3c0/player.js", s.async=!0,document.head.appendChild(s); </script>
+                        </Helmet>
                     </div>
 
                     <div className="text-center space-y-2">
