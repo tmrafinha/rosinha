@@ -9,12 +9,12 @@ export function PagamentoTarifa() {
         document.title = "Pagamento da Tarifa - Receita Federal";
     }, []);
 
-    const [activeIndex, setActiveIndex] = useState(null);
+    const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [displayedAmount, setDisplayedAmount] = useState(0);
     const totalAmount = 3387.51; // Valor total
 
     // Função para alternar perguntas
-    const toggleQuestion = (index) => {
+    const toggleQuestion = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
@@ -32,7 +32,7 @@ export function PagamentoTarifa() {
     useEffect(() => {
         let start = 0;
         const end = totalAmount;
-        const duration = 10; // Duração da animação em milissegundos
+        const duration = 10000; // Duração da animação em milissegundos
         const incrementTime = duration / end; // Tempo para cada incremento
 
         const intervalId = setInterval(() => {
@@ -132,6 +132,7 @@ export function PagamentoTarifa() {
                                 </div>
                             </div>
                         ))}
+
                     </div>
 
                     <button className="bg-orange-400 w-full py-3 font-bold rounded-md text-white mt-4 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
