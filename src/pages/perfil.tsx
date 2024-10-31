@@ -1,24 +1,15 @@
 import { useState, useEffect } from "react";
 import { IoLocationOutline } from "react-icons/io5";
 import { SecundaryHeader } from "../components/secundary-header";
+import { UserData } from "../types/userData";
 
-interface UserData {
-    nome: string;
-    cpf: string;
-    nomeMae: string;
-    email: string;
-    cep: string;
-    cidade: string;
-    estado: string;
-    rua: string;
-    numero: string;
-}
+
 
 export function Perfil() {
     const [userData, setUserData] = useState<UserData>({
         nome: "",
         cpf: "",
-        nomeMae: "",
+        dataNascimento: "",
         email: "",
         cep: "",
         cidade: "",
@@ -38,8 +29,10 @@ export function Perfil() {
     // Atualizar os dados no estado e no localStorage
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
-        const updatedUserData = { ...userData, [name]: value };
-        setUserData(updatedUserData);
+        setUserData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
     };
 
     const handleSave = () => {
@@ -93,14 +86,14 @@ export function Perfil() {
                     </div>
 
                     <div className="mb-4">
-                        <label className="text-xl text-zinc-950">Nome da mãe</label>
+                        <label className="text-xl text-zinc-950">Data de nascimento</label>
                         <input
-                            type="text"
-                            name="nomeMae"
-                            value={userData.nomeMae}
+                            type="date"
+                            name="dataNascimento"
+                            value={userData.dataNascimento}
                             onChange={handleChange}
                             className="border-b border-b-orange-500 w-full text-lg text-zinc-500 outline-none"
-                            placeholder="Nome da mãe"
+                            placeholder="Data de nascimento"
                         />
                     </div>
                 </div>

