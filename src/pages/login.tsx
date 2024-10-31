@@ -5,7 +5,7 @@ import userIcon from "../assets/user.png";
 export function Login() {
     const [cpf, setCpf] = useState<string>("");
     const [nomeCompleto, setNomeCompleto] = useState<string>("");
-    const [dataNascimento, setDataNascimento] = useState<string>("");
+    const [dataNascimento, setDataNascimento] = useState<string>(new Date().toISOString().split("T")[0]);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     // Função para aplicar a máscara de CPF
@@ -90,6 +90,9 @@ export function Login() {
             </div>
 
             {/* Campo Data de Nascimento */}
+            <div className="text-2xl font-bold">
+                Confirme sua data de nascimento
+            </div>
             <div className="flex items-center space-x-2 mt-4">
                 <img src={userIcon} alt="user" width={15} />
                 <input
@@ -114,9 +117,9 @@ export function Login() {
             </button>
 
             <div className="flex flex-col items-center text-blue-900 space-y-6">
-                <div className="font-semibold">
+                {/* <div className="font-semibold">
                     É novo por aqui? <span className="underline">Cadastre-se</span>
-                </div>
+                </div> */}
                 <span className="underline">Preciso de ajuda</span>
             </div>
         </div>
