@@ -96,7 +96,7 @@ export function Login() {
                     type="date"
                     value={dataNascimento}
                     onChange={(e) => setDataNascimento(e.target.value)}
-                    className="border-b border-b-orange-500 w-full text-lg outline-none"
+                    className="border-b border-b-orange-500 w-full text-lg text-zinc-700 outline-none"
                 />
             </div>
 
