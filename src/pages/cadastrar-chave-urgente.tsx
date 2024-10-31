@@ -4,7 +4,7 @@ import { SecundaryHeader } from "../components/secundary-header";
 import Modal from 'react-modal';
 import { BiCheck } from "react-icons/bi";
 import { ImSpinner2 } from "react-icons/im"; // Loader Spinner
-import { BsKeyFill } from "react-icons/bs";
+import fgts from "../assets/f-logo.png"
 
 // Estilo do modal
 const modalStyles: Modal.Styles = {
@@ -83,10 +83,10 @@ export function CadastrarChavesUrgente() {
         <div>
             <SecundaryHeader />
             <div className="flex items-center px-4 py-6 space-x-2">
-                <div className="bg-primary p-2 rounded-full w-fit">
-                    <BsKeyFill className="text-white text-3xl" />
+                <div className="bg-orange-500 p-2 rounded-full w-fit">
+                    <img src={fgts} alt="Logo" className="h-8 mx-auto" />
                 </div>
-                <h1 className="text-2xl font-bold">CADASTRE SUA <br /> CHAVE PIX</h1>
+                <h1 className="text-2xl font-bold text-zinc-800">CADASTRE SUA <br /> CHAVE PIX</h1>
             </div>
 
             {/* Listagem das Chaves PIX */}

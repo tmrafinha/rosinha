@@ -166,7 +166,7 @@ export function PagamentoTarifa() {
                         {questions.map((item, index) => (
                             <div key={index} className="border-b">
                                 <button
-                                    className="flex justify-between w-full text-left py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
+                                    className="flex justify-between w-full text-left py-2 text-gray-700 hover:text-gray-900 focus:outline-none bg-white"
                                     onClick={() => toggleQuestion(index)}
                                 >
                                     <h5 className="font-semibold">{item.question}</h5>

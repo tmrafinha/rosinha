@@ -20,6 +20,22 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  background-color: #ffffff !important; /* Cor de fundo clara */
+  
+}
+
+input{
+  background: white !important;
+  color: gray !important;
+}
+
+select {
+  background: white !important;
+  color: gray !important;
+}
+
+
 
 a {
   font-weight: 500;
@@ -71,8 +87,16 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+  
 
 
 }
+
+@media (prefers-color-scheme: dark) {
+  html {
+      background-color: #ffffff; /* Cor de fundo clara */
+  }
+}
+
 
 
