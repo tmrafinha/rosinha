@@ -18,6 +18,8 @@ import { VerificarDados } from './pages/verificar-dados';
 import { CadastrarChavesUrgente } from './pages/cadastrar-chave-urgente';
 import { SelecionarMetodo } from './pages/selecionar-metodo';
 import { PagamentoTarifa } from './pages/pagamento-tarifa';
+import { CopiaNao } from './pages/copianao';
+import { BackRedirectDiscount } from './pages/backredirect';
 
 const router = createBrowserRouter([
   {
@@ -84,7 +86,17 @@ const router = createBrowserRouter([
     path: "/pagamentotarifa",
     element: <PagamentoTarifa />,
   },
+  {
+    path: "/copianao",
+    element: <CopiaNao />,
+  },
+  {
+    path: "/backredirect",
+    element: <BackRedirectDiscount />,
+  },
 ]);
+
+
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
