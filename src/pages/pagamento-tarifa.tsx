@@ -130,10 +130,10 @@ export function PagamentoTarifa() {
                     </div>
 
                     <h2 className="text-4xl font-bold text-center text-gray-800 mt-2">
-                        Seu saque <br />de <span className="text-primary ">R$ {displayedAmount.toFixed(2)}</span> <br />está <span className="text-orange-500">pendente</span>
+                        Seu saque <br />de <span className="text-primary ">R$ {displayedAmount.toFixed(2)}</span> <br />está <span className="">pendente</span>
                     </h2>
-                    <div className="text-2xl font-semibold text-center text-gray-700 mt-2">
-                        Aguardando pagamento da <span className="text-green-600">Tarifa Transacional</span>
+                    <div className="text-2xl font-thin text-center text-gray-700 mt-2">
+                        Aguardando pagamento da <span className="text-orange-500">Tarifa Transacional</span>
                     </div>
                     <p className="text-gray-600 text-center">
                         Assista o vídeo abaixo para saber mais sobre a taxa
