@@ -127,7 +127,7 @@ export function Menu() {
                     </div>
                 </div>
 
-                <a href="/saqueaniversario">
+                <a href="/saquedigital">
                     <div className="text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
                         <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
                             <img src={flogo} alt="flogo" width={20} />
