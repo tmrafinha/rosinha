@@ -18,6 +18,7 @@ export function Menu() {
         cpf: "",
         dataNascimento: "",
         email: "",
+        nomeMae: "",
         cep: "",
         cidade: "",
         estado: "",
