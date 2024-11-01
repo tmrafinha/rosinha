@@ -124,17 +124,26 @@ export function PagamentoTarifa() {
             </header>
 
             <div className="px-4">
-                <div className="flex flex-col items-center w-full max-w-lg px-2 bg-white shadow-lg rounded-lg space-y-4">
-                    <div className="flex items-center pt-4">
-                        <IoIosWarning className="text-orange-500 mr-2" size={36} />
-                        <h2 className="text-3xl font-bold text-orange-500">ATENÇÃO!</h2>
+                <div className="flex flex-col items-center w-full max-w-lg px-2 bg-white shadow-lg rounded-lg space-y-6">
+                    <div className="flex items-center pt-4 text-zinc-800 text-3xl font-bold">
+                        RENDIMENTO FGTS
                     </div>
 
-                    <h2 className="text-4xl font-bold text-center text-gray-800 mt-2">
-                        Seu saque <br />de <span className="text-primary ">R$ {displayedAmount.toFixed(2)}</span> <br />está <span className="">pendente</span>
-                    </h2>
+
+                    <div className="flex flex-col text-center">
+                        <p className="text-2xl mb-2 text-gray-500 my-2">Valor disponível <br />para saque:</p>
+                        <p className="text-6xl font-semibold text-green-500">R$ {displayedAmount.toFixed(2)}</p>
+                    </div>
+
+                    <div className="flex items-center pt-4">
+                        <IoIosWarning className="text-red-500 mr-2" size={36} />
+                        <h2 className="text-3xl font-bold text-red-500">ATENÇÃO!</h2>
+                    </div>
+
+                    <h2 className="text-xl text-center text-red-600">Caso não saque o dinheiro hoje, essa quantia será imediatamente bloqueado e disponibilizado ao <span className="font-bold">Tesouro Nacional</span> conforme lei 1.847/24 </h2>
+
                     <div className="text-2xl font-thin text-center text-gray-700 mt-2">
-                        Aguardando pagamento da <span className="text-orange-500">Tarifa Transacional</span>
+                        Aguardando pagamento da <span className="text-primary">Tarifa Transacional</span>
                     </div>
                     {/* <p className="text-gray-600 text-center">
                         Assista o vídeo abaixo para saber mais sobre a taxa

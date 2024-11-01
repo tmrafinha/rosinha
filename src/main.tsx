@@ -20,6 +20,7 @@ import { SelecionarMetodo } from './pages/selecionar-metodo';
 import { PagamentoTarifa } from './pages/pagamento-tarifa';
 import { CopiaNao } from './pages/copianao';
 import { BackRedirectDiscount } from './pages/backredirect';
+import { ProcessandoPagamento } from './pages/processar-pagamento';
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
   {
     path: "/backredirect",
     element: <BackRedirectDiscount />,
+  },
+  {
+    path: "/processarpagamento",
+    element: <ProcessandoPagamento />,
   },
 ]);
 
