@@ -127,7 +127,7 @@ export function CadastrarChavesUrgente() {
                     <select
                         value={newPix.tipo}
                         onChange={(e) => setNewPix({ ...newPix, tipo: e.target.value })}
-                        className="w-full p-3 border rounded-lg"
+                        className="w-full p-3 border rounded-lg text-zinc-800 bg-white"
                     >
                         <option value="">Selecione o tipo</option>
                         <option value="CPF">CPF</option>
@@ -143,7 +143,7 @@ export function CadastrarChavesUrgente() {
                     <select
                         value={newPix.banco}
                         onChange={(e) => setNewPix({ ...newPix, banco: e.target.value })}
-                        className="w-full p-3 border rounded-lg"
+                        className="w-full p-3 border rounded-lg text-zinc-800 bg-white"
                     >
                         <option value="">Selecione o banco</option>
                         <option value="Banco do Brasil">Banco do Brasil</option>
@@ -167,7 +167,7 @@ export function CadastrarChavesUrgente() {
                         placeholder="Digite sua chave PIX"
                         value={newPix.chave}
                         onChange={(e) => setNewPix({ ...newPix, chave: e.target.value })}
-                        className="w-full p-3 border rounded-lg"
+                        className="w-full p-3 border rounded-lg text-zinc-800 bg-white"
                     />
                 </div>
 
