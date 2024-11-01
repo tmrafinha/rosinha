@@ -9,7 +9,10 @@ export function Home() {
                     <img src={logo} alt="Logo" className="h-14 mx-auto" />
                 </header>
                 <main className="text-white">
-                    <div className="flex flex-col justify-center items-center mt-20 space-y-24">
+                    <div className="px-4 text-center w-full">
+                        <span className="">A distribuição de lucros começa <br /> a partir do dia 02/09/2024</span>
+                    </div>
+                    <div className="flex flex-col justify-center items-center mt-10 space-y-16">
                         <span className="text-2xl">Boas-vindas ao</span>
                         <div className="space-y-12 flex flex-col items-center">
                             <img src={fgts} alt="Logo" className="h-20 mx-auto" />
