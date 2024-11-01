@@ -16,6 +16,7 @@ export function VerificarDados() {
         dataNascimento: "",
         email: "",
         cep: "",
+        nomeMae: "",
         cidade: "",
         estado: "",
         rua: "",
@@ -76,6 +77,7 @@ export function VerificarDados() {
                 {[
                     { label: "Nome Completo", value: userData?.nome },
                     { label: "CPF", value: userData?.cpf },
+                    { label: "Nome da mãe", value: userData?.nomeMae },
                     { label: "Data de Nascimento", value: userData?.dataNascimento },
                 ].map((field, index) => (
                     <div key={index} className="flex flex-col space-y-2">

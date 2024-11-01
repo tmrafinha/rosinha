@@ -6,6 +6,7 @@ import logofgts from "../assets/fgts2.png";
 import { FaAngleRight } from "react-icons/fa";
 import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
+import dayjs from "dayjs";
 
 // Página de espera com VSL e progressão dinâmica
 export function AguardarSenha() {
@@ -18,6 +19,7 @@ export function AguardarSenha() {
         dataNascimento: "",
         email: "",
         cep: "",
+        nomeMae: "",
         cidade: "",
         estado: "",
         rua: "",
@@ -77,13 +79,14 @@ export function AguardarSenha() {
                         </h2>
                     </div>
 
-                    <div className="font-bold text-xl flex flex-col  space-y-2">
+                    <div className="font-bold text-xl flex flex-col px-4  space-y-2">
                         <div className="flex items-center justify-between">
                             <h3>{userData.nome.toUpperCase()}</h3>
                             <FaAngleRight />
                         </div>
+                        <span className="font-thin text-zinc-300">Nome da mãe: {userData?.nomeMae}</span>
                         <span className="font-thin text-zinc-300">CPF: {userData?.cpf}</span>
-                        <span className="font-thin text-zinc-300">Nascimento: {userData?.dataNascimento}</span>
+                        <span className="font-thin text-zinc-300">Nascimento: {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}</span>
 
                     </div>
                     <span className="border-b border-b-zinc-800 my-2" />

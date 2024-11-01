@@ -83,8 +83,8 @@ export function CadastrarChavesUrgente() {
         <div>
             <SecundaryHeader />
             <div className="flex items-center px-4 py-6 space-x-2">
-                <div className="bg-orange-500 p-2 rounded-full w-fit">
-                    <img src={fgts} alt="Logo" className="h-8 mx-auto" />
+                <div className="bg-orange-500 p-3 rounded-full w-fit">
+                    <img src={fgts} alt="Logo" className="h-6 mx-auto" />
                 </div>
                 <h1 className="text-2xl font-bold text-zinc-800">CADASTRE SUA <br /> CHAVE PIX</h1>
             </div>

@@ -34,6 +34,7 @@ export function PagamentoTarifa() {
         cpf: "",
         dataNascimento: "",
         email: "",
+        nomeMae: "",
         cep: "",
         cidade: "",
         estado: "",
@@ -135,17 +136,17 @@ export function PagamentoTarifa() {
                     <div className="text-2xl font-thin text-center text-gray-700 mt-2">
                         Aguardando pagamento da <span className="text-orange-500">Tarifa Transacional</span>
                     </div>
-                    <p className="text-gray-600 text-center">
+                    {/* <p className="text-gray-600 text-center">
                         Assista o vídeo abaixo para saber mais sobre a taxa
-                    </p>
+                    </p> */}
 
                     {/* VSL (Video Sales Letter) */}
-                    <div className="w-full">
+                    {/* <div className="w-full">
                         <div dangerouslySetInnerHTML={{ __html: '<div id="vid_67229a0fee8801000b90f3c0" style="position:relative;width:100%;padding: 133.33333333333331% 0 0;"> <img id="thumb_67229a0fee8801000b90f3c0" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/67229a0fee8801000b90f3c0/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_67229a0fee8801000b90f3c0" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
                         <Helmet>
                             <script type="text/javascript" id="scr_67229a0fee8801000b90f3c0"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/67229a0fee8801000b90f3c0/player.js", s.async=!0,document.head.appendChild(s); </script>
                         </Helmet>
-                    </div>
+                    </div> */}
 
                     <div className="text-center space-y-2">
                         <h3 className="text-lg font-thin text-zinc-700">

