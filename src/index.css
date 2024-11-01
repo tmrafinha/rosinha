@@ -24,14 +24,14 @@ html {
   background-color: #ffffff !important; /* Cor de fundo clara */
   
 }
-/* 
+
 input{
   background: white !important;
 }
 
 select {
   background: white !important;
-  color: gray !important;
+  /* color: gray !important; */
 }
 
 
@@ -43,7 +43,7 @@ a {
 }
 a:hover {
   color: #535bf2;
-} */
+}
 
 body {
   padding: 0;
