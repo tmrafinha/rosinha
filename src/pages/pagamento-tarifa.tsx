@@ -3,7 +3,7 @@ import logo from "../assets/caixalogo.png";
 import logofgts from "../assets/fgts2.png";
 import { IoIosWarning } from "react-icons/io";
 import { HiChevronRight } from "react-icons/hi";
-import { Helmet } from "react-helmet";
+// import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import pix from "../assets/pix.png"
 import { useNavigate } from "react-router-dom";
