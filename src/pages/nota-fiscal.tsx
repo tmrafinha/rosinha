@@ -18,6 +18,7 @@ export function NotaFiscal() {
         email: "",
         cep: "",
         cidade: "",
+        nomeMae: "",
         estado: "",
         rua: "",
         numero: ""

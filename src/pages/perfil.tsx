@@ -12,6 +12,7 @@ export function Perfil() {
         dataNascimento: "",
         email: "",
         cep: "",
+        nomeMae: "",
         cidade: "",
         estado: "",
         rua: "",

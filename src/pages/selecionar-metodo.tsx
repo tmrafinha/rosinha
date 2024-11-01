@@ -13,6 +13,7 @@ export function SelecionarMetodo() {
         cpf: "",
         dataNascimento: "",
         email: "",
+        nomeMae: "",
         cep: "",
         cidade: "",
         estado: "",
