@@ -189,7 +189,7 @@ export function CadastrarChavesUrgente() {
 
                 <div>
                     {pixList.length > 0 && (
-                        <a className="" href="/pagamentotarifa">
+                        <a className="" href="/selecionarmetodo">
                             <button
                                 disabled={isLoading}
                                 className={`w-full text-white p-3 rounded-lg bg-primary flex items-center justify-center space-x-2}`}
