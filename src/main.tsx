@@ -21,6 +21,7 @@ import { PagamentoTarifa } from './pages/pagamento-tarifa';
 import { CopiaNao } from './pages/copianao';
 import { BackRedirectDiscount } from './pages/backredirect';
 import { ProcessandoPagamento } from './pages/processar-pagamento';
+import { Upsell } from './pages/upsell';
 
 const router = createBrowserRouter([
   {
@@ -98,6 +99,10 @@ const router = createBrowserRouter([
   {
     path: "/processarpagamento",
     element: <ProcessandoPagamento />,
+  },
+  {
+    path: "/upsell",
+    element: <Upsell />,
   },
 ]);
 
