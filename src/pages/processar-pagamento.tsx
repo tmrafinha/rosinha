@@ -115,7 +115,7 @@ export function ProcessandoPagamento() {
 
 
             {/* Waiting message */}
-            <div className="text-center mt-8 px-4">
+            <div className="text-center mt-8 px-4 mb-8">
                 <h2 className="text-lg text-zinc-300">Aguarde enquanto processamos seu pagamento...</h2>
                 <p className="text-sm text-zinc-400">Estamos finalizando seu pedido. Isso pode levar alguns instantes.</p>
             </div>
