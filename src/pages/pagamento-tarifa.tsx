@@ -7,6 +7,9 @@ import { HiChevronRight } from "react-icons/hi";
 import { UserData } from "../types/userData";
 import pix from "../assets/pix.png"
 import { useNavigate } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa";
+import dayjs from "dayjs";
+import logobranco from "../assets/unnamed.png"
 
 export function PagamentoTarifa() {
 
@@ -124,16 +127,33 @@ export function PagamentoTarifa() {
             </header>
 
             <div className="px-4">
-                <div className="flex flex-col items-center w-full max-w-lg px-2 bg-white shadow-lg rounded-lg space-y-6">
-                    <div className="flex items-center pt-4 text-zinc-800 text-3xl font-bold">
-                        RENDIMENTO FGTS
+                <div className="flex flex-col items-center  w-full max-w-lg px-2 bg-white shadow-lg rounded-lg space-y-6">
+
+                    <div className="w-full flex justify-center items-center">
+                        <div className="flex items-center pt-4 text-primary text-3xl font-bold space-x-4 justify-center">
+                            <img src={logobranco} width={70} alt="logo branco" />
+                            <span>RENDIMENTO <br />  FGTS 2024</span>
+                        </div>
                     </div>
+
+                    <div className="font-bold text-xl flex flex-col px-4  space-y-2">
+                        <div className="flex items-center justify-between">
+                            <h3 >{userData.nome.toUpperCase()}</h3>
+                            <FaAngleRight />
+                        </div>
+                        <span className="font-thin text-zinc-500">Nome da mãe: {userData?.nomeMae}</span>
+                        <span className="font-thin text-zinc-500">CPF: {userData?.cpf}</span>
+                        <span className="font-thin text-zinc-500">Nascimento: {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}</span>
+
+                    </div>
+
 
 
                     <div className="flex flex-col text-center">
                         <p className="text-2xl mb-2 text-gray-500 my-2">Valor disponível <br />para saque:</p>
                         <p className="text-6xl font-semibold text-green-500">R$ {displayedAmount.toFixed(2)}</p>
                     </div>
+
 
                     <div className="flex items-center pt-4">
                         <IoIosWarning className="text-red-500 mr-2" size={36} />
