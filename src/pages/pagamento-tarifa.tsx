@@ -183,7 +183,7 @@ export function PagamentoTarifa() {
                         </button>
                     </a>
 
-                    <div className="flex flex-col w-full border-t border-gray-300 mt-4 pt-2">
+                    <div className="flex flex-col w-full border-t border-gray-300 mt-4 pt-2 bg-white">
                         <h3 className="text-lg text-center font-bold">Perguntas Frequentes</h3>
                         {questions.map((item, index) => (
                             <div key={index} className="py-2">

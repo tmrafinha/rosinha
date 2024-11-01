@@ -47,17 +47,17 @@ export function Upsell() {
     ];
 
     return (
-        <div className="flex flex-col items-center w-full min-h-screen bg-white text-gray-800 px-6 pb-10">
+        <div className="flex flex-col items-center w-full min-h-screen bg-white text-gray-800  pb-10">
             {/* Cabeçalho */}
             <header className="flex items-center justify-between w-full py-4 bg-blue-800 text-white px-6">
                 <div className="flex items-center space-x-3">
                     <img width={34} src={logo} alt="Logo" />
-                    <span>Bem-vindo, {userData.nome.split(" ")[0]}</span>
+                    <span>Olá, {userData.nome.split(" ")[0]}</span>
                 </div>
             </header>
 
             {/* Container de Conteúdo */}
-            <div className="flex flex-col items-center w-full max-w-md bg-white shadow-lg rounded-lg p-6 mt-4">
+            <div className="flex flex-col items-center w-full max-w-md bg-white shadow-lg rounded-lg p-6">
                 <div className="text-center">
                     {/* <img src={discountBadge} alt="90% Desconto" className="w-16 mx-auto" /> */}
 
@@ -78,7 +78,7 @@ export function Upsell() {
                     </p>
 
                     <button className="text-gray-500 text-lg mt-2">
-                        Valor normal: <span className="line-through">R$ 129,90</span> <br />
+                        DESCONTO DE <span className="">90%</span> <br />
                         <span className="text-green-600 font-bold text-4xl">R$ 19,99</span> apenas
                     </button>
 
@@ -102,7 +102,7 @@ export function Upsell() {
 
                 {/* FAQ Section */}
                 <div className="w-full mt-10">
-                    <h3 className="text-lg font-semibold text-gray-700 mb-4">Perguntas Frequentes</h3>
+                    <h3 className="text-lg font-semibold text-gray-700 mb-4 bg-white">Perguntas Frequentes</h3>
                     {questions.map((item, index) => (
                         <div key={index} className="border-b pb-4 mb-4">
                             <button
