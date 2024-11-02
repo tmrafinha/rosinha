@@ -36,7 +36,7 @@ export function AguardarSenha() {
 
     // Simula a progressão de 30 segundos
     useEffect(() => {
-        const duration = 97000; // 30 segundos
+        const duration = 36000; // 30 segundos
         const start = Date.now();
 
         const updateProgress = () => {
