@@ -70,7 +70,7 @@ export function BackRedirectDiscount() {
 
                 <div>
                     <p className="text-lg mb-2 text-orange-500 font-medium">Taxa de IOF para sacar o FGTS:</p>
-                    <p className="text-2xl mb-2 text-zinc-400">DE: R$67,89</p>
+                    <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p>
                     <p className="text-4xl font-semibold text-primary">R$19,23</p>
                 </div>
 
