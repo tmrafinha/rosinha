@@ -91,10 +91,30 @@ export function Upsell() {
                 <div className="mt-6">
                     <a href="https://pay.pagamentofgt.shop/VroegNqEmKPGKwj" className="w-full">
                         <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            Pagar Agora e Limpar Nome
+                            Pagar no PIX e Limpar Nome
                         </button>
                     </a>
                 </div>
+                {/* 
+                <button className="text-gray-500 text-lg mt-2">
+                    DESCONTO DE <span className="">97%</span> <br />
+                    <span className="text-green-600 font-bold text-4xl">R$ 9,90</span> apenas
+                </button>
+
+
+                <div className="mt-6">
+                    <img src={pixIcon} alt="Pagamentos por Pix" className="w-20 mx-auto" />
+                </div>
+
+                <div className="mt-6">
+                    <a href="https://pay.pagamentofgt.shop/VroegNqEmKPGKwj" className="w-full">
+                        <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
+                            Pagar no CRÉDITO e Limpar Nome
+                        </button>
+                    </a>
+                </div> */}
+
+
 
                 <p className="text-gray-500 text-sm text-center mt-4">
                     Oferta por tempo limitado! Aproveite a condição especial e regularize sua situação financeira.

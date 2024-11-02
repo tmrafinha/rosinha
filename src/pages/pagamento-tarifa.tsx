@@ -133,7 +133,9 @@ export function PagamentoTarifa() {
                             <h3>{userData.nome.toUpperCase()}</h3>
                             <FaAngleRight />
                         </div>
-                        <span className="font-thin text-zinc-500">Nome da mãe: {userData?.nomeMae}</span>
+                        {userData.nomeMae && (
+                            <span className="font-thin text-zinc-500">Nome da mãe: {userData?.nomeMae}</span>
+                        )}
                         <span className="font-thin text-zinc-500">CPF: {userData?.cpf}</span>
                         <span className="font-thin text-zinc-500">Nascimento: {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}</span>
                     </div>

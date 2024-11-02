@@ -124,9 +124,11 @@ export function Loading() {
                         <p className="text-zinc-600">
                             <strong>CPF:</strong> {userData?.cpf}
                         </p>
-                        <p className="text-zinc-600">
-                            <strong>Nome da mãe:</strong> {userData.nomeMae}
-                        </p>
+                        {userData?.nomeMae && (
+                            <p className="text-zinc-600">
+                                <strong>Nome da mãe:</strong> {userData.nomeMae}
+                            </p>
+                        )}
                         <p className="text-zinc-600">
                             <strong>Data de Nascimento:</strong> {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}
                         </p>

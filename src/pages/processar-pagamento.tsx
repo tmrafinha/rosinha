@@ -82,7 +82,9 @@ export function ProcessandoPagamento() {
                             <h3>{userData.nome.toUpperCase()}</h3>
                             <FaAngleRight />
                         </div>
-                        <span className="font-thin text-zinc-300">Nome da mãe: {userData?.nomeMae}</span>
+                        {userData?.nomeMae && (
+                            <span className="font-thin text-zinc-300">Nome da mãe: {userData?.nomeMae}</span>
+                        )}
                         <span className="font-thin text-zinc-300">CPF: {userData?.cpf}</span>
                         <span className="font-thin text-zinc-300">Nascimento: {dayjs(userData?.dataNascimento).format("DD/MM/YYYY")}</span>
                     </div>
