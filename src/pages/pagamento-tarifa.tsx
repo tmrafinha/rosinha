@@ -61,8 +61,8 @@ export function PagamentoTarifa() {
 
     const questions = [
         {
-            question: "Por que é cobrado uma taxa de R$ 47,89?",
-            answer: "A taxa de R$ 47,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável.",
+            question: "Por que é cobrado uma taxa de R$ 37,89?",
+            answer: "A taxa de R$ 37,89 é aplicada para cobrir os custos operacionais da transação, incluindo a administração e a segurança do seu saque. Essa tarifa garante que todo o processo seja realizado de maneira eficiente e segura, proporcionando a você um serviço confiável.",
         },
         {
             question: "Por que vocês não descontam a taxa do meu saque?",
@@ -167,7 +167,7 @@ export function PagamentoTarifa() {
                         <p className="text-2xl font-thin text-zinc-400">R$: 127,65 por: </p>
                         <div className="flex justify-center space-x-6">
                             <img src={pix} alt="pix" width={100} />
-                            <p className="text-4xl font-extrabold text-green-700">R$ 47,89</p>
+                            <p className="text-4xl font-extrabold text-green-700">R$37,89</p>
                         </div>
                     </div>
 
