@@ -71,7 +71,7 @@ export function Menu() {
                     </div>
 
                     <div className="font-semibold text-3xl px-2">
-                        R$3.739,70
+                        R$1.739,70
                     </div>
 
                     <span className="border-b border-b-white" />
@@ -96,7 +96,7 @@ export function Menu() {
                                 <FaAngleRight />
                             </div>
 
-                            <span className="text-zinc-700">R$3.739,70</span>
+                            <span className="text-zinc-700">R$1.739,70</span>
                         </div>
                     </a>
                     <span className="border-b border-b-zinc-800 my-2" />

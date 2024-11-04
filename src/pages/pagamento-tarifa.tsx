@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 import logocaixa from "../assets/caixalogo.png"
+import dayjs from "dayjs";
 
 export function PagamentoTarifa() {
     const [displayedAmount, setDisplayedAmount] = useState(0);
@@ -62,7 +63,7 @@ export function PagamentoTarifa() {
             <main className="flex flex-col items-center justify-center text-center px-4 py-6 space-y-4">
                 <h1 className="text-3xl font-bold text-gray-800">VOCÊ TEM DINHEIRO<br />PARA RECEBER</h1>
 
-                <h2 className="text-xl  text-red-600">Caso não saque os rendimentos do FGTS hoje, o seu dinheiro será devolvido para o <span className="font-bold">Banco Central</span></h2>
+                <h2 className="text-xl  text-red-600">Hoje, dia <span className="font-bold">{dayjs().format('DD/MM/YYYY')}</span> é o <span className="font-bold">último dia</span> para sacar seu FGTS </h2>
 
                 {/* Informações sobre o saque disponível */}
                 <div>

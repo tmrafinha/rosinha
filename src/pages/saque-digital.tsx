@@ -11,7 +11,7 @@ export function SaqueDigital() {
             <div className="px-4 flex justify-center">
                 <div className="bg-zinc-100 border w-full p-10 text-center space-y-3 rounded-md">
                     <p className="text-orange-400 font-bold text-lg">Saldo da conta FGTS</p>
-                    <h3 className="font-bold text-primary text-3xl">R$3.739,70</h3>
+                    <h3 className="font-bold text-primary text-3xl">R$1.739,70</h3>
                     <span className="mt-10">atualizado em 27/10/2024</span>
                 </div>
             </div>

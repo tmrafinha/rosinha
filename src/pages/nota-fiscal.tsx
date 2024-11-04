@@ -9,7 +9,7 @@ import { UserData } from "../types/userData";
 export function NotaFiscal() {
     const [progress, setProgress] = useState(0);
     const [displayedAmount, setDisplayedAmount] = useState(0);
-    const totalAmount = 3739.23;
+    const totalAmount = 1739.23;
 
     const [userData, setUserData] = useState<UserData>({
         nome: "",

@@ -4,6 +4,7 @@ import logo from "../assets/caixa.webp";
 import { Helmet } from "react-helmet"
 import { UserData } from "../types/userData";
 import dayjs from "dayjs";
+import { FaSpinner } from "react-icons/fa";
 
 export function Loading() {
     const [progress, setProgress] = useState(0);
@@ -90,25 +91,28 @@ export function Loading() {
                 {Math.floor(progress)}% concluído
             </span>
 
-            {/* Botão com cadeado e comportamento dinâmico */}
-            <a className="w-full" href="/menu">
-                <button
-                    className={`w-full text-white rounded-sm flex items-center justify-center h-10 mt-4 ${isButtonDisabled
-                        ? "bg-gray-400 cursor-not-allowed"
-                        : "bg-orange-500 hover:bg-orange-400"
-                        }`}
-                    disabled={isButtonDisabled}
-                >
-                    {isButtonDisabled ? (
-                        <>
-                            Carregando acesso <AiFillLock className="ml-2" />
-                        </>
-                    ) : (
-                        "Acessar FGTS"
-                    )}
-                </button>
-            </a>
+            <div className="px-3 w-full">
+                {isButtonDisabled! ? (
+                    <button
+                        className="w-full py-3 rounded-md text-white text-xl focus:outline-none bg-zinc-400 opacity-60"
+                        disabled
+                    >
+                        <div className="flex items-center justify-center space-x-2">
+                            <FaSpinner className="animate-spin" />
+                            <span>Carregando</span>
+                        </div>
+                    </button>
 
+                ) : (
+                    <a href="/menu" className="w-full">
+                        <button
+                            className="w-full py-3 rounded-md text-white text-xl focus:outline-none bg-orange-500 hover:bg-orange-600 animate-bounce mt-3"
+                        >
+                            Próxima etapa
+                        </button>
+                    </a>
+                )}
+            </div>
             <div className="w-full mt-6">
                 {loadingData ? (
                     <div className="space-y-2">
