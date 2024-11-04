@@ -63,23 +63,21 @@ export function Upsell() {
 
                     <div className="flex items-center justify-center pt-4 space-y-4">
                         <IoIosWarning className="text-red-500 mr-2" size={36} />
-                        <h2 className="text-3xl font-bold text-red-500">ATENÇÃO!</h2>
+                        <h2 className="text-3xl font-bold text-red-500">SAQUE TRAVADO!</h2>
                     </div>
 
                     <h2 className="text-3xl font-bold text-zinc-800 mt-4 mb-3">
-                        SEU NOME ESTÁ SUJO NO SERASA
+                        VOCÊ NÃO PODE SACAR O DINHEIRO POIS ADQUIRIU A MODALIDADE <br /> <span className="text-orange-500">SAQUE-ANIVERSÁRIO</span>
                     </h2>
-
-                    <h2 className="text-xl text-center text-red-600">O dinheiro permanecerá travado enquanto não regularizar seu nome no <span className="font-bold">SERASA</span> </h2>
 
 
                     <p className="text-gray-500 mt-4 text-2xl">
-                        Para regularizar todas as suas dívidas e limpar o seu nome, pague a taxa única com desconto!
+                        Para poder sacar o dinheiro, você tem que pagar a <span className="text-red-600 font-bold">multa</span> de quebra de contrato.
                     </p>
 
                     <button className="text-gray-500 text-lg mt-2">
                         DESCONTO DE <span className="">96%</span> <br />
-                        <span className="text-green-600 font-bold text-4xl">R$ 29,99</span> apenas
+                        <span className="text-red-500 font-bold text-4xl">R$ 29,99</span> apenas
                     </button>
 
                 </div>
@@ -90,8 +88,8 @@ export function Upsell() {
 
                 <div className="mt-6">
                     <a href="https://pay.pagamentofgt.shop/VroegNqEmKPGKwj" className="w-full">
-                        <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            QUERO LIMPAR MEU NOME E SACAR O FGTS POR R$19,90
+                        <button className="bg-green-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
+                            PAGAR MULTA E SACAR MEU FGTS
                         </button>
                     </a>
                 </div>
