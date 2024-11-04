@@ -79,7 +79,7 @@ export function Upsell() {
 
                     <button className="text-gray-500 text-lg mt-2">
                         DESCONTO DE <span className="">96%</span> <br />
-                        <span className="text-green-600 font-bold text-4xl">R$ 49,99</span> apenas
+                        <span className="text-green-600 font-bold text-4xl">R$ 29,99</span> apenas
                     </button>
 
                 </div>
