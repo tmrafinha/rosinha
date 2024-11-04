@@ -8,7 +8,7 @@ import { UserData } from "../types/userData";
 
 export function BackRedirectDiscount() {
     const [displayedAmount, setDisplayedAmount] = useState(0);
-    const saqueTotal = 3387.51;
+    const saqueTotal = 1739.70;
 
     const [userData, setUserData] = useState<UserData>({
         nome: "",
