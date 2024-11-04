@@ -91,7 +91,7 @@ export function Upsell() {
                 <div className="mt-6">
                     <a href="https://pay.pagamentofgt.shop/VroegNqEmKPGKwj" className="w-full">
                         <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            QUERO LIMPAR MEU NOME E SACAR O FGTS POR R$29,90
+                            QUERO LIMPAR MEU NOME E SACAR O FGTS POR R$19,90
                         </button>
                     </a>
                 </div>
