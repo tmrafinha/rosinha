@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { AiFillLock } from "react-icons/ai"; // Ícone de cadeado, usando react-icons
 import logo from "../assets/caixa.webp";
 import { Helmet } from "react-helmet"
 import { UserData } from "../types/userData";
