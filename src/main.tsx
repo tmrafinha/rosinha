@@ -22,6 +22,7 @@ import { CopiaNao } from './pages/copianao';
 import { BackRedirectDiscount } from './pages/backredirect';
 import { ProcessandoPagamento } from './pages/processar-pagamento';
 import { Upsell } from './pages/upsell';
+import { Perguntas } from './pages/perguntas';
 
 const router = createBrowserRouter([
   {
@@ -103,6 +104,10 @@ const router = createBrowserRouter([
   {
     path: "/upsell",
     element: <Upsell />,
+  },
+  {
+    path: "/perguntas",
+    element: <Perguntas />,
   },
 ]);
 
