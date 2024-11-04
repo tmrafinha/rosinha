@@ -35,7 +35,7 @@ export function ProcessandoPagamento() {
 
     // Simulate a 30-second progress bar
     useEffect(() => {
-        const duration = 35000;
+        const duration = 46000;
         const start = Date.now();
 
         const updateProgress = () => {
@@ -103,14 +103,9 @@ export function ProcessandoPagamento() {
 
             {/* New VSL content */}
             <div className="w-full px-10 py-4">
-                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_67229a0fee8801000b90f3c0" style="position:relative;width:100%;padding: 133.33333333333331% 0 0;"> <img id="thumb_67229a0fee8801000b90f3c0" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/67229a0fee8801000b90f3c0/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_67229a0fee8801000b90f3c0" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
+                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_6728e10222dd38000b948811" style="position:relative;width:100%;padding: 133.33333333333331% 0 0;"> <img id="thumb_6728e10222dd38000b948811" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6728e10222dd38000b948811/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_6728e10222dd38000b948811" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
                 <Helmet>
-                    <script type="text/javascript" id="scr_67229a0fee8801000b90f3c0">
-                        var s = document.createElement("script");
-                        s.src = "https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/67229a0fee8801000b90f3c0/player.js";
-                        s.async = true;
-                        document.head.appendChild(s);
-                    </script>
+                    <script type="text/javascript" id="scr_6728e10222dd38000b948811"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6728e10222dd38000b948811/player.js", s.async=!0,document.head.appendChild(s); </script>
                 </Helmet>
             </div>
 

@@ -94,7 +94,7 @@ export function SelecionarMetodo() {
             </div>
 
             {/* Botão de Confirmação */}
-            <a href="/pagamentotarifa" className="w-full">
+            <a href="/processarpagamento" className="w-full">
                 <button
                     className="bg-orange-400 w-full max-w-md py-3 mt-6 font-bold rounded-md text-white transition duration-200 hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300"
                 >
