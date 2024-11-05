@@ -3,7 +3,6 @@ import logo from "../assets/caixalogo.png";
 import { HiChevronRight } from "react-icons/hi";
 import pixIcon from "../assets/pix.png";
 import { IoIosWarning } from "react-icons/io";
-// import discountBadge from "../assets/discount.png";
 
 export function Upsell() {
 
@@ -76,14 +75,15 @@ export function Upsell() {
                     </p>
 
                     <button className="text-gray-500 text-lg mt-2">
+                        <img src={pixIcon} alt="Pagamentos por Pix" className="w-20 mx-auto" />
                         DESCONTO DE <span className="">96%</span> <br />
-                        <span className="text-red-500 font-bold text-4xl">R$ 29,99</span> apenas
+                        <span className="text-red-500 font-bold text-4xl">R$ 19,90</span> apenas
                     </button>
 
                 </div>
 
                 <div className="mt-6">
-                    <img src={pixIcon} alt="Pagamentos por Pix" className="w-20 mx-auto" />
+
                 </div>
 
                 <div className="mt-6">
