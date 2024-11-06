@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/caixalogo.png";
 import { HiChevronRight } from "react-icons/hi";
-import pixIcon from "../assets/pix.png";
 import { IoIosWarning } from "react-icons/io";
 // import discountBadge from "../assets/discount.png";
 
