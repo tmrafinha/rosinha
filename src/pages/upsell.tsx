@@ -73,7 +73,7 @@ export function Upsell() {
                         <br />Esse valor será <strong className="text-green-600">devolvido</strong> automaticamente após a confirmação.
                     </p>
 
-                    <button className="text-gray-500 text-lg mt-2">
+                    <button className="text-gray-500 text-lg mt-2 bg-zinc-100">
                         <img src={receita} alt="Pagamentos por Pix" className="w-20 mx-auto mb-3" />
                         VERIFICAÇÃO DE <span className="">SEGURANÇA</span> <br />
                         <span className="text-red-500 font-bold text-4xl">R$ 4,90</span> <br /> (Esse valor será reembolsado)
@@ -99,7 +99,7 @@ export function Upsell() {
                     {questions.map((item, index) => (
                         <div key={index} className="border-b pb-4 mb-4">
                             <button
-                                className="flex justify-between w-full text-left py-2 text-gray-700 hover:text-gray-900 focus:outline-none"
+                                className="flex justify-between w-full text-left py-2 text-gray-700 hover:text-gray-900 focus:outline-none bg-zinc-100"
                             >
                                 <h5 className="font-semibold">{item.question}</h5>
                                 <HiChevronRight size={24} />
