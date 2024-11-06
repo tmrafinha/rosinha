@@ -88,9 +88,9 @@ export function Upsell() {
                 </div>
 
                 <div className="mt-6">
-                    <a href="https://checkout.perfectpay.com.br/pay/PPU38CP7BKU?hidepix=1" className="w-full">
+                    <a href="https://checkout.perfectpay.com.br/pay/PPU38CP7BKU" className="w-full">
                         <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            Pagar no PIX e Limpar Nome
+                            19,90
                         </button>
                     </a>
                 </div>
