@@ -24,7 +24,7 @@ import { ProcessandoPagamento } from './pages/processar-pagamento';
 import { Upsell } from './pages/upsell';
 import { Perguntas } from './pages/perguntas';
 
-const router = createBrowserRouter([
+export const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,

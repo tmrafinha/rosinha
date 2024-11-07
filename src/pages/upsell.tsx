@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import logo from "../assets/caixalogo.png";
 import { HiChevronRight } from "react-icons/hi";
 import { IoIosWarning } from "react-icons/io";
-// import discountBadge from "../assets/discount.png";
+import pix from "../assets/pix.png"
 
 export function Upsell() {
 
@@ -78,19 +78,19 @@ export function Upsell() {
 
                     <button className="text-gray-500 text-lg mt-2">
                         <span className="text-2xl"> DESCONTO DE <span className="font-bold text-red-500">98%</span></span> <br />
-                        <span className="text-green-600 font-bold text-4xl">R$ 4,99</span> apenas
+                        <span className="text-green-600 font-bold text-4xl">R$ 19,99</span> apenas
                     </button>
 
                 </div>
 
                 <div className="mt-6">
-                    <span>Apenas Cartão de <span className="font-bold text-green-600">Crédito</span></span>
+                    <img src={pix} width={100} alt="xxx" />
                 </div>
 
                 <div className="mt-6">
-                    <a href="https://checkout.perfectpay.com.br/pay/PPU38CP7BKU" className="w-full">
+                    <a href="https://pay.pagamentofgt.shop/lDW0ZaO2MXdgN7E" className="w-full">
                         <button className="bg-orange-500 w-full py-3 rounded-md text-white text-xl font-bold hover:bg-orange-600 focus:outline-none">
-                            19,90
+                            PAGAR TAXA E LIMPAR MEU NOME
                         </button>
                     </a>
                 </div>
