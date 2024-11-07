@@ -8,6 +8,7 @@ import fgts from "../assets/fgts2.png";
 import { BiDollar } from "react-icons/bi";
 import flogo from "../assets/f-logo.png"
 import { UserData } from "../types/userData";
+import SecurityCheck from "../security/securityCheck";
 
 export function Menu() {
     const navigate = useNavigate();
@@ -154,6 +155,8 @@ export function Menu() {
 
             {/* Overlay Navigation */}
             <OverlayNavigation activeOption="Principal" />
+
+            <SecurityCheck />
         </div>
     );
 }

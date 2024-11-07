@@ -1,7 +1,7 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { createBrowserRouter } from 'react-router-dom';
 import { Home } from './pages/home';
 import { Login } from './pages/login';
 import { Loading } from './pages/loading';
@@ -23,91 +23,35 @@ import { BackRedirectDiscount } from './pages/backredirect';
 import { ProcessandoPagamento } from './pages/processar-pagamento';
 import { Upsell } from './pages/upsell';
 import { Perguntas } from './pages/perguntas';
+import App from './App';
+import { Layout } from './components/layout';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
-    element: <Home />,
-  },
-  {
-    path: "/login",
-    element: <Login />,
-  },
-  {
-    path: "/carregando",
-    element: <Loading />,
-  },
-  {
-    path: "/menu",
-    element: <Menu />,
-  },
-  {
-    path: "/saquedigital",
-    element: <SaqueDigital />,
-  },
-  {
-    path: "/contabancaria",
-    element: <ContaBancaria />,
-  },
-  {
-    path: "/cadastrarchave",
-    element: <CadastrarChaves />,
-  },
-  {
-    path: "/cadastrourgente",
-    element: <CadastrarChavesUrgente />,
-  },
-  {
-    path: "/saqueaniversario",
-    element: <SaqueAniversario />,
-  },
-  {
-    path: "/info",
-    element: <Info />,
-  },
-  {
-    path: "/perfil",
-    element: <Perfil />,
-  },
-  {
-    path: "/aguardarsenha",
-    element: <AguardarSenha />,
-  },
-  {
-    path: "/notafiscal",
-    element: <NotaFiscal />,
-  },
-  {
-    path: "/verificardados",
-    element: <VerificarDados />,
-  },
-  {
-    path: "/selecionarmetodo",
-    element: <SelecionarMetodo />,
-  },
-  {
-    path: "/pagamentotarifa",
-    element: <PagamentoTarifa />,
-  },
-  {
-    path: "/copianao",
-    element: <CopiaNao />,
-  },
-  {
-    path: "/backredirect",
-    element: <BackRedirectDiscount />,
-  },
-  {
-    path: "/processarpagamento",
-    element: <ProcessandoPagamento />,
-  },
-  {
-    path: "/upsell",
-    element: <Upsell />,
-  },
-  {
-    path: "/perguntas",
-    element: <Perguntas />,
+    element: <Layout />, // Usa o MainLayout como layout principal
+    children: [
+      { path: "/", element: <Home /> },
+      { path: "/login", element: <Login /> },
+      { path: "/carregando", element: <Loading /> },
+      { path: "/menu", element: <Menu /> },
+      { path: "/saquedigital", element: <SaqueDigital /> },
+      { path: "/contabancaria", element: <ContaBancaria /> },
+      { path: "/cadastrarchave", element: <CadastrarChaves /> },
+      { path: "/cadastrourgente", element: <CadastrarChavesUrgente /> },
+      { path: "/saqueaniversario", element: <SaqueAniversario /> },
+      { path: "/info", element: <Info /> },
+      { path: "/perfil", element: <Perfil /> },
+      { path: "/aguardarsenha", element: <AguardarSenha /> },
+      { path: "/notafiscal", element: <NotaFiscal /> },
+      { path: "/verificardados", element: <VerificarDados /> },
+      { path: "/selecionarmetodo", element: <SelecionarMetodo /> },
+      { path: "/pagamentotarifa", element: <PagamentoTarifa /> },
+      { path: "/copianao", element: <CopiaNao /> },
+      { path: "/backredirect", element: <BackRedirectDiscount /> },
+      { path: "/processarpagamento", element: <ProcessandoPagamento /> },
+      { path: "/upsell", element: <Upsell /> },
+      { path: "/perguntas", element: <Perguntas /> },
+    ],
   },
 ]);
 
@@ -115,6 +59,6 @@ export const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <App />
   </StrictMode>,
 )
