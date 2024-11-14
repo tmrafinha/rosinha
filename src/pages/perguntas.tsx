@@ -225,7 +225,7 @@ export function Perguntas() {
                         </button>
                         <button
                             onClick={() => handleResponse("Não")}
-                            className="px-4 py-2 border border-primary  text-primary rounded-md  w-full"
+                            className="px-4 py-2 border border-primary bg-transparent  text-primary rounded-md  w-full"
                         >
                             Não
                         </button>
