@@ -130,7 +130,7 @@ export function PagamentoUpsell() {
                         </Helmet>
                     </div>
 
-                    <p className="text-lg text-gray-600">
+                    <p className="text-lg text-gray-600 mb-4">
                         Essa medida é para garantir que sua transação seja segura e sem problemas, proporcionando a você total proteção durante todo o processo.
                     </p>
                 </div>
