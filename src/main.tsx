@@ -25,6 +25,10 @@ import { Upsell } from './pages/upsell';
 import { Perguntas } from './pages/perguntas';
 import App from './App';
 import { Layout } from './components/layout';
+import { Travado } from './pages/travado';
+import { LoginUpsell } from './pages/login-upsell';
+import { LoadingUpsell } from './pages/loading-upsell';
+import { PagamentoUpsell } from './pages/pagamento-upsell';
 
 export const router = createBrowserRouter([
   {
@@ -51,6 +55,10 @@ export const router = createBrowserRouter([
       { path: "/processarpagamento", element: <ProcessandoPagamento /> },
       { path: "/upsell", element: <Upsell /> },
       { path: "/perguntas", element: <Perguntas /> },
+      { path: "/travado", element: <Travado /> },
+      { path: "/loginupsell", element: <LoginUpsell /> },
+      { path: "/carregandoupsell", element: <LoadingUpsell /> },
+      { path: "/pagamentoupsell", element: <PagamentoUpsell /> },
     ],
   },
 ]);
