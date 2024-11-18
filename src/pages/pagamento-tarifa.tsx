@@ -180,7 +180,7 @@ export function PagamentoTarifa() {
                     <div className="bg-orange-500 p-2 rounded-full w-fit">
                         <img width={20} src={flogo} alt="" />
                     </div>
-                    <h2 className="text-3xl text-primary-dark font-semibold">+ Brindes:</h2>
+                    <h2 className="text-3xl text-orange-500 font-semibold">+ Brindes:</h2>
                 </div>
 
                 <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
