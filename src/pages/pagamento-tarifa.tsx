@@ -7,7 +7,7 @@ import { IoIosWarning } from "react-icons/io";
 import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
-import box from "../assets/box.png"
+import box from "../assets/carro.png"
 // import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
 import flogo from "../assets/f-logo.png"
