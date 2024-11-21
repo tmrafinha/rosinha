@@ -30,6 +30,7 @@ import { LoginUpsell } from './pages/login-upsell';
 import { LoadingUpsell } from './pages/loading-upsell';
 import { PagamentoUpsell } from './pages/pagamento-upsell';
 import { BackRedirectUpsell } from './pages/backredirect-upsell';
+import { Upsellbackredirect } from './pages/upsellbackredirect';
 
 export const router = createBrowserRouter([
   {
@@ -61,6 +62,7 @@ export const router = createBrowserRouter([
       { path: "/carregandoupsell", element: <LoadingUpsell /> },
       { path: "/pagamentoupsell", element: <PagamentoUpsell /> },
       { path: "/backredirectupsell", element: <BackRedirectUpsell /> },
+      { path: "/upsellbackredirect", element: <Upsellbackredirect /> },
     ],
   },
 ]);
