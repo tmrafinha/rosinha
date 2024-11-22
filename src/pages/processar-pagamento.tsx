@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/caixalogo.png";
+import Vimeo from '@u-wave/react-vimeo';
 import logofgts from "../assets/fgts2.png";
-import { Helmet } from "react-helmet";
+
 import { FaAngleRight } from "react-icons/fa";
 import { UserData } from "../types/userData";
 import dayjs from "dayjs";
@@ -12,6 +13,9 @@ import dayjs from "dayjs";
 export function ProcessandoPagamento() {
     const [progress, setProgress] = useState(0);
     const navigate = useNavigate();
+
+    // <script src="https://player.vimeo.com/api/player.js"></script>
+
     const [userData, setUserData] = useState<UserData>({
         nome: "",
         cpf: "",
@@ -101,12 +105,11 @@ export function ProcessandoPagamento() {
             </div>
             <span className="text-sm text-zinc-200 mt-2">{Math.floor(progress)}% concluído</span>
 
-            {/* New VSL content */}
-            <div className="w-full px-10 py-4">
-                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b8d0284647c000ad9294e" style="position: relative; width: 100%; padding: 133.33333333333331% 0 0;"> <img id="thumb_673b8d0284647c000ad9294e" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8d0284647c000ad9294e/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b8d0284647c000ad9294e" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div>' }} />
-                <Helmet>
-                    <script type="text/javascript" id="scr_673b8d0284647c000ad9294e"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8d0284647c000ad9294e/player.js", s.async=!0,document.head.appendChild(s); </script>
-                </Helmet>
+            <div className="py-6">
+                <Vimeo
+                    video="1032180388"
+                    autoplay
+                />
             </div>
 
 

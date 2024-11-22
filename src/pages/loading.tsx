@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import logo from "../assets/caixa.webp";
-import { Helmet } from "react-helmet"
 import { UserData } from "../types/userData";
 import dayjs from "dayjs";
 import { FaSpinner } from "react-icons/fa";
+import Vimeo from '@u-wave/react-vimeo';
 
 export function Loading() {
     const [progress, setProgress] = useState(0);
@@ -63,12 +63,13 @@ export function Loading() {
                 <span className="text-blue-800">Seja bem vindo, {userData.nome.split(" ")[0]}</span>
             </header>
 
-            <div className="w-full">
-                <div dangerouslySetInnerHTML={{ __html: '<div id="vid_673b8e7f7c9d41000b963d57" style="position: relative; width: 100%; padding: 56.25% 0 0;"> <img id="thumb_673b8e7f7c9d41000b963d57" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8e7f7c9d41000b963d57/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail"> <div id="backdrop_673b8e7f7c9d41000b963d57" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div> </div>' }} />
-                <Helmet>
-                    <script type="text/javascript" id="scr_673b8e7f7c9d41000b963d57"> var s=document.createElement("script"); s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8e7f7c9d41000b963d57/player.js", s.async=!0,document.head.appendChild(s); </script>
-                </Helmet>
+            <div className="px-2">
+                <Vimeo
+                    video="1032190090"
+                    autoplay
+                />
             </div>
+
             <div className="text-center">
                 <h2 className="text-lg text-zinc-500 mb-2">Estamos preparando seu acesso...</h2>
                 <p className="text-sm text-zinc-400">

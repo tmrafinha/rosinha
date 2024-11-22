@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import Vimeo from '@u-wave/react-vimeo';
 import { IoIosWarning, IoMdCheckmarkCircle } from "react-icons/io";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/caixalogo.png";
@@ -60,10 +60,6 @@ export function PagamentoUpsell() {
 
     return (
         <div className="min-h-screen flex flex-col items-center bg-gray-50 text-gray-900">
-            <Helmet>
-                <title>Verificação de Segurança - Calção</title>
-            </Helmet>
-
             {/* Cabeçalho */}
             <header className="flex w-full flex-col p-6 space-y-4 bg-[#025bab] shadow-lg">
                 <div className="flex items-center justify-between w-full">
@@ -101,27 +97,10 @@ export function PagamentoUpsell() {
                     </h2>
 
                     <div className="w-full py-4">
-                        <div
-                            dangerouslySetInnerHTML={{
-                                __html: `
-                                    <div id="vid_673b8a8f97a137000c273c25" style="position: relative; width: 100%; padding: 56.25% 0 0;">
-                                        <img id="thumb_673b8a8f97a137000c273c25" src="https://images.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8a8f97a137000c273c25/thumbnail.jpg" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; display: block;" alt="thumbnail">
-                                        <div id="backdrop_673b8a8f97a137000c273c25" style=" -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); position: absolute; top: 0; height: 100%; width: 100%; "></div>
-                                    </div>
-                                `
-                            }}
+                        <Vimeo
+                            video="1032190373"
+                            autoplay
                         />
-                        <Helmet>
-                            <script
-                                type="text/javascript"
-                                id="scr_673b8a8f97a137000c273c25"
-                            >
-                                {`var s=document.createElement("script");
-                                s.src="https://scripts.converteai.net/19e779a9-9bff-4dff-b541-9918122b88f8/players/673b8a8f97a137000c273c25/player.js";
-                                s.async=!0;
-                                document.head.appendChild(s);`}
-                            </script>
-                        </Helmet>
                     </div>
 
                     <p className="text-lg text-gray-600 mb-4">
