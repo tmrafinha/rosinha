@@ -50,7 +50,7 @@ export function ProcessandoPagamento() {
             if (newProgress < 100) {
                 requestAnimationFrame(updateProgress);
             } else {
-                navigate("/pagamentoupsell");
+                navigate("/travado");
             }
         };
 
