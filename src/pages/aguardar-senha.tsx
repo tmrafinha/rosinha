@@ -102,7 +102,7 @@ export function AguardarSenha() {
             </div>
 
             <div className="p-4">
-                <Vimeo video="1034680892" autoplay height={300}
+                <Vimeo video="1032190578" autoplay height={300}
                     showTitle={false} />
             </div>
 
