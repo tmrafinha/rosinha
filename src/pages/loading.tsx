@@ -67,6 +67,8 @@ export function Loading() {
                 <Vimeo
                     video="1032190090"
                     autoplay
+                    width={360}
+                    showTitle={false}
                 />
             </div>
 

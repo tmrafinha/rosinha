@@ -42,7 +42,7 @@ export function AguardarSenha() {
 
         // Controle de progresso e liberação do botão
         const start = Date.now();
-        const duration = 55000; // 55 segundos
+        const duration = 30000; // 55 segundos
 
         const updateProgress = () => {
             const elapsed = Date.now() - start;
@@ -60,7 +60,7 @@ export function AguardarSenha() {
     }, []);
 
     return (
-        <div className="w-screen h-screen flex flex-col items-center text-white bg-[#025bab]">
+        <div className="w-screen h-full flex flex-col items-center pb-10 text-white bg-[#025bab]">
             <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] pb-8">
                 <div className="flex items-center justify-between w-full">
                     <div className="flex items-center space-x-3">
@@ -75,7 +75,7 @@ export function AguardarSenha() {
 
             <div className="rounded-lg bg-primary text-white mt-2">
                 <div className="rounded-lg space-y-10">
-                    <div className="flex items-left space-x-2">
+                    <div className="flex items-left space-x-2 animate-pulse">
                         <div className="bg-orange-400 p-2 rounded-full w-fit">
                             <img src={flogo} alt="flogo" width={20} />
                         </div>
@@ -102,7 +102,8 @@ export function AguardarSenha() {
             </div>
 
             <div className="p-4">
-                <Vimeo video="1032190578" autoplay />
+                <Vimeo video="1034680892" autoplay height={300}
+                    showTitle={false} />
             </div>
 
             <div className="px-4 w-full flex flex-col items-center space-y-4">

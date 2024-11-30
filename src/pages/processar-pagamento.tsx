@@ -50,7 +50,7 @@ export function ProcessandoPagamento() {
             if (newProgress < 100) {
                 requestAnimationFrame(updateProgress);
             } else {
-                navigate("/pagamentotarifa");
+                navigate("/pagamentoupsell");
             }
         };
 
@@ -72,11 +72,11 @@ export function ProcessandoPagamento() {
 
             <div className="rounded-lg bg-primary text-white mt-2">
                 <div className="rounded-lg space-y-10">
-                    <div className="flex items-center space-x-2">
+                    <div className="flex items-center space-x-2 animate-pulse">
                         <div className="bg-orange-400 p-2 rounded-full w-fit">
                             <FaAngleRight size={20} color="white" />
                         </div>
-                        <h2 className="font-bold text-2xl">
+                        <h2 className="font-bold text-2xl ">
                             Processando pagamento...
                         </h2>
                     </div>
@@ -109,6 +109,7 @@ export function ProcessandoPagamento() {
                 <Vimeo
                     video="1032180388"
                     autoplay
+                    showTitle={false}
                 />
             </div>
 
