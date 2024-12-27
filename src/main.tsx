@@ -31,6 +31,17 @@ import { LoadingUpsell } from './pages/loading-upsell';
 import { PagamentoUpsell } from './pages/pagamento-upsell';
 import { BackRedirectUpsell } from './pages/backredirect-upsell';
 import { Upsellbackredirect } from './pages/upsellbackredirect';
+import { Propostas } from './pages/propostas';
+import { Ofertas } from './pages/ofertas';
+import { Emprestimo } from './pages/emprestimo';
+import { CarregandoEmprestimo } from './pages/carregando-emprestimo';
+import { Resumo } from './pages/resumo';
+import { TermosEmprestimo } from './pages/termos-emprestimo';
+import { Gerente } from './pages/gerente';
+import { OfertaCredito } from './pages/oferta-credito';
+import { AberturaConta } from './pages/abertura-contas';
+import { CadastroPagamento } from './pages/cadastro-pagamento';
+import { RevisaoPagamento } from './pages/revisao-pagamento';
 
 export const router = createBrowserRouter([
   {
@@ -63,6 +74,26 @@ export const router = createBrowserRouter([
       { path: "/pagamentoupsell", element: <PagamentoUpsell /> },
       { path: "/backredirectupsell", element: <BackRedirectUpsell /> },
       { path: "/upsellbackredirect", element: <Upsellbackredirect /> },
+
+      // fazer página de carregamento depois que a pessoa faz login pra concientizar ela do emprestimo para negativados
+
+
+
+      { path: "/propostas", element: <Propostas /> },
+      { path: "/ofertas", element: <Ofertas /> },
+      { path: "/emprestimo", element: <Emprestimo /> },
+      { path: "/resumo", element: <Resumo /> },
+      { path: "/carregandoemprestimo", element: <CarregandoEmprestimo /> },
+      { path: "/termosemprestimo", element: <TermosEmprestimo /> },
+      { path: "/gerente", element: <Gerente /> },
+      { path: "/cadastropagamento", element: <CadastroPagamento /> },
+      { path: "/revisaopagamento", element: <RevisaoPagamento /> },
+      { path: "/aberturaconta", element: <AberturaConta /> },
+      { path: "/ofertacredito", element: <OfertaCredito /> },
+
+
+
+
     ],
   },
 ]);

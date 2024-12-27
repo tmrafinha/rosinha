@@ -1,41 +1,113 @@
-import logo from "../assets/logo.png"
-import fgts from "../assets/fgts.png"
+import { MdMenu } from "react-icons/md";
+import cred from "../assets/cred.webp"
+import logo from "../assets/logo.svg"
+import { FaUser } from "react-icons/fa";
+import ingresso from "../assets/ingresso.webp"
+import { CiBank, CiCalendar, CiDatabase, CiMoneyBill, CiMoneyCheck1, CiUser } from "react-icons/ci";
+import { Footer } from "../components/footer";
+import { useNavigate } from "react-router-dom";
 
 export function Home() {
+
+    const navigate = useNavigate();
+
+
+    const handleRedirect = () => {
+        navigate("/login");
+    };
+
     return (
-        <div className="bg-custom-bg bg-cover min-h-screen flex flex-col">
-            <div>
-                <header className="p-4">
-                    <img src={logo} alt="Logo" className="h-14 mx-auto" />
-                </header>
-                <main className="text-white">
-                    <div className="px-4 text-center w-full">
-                        <span className="">A distribuição de lucros começa <br /> a partir do dia 02/09/2024</span>
-                    </div>
-                    <div className="flex flex-col justify-center items-center mt-10 space-y-16">
-                        <span className="text-2xl">Boas-vindas ao</span>
-                        <div className="space-y-12 flex flex-col items-center">
-                            <img src={fgts} alt="Logo" className="h-20 mx-auto" />
-                            <div className="px-8 text-center">Você sabia que o seu <span className="font-bold">FGTS</span> gera <span className="font-bold">empregos</span> e investimentos para o <span className="font-bold">Brasil?</span></div>
-                            <div className="flex justify-center">
-                                <a href="/login">
-                                    <button className="bg-orange-400 w-80 font-bold rounded-sm text-white">
-                                        Entrar no aplicativo
-                                    </button></a>
-                            </div>
+        <div >
+            <header className="bg-primary flex justify-between p-4 text-white">
+                <div className="flex items-center gap-2">
+                    <MdMenu />
+                    <span>Menu</span>
+                </div>
+                <img src={logo} alt="logo" width={100} />
+                <div className="flex items-center gap-2">
+                    <FaUser />
+                    <span>Entrar</span>
+                </div>
+            </header>
 
-                            <p className="underline">Veja como seu FGTS é aplicado</p>
-                            <span>v 4.0.2</span>
+            <main className="bg-primary p-6 flex flex-col items-center gap-6">
+                <div className="flex flex-col items-center text-white space-y-4">
+                    <h1 className="font-semibold text-4xl">Serasa Crédito: empréstimo, cartão de crédito, conta digital e muito mais</h1>
+                    <span>Encontre as melhores ofertas de crédito em um só lugar.</span>
+                    <button onClick={handleRedirect} className="bg-white text-primary p-3 px-10 w-56 ">
+                        Simule Grátis
+                    </button>
+                </div>
+                <img onClick={handleRedirect} src={cred} width={300} alt="cred" />
+            </main>
+
+            <div className="flex flex-col gap-8 p-4 py-10">
+                <h3 className="text-3xl px-4 text-center font-semibold">Confira as soluções de crédito disponíveis no Serasa Crédito</h3>
+                <div className="flex items-center gap-3 overflow-x-scroll">
+                    <div className="bg-primary text-white rounded-full text-xl p-3 px-8">
+                        Empréstimo
+                    </div>
+                    <div className="bg-zinc-100 rounded-full text-xl p-3 px-8">
+                        Cartão
+                    </div>
+
+                    <div className="bg-zinc-100 rounded-full text-xl p-3 px-8">
+                        Conta
+                    </div>
+                </div>
+
+                <div className="flex flex-col items-start justify-center w-full">
+                    <div className="flex items-center gap-3 font-semibold">
+                        <div className="bg-zinc-100 rounded-lg">
+                            <CiMoneyBill className="text-5xl" />
                         </div>
-
-
-                        {/* <footer className="flex flex-col items-center space-y-10">
-                            <p className="underline">Veja como seu FGTS é aplicado</p>
-                            <span>v 4.0.2</span>
-                        </footer> */}
+                        <span className="text-xl">Crédito para Negativados</span>
                     </div>
-                </main>
 
+                    <div className="flex items-center gap-3 font-semibold">
+                        <div className="bg-zinc-100 rounded-lg">
+                            <CiMoneyCheck1 className="text-5xl" />
+                        </div>
+                        <span className="text-xl">Taxas a partir de 1,05% a.m.</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 font-semibold">
+                        <div className="bg-zinc-100 rounded-lg">
+                            <CiBank className="text-5xl" />
+                        </div>
+                        <span className="text-xl">Ofertas para aposentados</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 font-semibold">
+                        <div className="bg-zinc-100 rounded-lg">
+                            <CiUser className="text-5xl" />
+                        </div>
+                        <span className="text-xl">Opções para autônomos</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 font-semibold">
+                        <div className="bg-zinc-100 rounded-lg">
+                            <CiDatabase className="text-5xl" />
+                        </div>
+                        <span className="text-xl">Mais de 15 parceiros</span>
+                    </div>
+
+                    <div className="flex items-center gap-3 font-semibold">
+                        <div className="bg-zinc-100 rounded-lg">
+                            <CiCalendar className="text-5xl" />
+                        </div>
+                        <span className="text-xl">Parcelamento em até 60x vezes</span>
+                    </div>
+
+                </div>
+
+                <div onClick={handleRedirect} className="w-full flex justify-center">
+                    <button className="w-72 text-xl  rounded-full text-white bg-primary">Simule Grátis</button>
+                </div>
+
+                <img onClick={handleRedirect} src={ingresso} alt="" />
+
+                <Footer />
             </div>
         </div>
     );

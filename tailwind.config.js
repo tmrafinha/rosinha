@@ -6,9 +6,12 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Roboto', 'sans-serif'], // Define Roboto como padrão
+      },
       colors: {
-        primary: "#025bab", // Adiciona a cor primária para reutilização fácil
-        'primary-dark': '#e65100', // Uma variação mais escura
+        primary: "#E80070",
+        cinza: "#f8f7fc"
       },
       backgroundImage: {
         'custom-bg': "url('/src/assets/bg.jpg')", // Define uma imagem de fundo personalizada

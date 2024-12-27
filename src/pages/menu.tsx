@@ -1,19 +1,16 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { RiExchangeDollarFill } from "react-icons/ri";
-import { FaAngleRight, FaExchangeAlt, FaInfo } from "react-icons/fa";
-import { OverlayNavigation } from "../components/overlay-nav";
-import logo from "../assets/caixalogo.png";
-import fgts from "../assets/fgts2.png";
-import { BiDollar } from "react-icons/bi";
-import flogo from "../assets/f-logo.png"
 import { UserData } from "../types/userData";
-import SecurityCheck from "../security/securityCheck";
+import logo from "../assets/logo-colorido.png";
+import { BsSpeedometer2, BsTrophy, BsUnlock } from "react-icons/bs";
+import { GrDown } from "react-icons/gr";
+import { PiHandCoins } from "react-icons/pi";
+import { TbPigMoney } from "react-icons/tb";
+import { AiOutlineBank } from "react-icons/ai";
+import { CgCreditCard } from "react-icons/cg";
+import { MdOutlineLocalOffer } from "react-icons/md";
+import { Footer } from "../components/footer";
 
 export function Menu() {
-    const navigate = useNavigate();
-    const [hasPixKey, setHasPixKey] = useState<boolean>(false);
-
     const [userData, setUserData] = useState<UserData>({
         nome: "",
         cpf: "",
@@ -24,10 +21,18 @@ export function Menu() {
         cidade: "",
         estado: "",
         rua: "",
-        numero: ""
+        numero: "",
     });
 
-    // Carregar os dados do localStorage ao montar o componente
+    const [score,] = useState(294); // Score exemplo
+
+    // Determina a cor com base no score
+    const getScoreColor = () => {
+        if (score <= 300) return "bg-red-500";
+        if (score <= 700) return "bg-yellow-500";
+        return "bg-green-500";
+    };
+
     useEffect(() => {
         const storedUserData = localStorage.getItem("userData");
         if (storedUserData) {
@@ -35,128 +40,161 @@ export function Menu() {
         }
     }, []);
 
-    // Verifica no localStorage se há chaves PIX cadastradas
-    useEffect(() => {
-        const storedPixList = localStorage.getItem("pixList");
-        if (storedPixList && JSON.parse(storedPixList).length > 0) {
-            setHasPixKey(true);
-        }
-    }, []);
-
-    // Função para redirecionar dinamicamente com base nas chaves cadastradas
-    const handleAccountNavigation = () => {
-        if (hasPixKey) {
-            navigate("/cadastrarchave");
-        } else {
-            navigate("/contabancaria");
-        }
+    const getInitials = (name: string) => {
+        if (!name) return "";
+        const nameArray = name.split(" ");
+        const firstInitial = nameArray[0]?.[0] || ""; // Primeira inicial
+        const lastInitial = nameArray[nameArray.length - 1]?.[0] || ""; // Inicial do último nome
+        return (firstInitial + lastInitial).toUpperCase();
     };
 
+    const handleRedirect = () => {
+        window.location.href = "/ofertas"
+    };
+
+
     return (
-        <div className="w-screen h-screen flex flex-col items-center text-white mb-20">
-            <header className="flex w-full flex-col p-4 space-y-8 bg-[#025bab] pb-8">
-                <div className="flex items-center justify-between w-full">
-                    <div className="flex items-center space-x-3">
-                        <img width={34} src={logo} alt="logo" />
-                        <span className="text-white font-extralight">Olá, {userData.nome.split(" ")[0]}</span>
-                    </div>
-                    <img src={fgts} alt="fgts" width={65} />
-                </div>
-
-                <div className="flex flex-col space-y-3">
-                    <div className="flex items-center space-x-2">
-                        <div className="bg-orange-400 p-1 rounded-full w-fit">
-                            <RiExchangeDollarFill size={30} />
+        <div>
+            <header className="flex items-center justify-between p-3">
+                <div className="flex items-center gap-2">
+                    <img src={logo} alt="logo" width={60} />
+                    <div>
+                        <div className="font-bold text-lg">
+                            Olá, {userData?.nome.split(" ")[0]}
                         </div>
-                        <h2 className="font-bold text-xl">SALDO TOTAL</h2>
+                        <span>{userData?.dataNascimento}</span>
                     </div>
-
-                    <div className="font-semibold text-3xl px-2">
-                        R$1.739,70
+                </div>
+                <div className="flex items-center gap-6">
+                    <BsTrophy className="text-3xl" />
+                    <div className="flex items-center gap-3">
+                        <div className="bg-primary p-2 text-xl rounded-full w-fit text-white">
+                            {getInitials(userData?.nome)}
+                        </div>
+                        <GrDown className="font-bold text-2xl" />
                     </div>
-
-                    <span className="border-b border-b-white" />
                 </div>
             </header>
 
-            <div className="rounded-lg bg-white w-full -mt-3">
-                <div className="p-4 border-2 m-2 rounded-lg space-y-4">
-                    <div className="flex items-center space-x-2 mb-4">
-                        <div className="bg-orange-400 p-2 rounded-full w-fit">
-                            <img src={flogo} alt="flogo" width={20} />
+            <main className="bg-cinza p-6">
+                <div className="bg-white p-6" onClick={handleRedirect}>
+                    <div className="bg-white border-2 border-zinc-300 p-4 rounded-lg flex items-center gap-5">
+                        <PiHandCoins className="text-7xl text-primary" />
+                        <div>
+                            <div className="text-2xl font-semibold">Empréstimo</div>
+                            <span className="text-xl">Peça o crédito que você precisa</span>
                         </div>
-                        <h2 className="font-bold text-2xl text-zinc-700">
-                            Resumo do seu FGTS
-                        </h2>
+                    </div>
+                </div>
+
+                <div className="p-2">
+                    <button onClick={handleRedirect} className="w-full bg-primary text-white text-2xl font-semibold">
+                        Pedir Empréstimo
+                    </button>
+                </div>
+
+                <div className="flex items-start p-4 h-40 gap-12 overflow-x-auto">
+                    <div onClick={handleRedirect} className="text-center flex flex-col items-center space-y-1">
+                        <div className="bg-white w-fit p-4">
+                            <AiOutlineBank className="text-4xl text-zinc-500" />
+                        </div>
+                        <span>Simular <br />Empréstimo</span>
                     </div>
 
-                    <a className="" href="/saquedigital">
-                        <div className="font-bold text-xl flex flex-col space-y-2">
-                            <div className="flex items-center justify-between text-[#025bab]">
-                                <h3>{userData?.nome.toUpperCase()}</h3>
-                                <FaAngleRight />
+                    <div onClick={handleRedirect} className="text-center flex flex-col items-center space-y-1">
+                        <div className="bg-white w-fit p-4">
+                            <CgCreditCard
+                                className="text-4xl text-zinc-500" />
+                        </div>
+                        <span>Crédito p/ <br />Negativados</span>
+                    </div>
+
+                    <div onClick={handleRedirect} className="text-center flex flex-col items-center space-y-1">
+                        <div className="bg-white w-fit p-4">
+                            <TbPigMoney className="text-4xl text-zinc-500" />
+                        </div>
+                        <span>Empréstimo <br />Consignado</span>
+                    </div>
+
+                    <div onClick={handleRedirect} className="text-center flex flex-col items-center space-y-1">
+                        <div className="bg-white w-fit p-4">
+                            <MdOutlineLocalOffer className="text-4xl text-zinc-500" />
+                        </div>
+                        <span>Consultar <br />Ofertas</span>
+                    </div>
+
+                </div>
+
+                <div className="space-y-4 mt-6">
+                    <h3 className="text-2xl font-bold">Entenda seu momento financeiro</h3>
+                    <div className="bg-white p-4 rounded-lg space-y-5">
+                        <h4 className="font-bold text-xl">Serasa Score</h4>
+                        <div className="flex items-center space-x-4">
+                            <div className="text-5xl font-bold">{score}</div>
+                            <span className="bg-red-100 p-1 px-5 rounded-full text-lg font-medium text-zinc-600">
+                                {score <= 300 ? "Baixo" : score <= 700 ? "Médio" : "Alto"}
+                            </span>
+                        </div>
+
+                        {/* Barra de score */}
+                        <div className="relative mt-4">
+                            {/* Barra de fundo */}
+                            <div className="h-4 w-full bg-zinc-300 rounded-lg"></div>
+
+                            {/* Barra preenchida */}
+                            <div
+                                className={`absolute top-0 left-0 h-4 rounded-lg ${getScoreColor()}`}
+                                style={{ width: `${(score / 1000) * 100}%` }}
+                            ></div>
+                        </div>
+
+                        {/* Marcadores */}
+                        <div className="flex justify-between text-sm text-zinc-600 mt-2">
+                            <span>0</span>
+                            <span>.</span>
+                            <span>500</span>
+                            <span>.</span>
+                            <span>1000</span>
+                        </div>
+
+
+                        <div className="space-y-6">
+                            <div className="flex justify-start gap-4">
+                                <div>
+                                    <BsSpeedometer2 className="text-primary text-4xl" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-zinc-400 text-lg">Conecte suas contas</span>
+                                    <div className="text-xl">
+                                        Melhore a análise do seu perfil financeiro com suas contas bancárias, FGTS, e de aplicativos de trabalho
+                                    </div>
+                                </div>
                             </div>
 
-                            <span className="text-zinc-700">R$1.739,70</span>
+                            <div className="flex justify-start gap-4">
+                                <div>
+                                    <BsUnlock className="text-primary text-4xl" />
+                                </div>
+                                <div className="flex flex-col">
+                                    <span className="text-zinc-400 text-lg">Serasa Score desbloqueado</span>
+                                    <div className="text-xl">
+                                        Empresas podem ver seu Score
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    </a>
-                    <span className="border-b border-b-zinc-800 my-2" />
-                </div>
-            </div>
-
-            <div className="grid grid-cols-2 text-zinc-900 w-full gap-2 p-4">
-                <a href="/saquedigital">
-                    <div className="bg-orange-500 text-xl font-extralight text-white w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
-                        <div className="bg-white p-2 text-orange-500 rounded-full w-fit">
-                            <BiDollar />
-                        </div>
-                        <div>
-                            Solicite seu saque <span className="font-bold">100% digital</span>
-                        </div>
-                    </div>
-                </a>
-
-                <div
-                    onClick={handleAccountNavigation}
-                    className="cursor-pointer text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2"
-                >
-                    <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
-                        <FaExchangeAlt />
-                    </div>
-                    <div>
-                        <span className="font-bold">Conta bancária</span> para saque do
-                        seu <span className="font-bold">FGTS</span>
                     </div>
                 </div>
 
-                <a href="/saquedigital">
-                    <div className="text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
-                        <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
-                            <img src={flogo} alt="flogo" width={20} />
-                        </div>
-                        <div>
-                            <span className="font-bold">Sistemática de saque </span> do seu
-                            <span className="font-bold"> FGTS</span>
-                        </div>
-                    </div>
-                </a>
+                <div className="p-2 my-4">
+                    <button onClick={handleRedirect} className="w-full bg-primary text-white text-2xl font-semibold">
+                        Pedir Empréstimo
+                    </button>
+                </div>
 
-                <a href="/info">
-                    <div className="text-xl font-extralight text-[#025bab] w-44 h-40 rounded-lg border-2 flex flex-col items-center text-center justify-center space-y-2">
-                        <div className="bg-orange-500 p-2 text-white rounded-full w-fit">
-                            <FaInfo />
-                        </div>
-                        <div>
-                            Informações <span className="font-bold">úteis</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                <Footer />
+            </main>
 
-            {/* Overlay Navigation */}
-            <OverlayNavigation activeOption="Principal" />
-
-            <SecurityCheck />
         </div>
     );
 }

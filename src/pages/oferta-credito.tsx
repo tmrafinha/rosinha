@@ -1,0 +1,153 @@
+import { useEffect, useState } from "react";
+import { BsTrophy } from "react-icons/bs";
+import { FaCheckCircle, FaRegCreditCard } from "react-icons/fa";
+import { Footer } from "../components/footer";
+import logo from "../assets/logo-colorido.png";
+import { UserData } from "../types/userData";
+import cresol from "../assets/cresol.jpg";
+import sicoob from "../assets/sicoob.png";
+import pix from "../assets/pix.png";
+import { GrDown } from "react-icons/gr";
+import { loanData } from "../types/loanData";
+import { IoMdLock } from "react-icons/io";
+
+export function OfertaCredito() {
+    const [userData, setUserData] = useState<UserData>({
+        nome: "",
+        cpf: "",
+        dataNascimento: "",
+        email: "",
+        nomeMae: "",
+        cep: "",
+        cidade: "",
+        estado: "",
+        rua: "",
+        numero: "",
+    });
+
+    useEffect(() => {
+        const storedUserData = localStorage.getItem("userData");
+        if (storedUserData) {
+            setUserData(JSON.parse(storedUserData));
+        }
+    }, []);
+
+
+
+    const [loanData, setLoanData] = useState<loanData>({
+        bank: "",
+        installments: 0,
+        loanAmount: 0,
+        installmentCount: ""
+    });
+
+    useEffect(() => {
+        const storedLoanData = localStorage.getItem("loanData");
+        if (storedLoanData) {
+            setLoanData(JSON.parse(storedLoanData));
+        }
+    }, []);
+
+    const getInitials = (name: string) => {
+        if (!name) return "";
+        const nameArray = name.split(" ");
+        const firstInitial = nameArray[0]?.[0] || "";
+        const lastInitial = nameArray[nameArray.length - 1]?.[0] || "";
+        return (firstInitial + lastInitial).toUpperCase();
+    };
+
+    return (
+        <div className="bg-gray-100 min-h-screen flex flex-col">
+            {/* Header */}
+            <header className="flex items-center justify-between p-3 border-b border-b-zinc-300 shadow-lg">
+                <div className="flex items-center gap-2">
+                    <img src={logo} alt="logo" width={60} />
+                    <div>
+                        <div className="font-bold text-lg">
+                            Olá, {userData?.nome.split(" ")[0]}
+                        </div>
+                        <span>{userData?.dataNascimento}</span>
+                    </div>
+                </div>
+                <div className="flex items-center gap-6">
+                    <BsTrophy className="text-3xl" />
+                    <div className="flex items-center gap-3">
+                        <div className="bg-primary p-2 text-xl rounded-full w-fit text-white">
+                            {getInitials(userData?.nome)}
+                        </div>
+                        <GrDown className="font-bold text-2xl" />
+                    </div>
+                </div>
+            </header>
+
+            {/* Hero Section */}
+            <main className="p-5">
+                <section className="text-center px-6 bg-white rounded-lg p-4">
+
+                    {loanData?.bank == "Cresol" ? (
+                        <img src={cresol} alt="Cresol" width={200} className="mx-auto mb-3" />
+                    ) : (
+                        <img src={sicoob} alt="sicoob" width={120} className="mx-auto mb-3 p-2" />
+                    )}
+
+                    <h1 className="text-4xl font-bold text-zinc-600 mb-4">
+                        Para receber seu empréstimo <br /> de <span className="text-emerald-600">R$ {loanData?.loanAmount}</span>, é preciso pagar a taxa de <span className="text-emerald-600">abertura de conta</span>
+                    </h1>
+                    <p className="text-xl text-gray-700 mb-6">
+                        Ao pagar essa taxa de abertura de conta <span className="font-bold">o dinheiro cairá na sua conta em até 5 minutos</span>, A taxa é obrigatória para todas as Pessoas Físicas que desejam abrir solicitar um empréstima na {loanData?.bank}
+                    </p>
+                    <div className="space-y-3 my-6">
+                        <span className="text-3xl text-zinc-500">Valor da taxa:</span>
+                        <h3 className="text-5xl font-bold text-zinc-600">R$ 29,90</h3>
+                        <img src={pix} alt="Pagamento via Pix" width={130} className="mx-auto mb-6" />
+                    </div>
+                    <button
+                        className="bg-emerald-500 mt-5 text-white text-2xl font-semibold rounded-lg py-4 px-8 w-full max-w-lg mx-auto hover:bg-blue-600 transition animate-bounce"
+                    >
+                        PAGAR TAXA DE ABERTURA
+                    </button>
+                </section>
+
+                {/* Benefícios */}
+                <section className="my-10 px-6">
+                    <h2 className="text-3xl font-semibold text-primary text-center mb-8">
+                        Por que pagar a taxa agora?
+                    </h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                        <div className="text-center">
+                            <IoMdLock className="text-6xl text-primary mx-auto" />
+                            <p className="text-xl mt-4 text-gray-700">Segurança Total</p>
+                            <p className="text-lg text-gray-500 mt-2">Seus dados são 100% protegidos e você tem a garantia de um processo seguro.</p>
+                        </div>
+                        <div className="text-center">
+                            <FaRegCreditCard className="text-5xl text-primary mx-auto" />
+                            <p className="text-xl mt-4 text-gray-700">Acesso Imediato</p>
+                            <p className="text-lg text-gray-500 mt-2">Receba a aprovação e o valor do empréstimo rapidamente após o pagamento da taxa.</p>
+                        </div>
+                        <div className="text-center">
+                            <FaCheckCircle className="text-5xl text-primary mx-auto" />
+                            <p className="text-xl mt-4 text-gray-700">Processo Rápido</p>
+                            <p className="text-lg text-gray-500 mt-2">Com a taxa paga, o processo de liberação é imediato e sem burocracia.</p>
+                        </div>
+                    </div>
+                </section>
+
+                {/* Prova Social / Urgência */}
+                <section className="bg-gray-200 py-10 px-6 text-center">
+                    <h2 className="text-2xl font-semibold text-primary mb-4">Pague a taxa de abertura de conta e receba seu dinheiro!</h2>
+                    <p className="text-lg text-gray-700 mb-4">
+                        Ao pagar a taxa de abertura de conta no valor de R$29,90, você garante acesso ao empréstimo de forma rápida e sem complicação. <br /> Esta oportunidade pode ser encerrada a qualquer momento.
+                    </p>
+                    <button
+                        className="bg-primary text-white text-2xl font-semibold rounded-lg py-4 px-8 w-full max-w-lg mx-auto hover:bg-blue-600 transition"
+                    >
+                        PAGAR AGORA
+                    </button>
+                </section>
+            </main>
+
+            {/* Footer */}
+            <Footer />
+        </div>
+    );
+}
