@@ -167,9 +167,9 @@ export function Ofertas() {
                     <div className="flex flex-col items-center space-y-4">
                         {/* <img width={200} src={boneco} alt="boneco" /> */}
                         <h2 className="text-3xl font-bold text-center">Quanto você deseja pegar emprestado?</h2>
-                        <span className="text-xl text-center text-zinc-500">
+                        {/* <span className="text-xl text-center text-zinc-500">
                             Insira o valor do empréstimo e escolha as parcelas para continuar.
-                        </span>
+                        </span> */}
                     </div>
 
                     {/* Entrada de Valor */}
