@@ -3,7 +3,7 @@ import sicoob from "../assets/sicoob.png";
 import { loanData } from "../types/loanData";
 import logo from "../assets/serasa-verde.png";
 import { useState, useEffect } from "react";
-import { GrDown, GrUp } from "react-icons/gr";
+import {  GrUp } from "react-icons/gr";
 import { UserData } from "../types/userData";
 import { IoMenu } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
@@ -70,7 +70,7 @@ export function Resumo() {
                             <div className="bg-emerald-500 p-2 text-xl rounded-full w-fit text-white">
                                 {getInitials(userData?.nome)}
                             </div>
-                            <GrDown className="font-bold text-2xl" />
+                            {/* <GrDown className="font-bold text-2xl" /> */}
                         </div>
                     </div>
                 </div>

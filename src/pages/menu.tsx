@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { UserData } from "../types/userData";
 import logo from "../assets/logo-colorido.png";
 import { BsSpeedometer2, BsTrophy, BsUnlock } from "react-icons/bs";
-import { GrDown } from "react-icons/gr";
+// import { GrDown } from "react-icons/gr";
 import { PiHandCoins } from "react-icons/pi";
 import { TbPigMoney } from "react-icons/tb";
 import { AiOutlineBank } from "react-icons/ai";
@@ -72,7 +72,7 @@ export function Menu() {
                         <div className="bg-primary p-2 text-xl rounded-full w-fit text-white">
                             {getInitials(userData?.nome)}
                         </div>
-                        <GrDown className="font-bold text-2xl" />
+                        {/* <GrDown className="font-bold text-2xl" /> */}
                     </div>
                 </div>
             </header>

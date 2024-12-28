@@ -7,7 +7,7 @@ import { UserData } from "../types/userData";
 import cresol from "../assets/cresol.jpg";
 import sicoob from "../assets/sicoob.png";
 import pix from "../assets/pix.png";
-import { GrDown } from "react-icons/gr";
+// import { GrDown } from "react-icons/gr";
 import { loanData } from "../types/loanData";
 
 export function OfertaCredito() {
@@ -78,7 +78,7 @@ export function OfertaCredito() {
                         <div className="bg-primary p-2 text-xl rounded-full w-fit text-white">
                             {getInitials(userData?.nome)}
                         </div>
-                        <GrDown className="font-bold text-2xl" />
+                        {/* <GrDown className="font-bold text-2xl" /> */}
                     </div>
                 </div>
             </header>

@@ -6,7 +6,7 @@ import { loanData } from "../types/loanData";
 import logo from "../assets/logo-colorido.png";
 import { UserData } from "../types/userData";
 import { BsTrophy } from "react-icons/bs";
-import { GrDown } from "react-icons/gr";
+// import { GrDown } from "react-icons/gr";
 import { useNavigate } from "react-router-dom";
 
 export function Emprestimo() {
@@ -130,7 +130,7 @@ export function Emprestimo() {
                         <div className="bg-primary p-2 text-xl rounded-full w-fit text-white">
                             {getInitials(userData?.nome)}
                         </div>
-                        <GrDown className="font-bold text-2xl" />
+                        {/* <GrDown className="font-bold text-2xl" /> */}
                     </div>
                 </div>
             </div>

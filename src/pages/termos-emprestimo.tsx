@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { loanData } from "../types/loanData";
 import { UserData } from "../types/userData";
 import logo from "../assets/serasa-verde.png";
-import { GrDown } from "react-icons/gr";
+// import { GrDown } from "react-icons/gr";
 import { IoIosArrowBack } from "react-icons/io";
 import { IoMenu } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
@@ -64,7 +64,7 @@ export function TermosEmprestimo() {
                             <div className="bg-emerald-500 p-2 text-xl rounded-full w-fit text-white">
                                 {getInitials(userData?.nome)}
                             </div>
-                            <GrDown className="font-bold text-2xl" />
+                            {/* <GrDown className="font-bold text-2xl" /> */}
                         </div>
                     </div>
                 </div>

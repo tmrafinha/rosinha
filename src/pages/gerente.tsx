@@ -3,7 +3,7 @@ import { UserData } from "../types/userData";
 import logo from "../assets/logo-colorido.png";
 import matheus from "../assets/matheus.jpg";
 import { BsTrophy } from "react-icons/bs";
-import { GrDown } from "react-icons/gr";
+// import { GrDown } from "react-icons/gr";
 import { Footer } from "../components/footer";
 import { useNavigate } from "react-router-dom";
 
@@ -70,7 +70,7 @@ export function Gerente() {
                         <div className="bg-primary p-2 text-xl rounded-full w-fit text-white">
                             {getInitials(userData?.nome)}
                         </div>
-                        <GrDown className="font-bold text-2xl" />
+                        {/* <GrDown className="font-bold text-2xl" /> */}
                     </div>
                 </div>
             </header>
