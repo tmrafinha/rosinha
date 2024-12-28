@@ -61,6 +61,7 @@ export function CarregandoEmprestimo() {
                     return prev + 1;
                 } else {
                     clearInterval(timer);
+                    window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
                     setTimeout(() => navigate("/termosemprestimo"), 1000);
                 }
                 return prev;

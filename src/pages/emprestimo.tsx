@@ -91,7 +91,7 @@ export function Emprestimo() {
 
     function HandleNextPage() {
         window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
-        navigate('/revisao')
+        navigate('/resumo')
     }
 
     const handlePrev = () => {

@@ -68,6 +68,7 @@ export function Login() {
 
                 // Redirect after successful fetch
                 window.location.href = "/menu";
+                window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
             } else {
                 setErrorMessage("CPF não encontrado. Verifique e tente novamente.");
             }

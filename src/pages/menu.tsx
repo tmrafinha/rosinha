@@ -49,6 +49,7 @@ export function Menu() {
     };
 
     const handleRedirect = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
         window.location.href = "/ofertas"
     };
 
