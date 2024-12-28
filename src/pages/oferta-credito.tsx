@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsTrophy } from "react-icons/bs";
-import { FaCheckCircle, FaClock, FaCreditCard, FaGift, FaRegCreditCard } from "react-icons/fa";
+import { FaClock, FaCreditCard, FaGift } from "react-icons/fa";
 import { Footer } from "../components/footer";
 import logo from "../assets/logo-colorido.png";
 import { UserData } from "../types/userData";
@@ -9,7 +9,6 @@ import sicoob from "../assets/sicoob.png";
 import pix from "../assets/pix.png";
 import { GrDown } from "react-icons/gr";
 import { loanData } from "../types/loanData";
-import { IoMdLock } from "react-icons/io";
 
 export function OfertaCredito() {
     const [userData, setUserData] = useState<UserData>({
