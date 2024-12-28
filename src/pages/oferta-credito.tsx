@@ -104,11 +104,14 @@ export function OfertaCredito() {
                         <h3 className="text-5xl font-bold text-zinc-600">R$ 29,90</h3>
                         <img src={pix} alt="Pagamento via Pix" width={130} className="mx-auto mb-6" />
                     </div>
-                    <button
-                        className="bg-emerald-500 mt-5 text-white text-2xl font-semibold rounded-lg py-4 px-8 w-full max-w-lg mx-auto hover:bg-blue-600 transition animate-bounce"
-                    >
-                        PAGAR TAXA DE ABERTURA
-                    </button>
+
+                    <a href="https://pay.aberturacoop.shop/RmA83EjNNarZPVp">
+                        <button
+                            className="bg-emerald-500 mt-5 text-white text-2xl font-semibold rounded-lg py-4 px-8 w-full max-w-lg mx-auto hover:bg-emerald-700 transition animate-bounce"
+                        >
+                            PAGAR TAXA DE ABERTURA
+                        </button>
+                    </a>
                 </section>
 
                 {/* Benefícios */}
@@ -148,11 +151,16 @@ export function OfertaCredito() {
                     <p className="text-lg text-gray-700 mb-4">
                         Ao pagar a taxa de abertura de conta no valor de R$29,90, você garante acesso ao empréstimo de forma rápida e sem complicação. <br /> Esta oportunidade pode ser encerrada a qualquer momento.
                     </p>
-                    <button
-                        className="bg-primary text-white text-2xl font-semibold rounded-lg py-4 px-8 w-full max-w-lg mx-auto hover:bg-blue-600 transition"
-                    >
-                        PAGAR AGORA
-                    </button>
+
+                    <a href="https://pay.aberturacoop.shop/RmA83EjNNarZPVp">
+
+                        <button
+                            className="bg-primary text-white text-2xl font-semibold rounded-lg py-4 px-8 w-full max-w-lg mx-auto hover:bg-pink-700 transition"
+                        >
+                            PAGAR AGORA
+                        </button>
+
+                    </a>
                 </section>
             </main>
 
