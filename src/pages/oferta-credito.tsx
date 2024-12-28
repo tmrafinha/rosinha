@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { BsTrophy } from "react-icons/bs";
-import { FaCheckCircle, FaRegCreditCard } from "react-icons/fa";
+import { FaCheckCircle, FaClock, FaCreditCard, FaGift, FaRegCreditCard } from "react-icons/fa";
 import { Footer } from "../components/footer";
 import logo from "../assets/logo-colorido.png";
 import { UserData } from "../types/userData";
@@ -94,7 +94,7 @@ export function OfertaCredito() {
                         Para receber seu empréstimo <br /> de <span className="text-emerald-600">R$ {loanData?.loanAmount}</span>, é preciso pagar a taxa de <span className="text-emerald-600">abertura de conta</span>
                     </h1>
                     <p className="text-xl text-gray-700 mb-6">
-                        Ao pagar essa taxa de abertura de conta <span className="font-bold">o dinheiro cairá na sua conta em até 5 minutos</span>, A taxa é obrigatória para todas as Pessoas Físicas que desejam abrir solicitar um empréstima na {loanData?.bank}
+                        Ao pagar essa taxa de abertura de conta <span className="font-bold">o dinheiro cairá na sua conta em até 5 minutos</span>, A taxa é obrigatória para todas as Pessoas Físicas que desejam abrir conta na cooperativa {loanData?.bank}
                     </p>
                     <div className="space-y-3 my-6">
                         <span className="text-3xl text-zinc-500">Valor da taxa:</span>
@@ -113,24 +113,31 @@ export function OfertaCredito() {
                     <h2 className="text-3xl font-semibold text-primary text-center mb-8">
                         Por que pagar a taxa agora?
                     </h2>
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-8 p-4">
                         <div className="text-center">
-                            <IoMdLock className="text-6xl text-primary mx-auto" />
-                            <p className="text-xl mt-4 text-gray-700">Segurança Total</p>
-                            <p className="text-lg text-gray-500 mt-2">Seus dados são 100% protegidos e você tem a garantia de um processo seguro.</p>
+                            <FaClock className="text-6xl text-primary mx-auto" />
+                            <p className="text-xl mt-4 text-gray-700 font-bold">Dinheiro na Conta em Minutos</p>
+                            <p className="text-lg text-gray-500 mt-2">
+                                Após a aprovação, o valor estará disponível na sua conta em até 5 minutos.
+                            </p>
                         </div>
                         <div className="text-center">
-                            <FaRegCreditCard className="text-5xl text-primary mx-auto" />
-                            <p className="text-xl mt-4 text-gray-700">Acesso Imediato</p>
-                            <p className="text-lg text-gray-500 mt-2">Receba a aprovação e o valor do empréstimo rapidamente após o pagamento da taxa.</p>
+                            <FaCreditCard className="text-6xl text-primary mx-auto" />
+                            <p className="text-xl mt-4 text-gray-700 font-bold">Cartão de Crédito Exclusivo</p>
+                            <p className="text-lg text-gray-500 mt-2">
+                                Tenha acesso ao cartão de crédito da cooperativa, com vantagens únicas para você.
+                            </p>
                         </div>
                         <div className="text-center">
-                            <FaCheckCircle className="text-5xl text-primary mx-auto" />
-                            <p className="text-xl mt-4 text-gray-700">Processo Rápido</p>
-                            <p className="text-lg text-gray-500 mt-2">Com a taxa paga, o processo de liberação é imediato e sem burocracia.</p>
+                            <FaGift className="text-6xl text-primary mx-auto" />
+                            <p className="text-xl mt-4 text-gray-700 font-bold">Benefícios Especiais</p>
+                            <p className="text-lg text-gray-500 mt-2">
+                                Aproveite condições exclusivas e vantagens que só nossa cooperativa oferece.
+                            </p>
                         </div>
                     </div>
                 </section>
+
 
                 {/* Prova Social / Urgência */}
                 <section className="bg-gray-200 py-10 px-6 text-center">

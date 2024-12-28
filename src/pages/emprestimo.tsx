@@ -90,7 +90,8 @@ export function Emprestimo() {
     };
 
     function HandleNextPage() {
-        navigate('/resumo')
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
+        navigate('/revisao')
     }
 
     const handlePrev = () => {
@@ -158,7 +159,7 @@ export function Emprestimo() {
                 </h1>
 
                 {step === 1 && (
-                    <div className="bg-white rounded-lg p-6 space-y-6">
+                    <div className="bg-white rounded-lg p-6 space-y-6 mb-20">
                         <div className="flex flex-col space-y-3">
                             <label htmlFor="estado" className="text-xl font-bold text-zinc-700">Estado</label>
                             <select

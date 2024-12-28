@@ -59,6 +59,7 @@ export function RevisaoPagamento() {
         setIsLoading(true);
         setTimeout(() => {
             setIsLoading(false);
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
             navigate("/aberturaconta");
         }, 3000);
     };

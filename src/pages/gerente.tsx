@@ -109,6 +109,7 @@ export function Gerente() {
                     <button
                         onClick={() => {
                             if (whatsapp && !error) {
+                                window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
                                 navigate("/cadastropagamento")
                             }
                         }}

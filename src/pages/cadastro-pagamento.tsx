@@ -95,6 +95,7 @@ export function CadastroPagamento() {
         setError("");
 
         setTimeout(() => {
+            window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
             navigate("/revisaopagamento")
         }, 1500);
     };
