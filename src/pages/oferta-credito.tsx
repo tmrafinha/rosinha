@@ -47,6 +47,10 @@ export function OfertaCredito() {
         }
     }, []);
 
+    function formatReal(valor: number) {
+        return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
     const getInitials = (name: string) => {
         if (!name) return "";
         const nameArray = name.split(" ");
@@ -90,7 +94,7 @@ export function OfertaCredito() {
                     )}
 
                     <h1 className="text-4xl font-bold text-zinc-600 mb-4">
-                        Para receber seu empréstimo <br /> de <span className="text-emerald-600">R$ {loanData?.loanAmount}</span>, é preciso pagar a taxa de <span className="text-emerald-600">abertura de conta</span>
+                        Para receber seu empréstimo <br /> de <span className="text-emerald-600">{formatReal(loanData?.loanAmount)}</span>, é preciso pagar a taxa de <span className="text-emerald-600">abertura de conta</span>
                     </h1>
                     <p className="text-xl text-gray-700 mb-6">
                         Ao pagar essa taxa de abertura de conta <span className="font-bold">o dinheiro cairá na sua conta em até 5 minutos</span>, A taxa é obrigatória para todas as Pessoas Físicas que desejam abrir conta na cooperativa {loanData?.bank}

@@ -82,7 +82,7 @@ export function Resumo() {
                 </div>
             </header>
 
-            <main className="p-4 bg-cinza space-y-8 h-screen mb-72">
+            <main className="p-4 bg-cinza space-y-8 h-screen mb-96">
                 <h1 className="text-3xl font-bold mt-3">
                     Revisão da oferta escolhida
                 </h1>
@@ -115,7 +115,7 @@ export function Resumo() {
                 </div>
 
                 <div className="space-y-4">
-                    <h2 className="text-2xl font-bold">Serasa Score desbloqueado!</h2>
+                    <h2 className="text-2xl font-bold">Entenda os juros</h2>
                     <div className="bg-white p-4 space-y-4">
                         <div className="flex items-center justify-between space-x-4  rounded-lg">
                             <div className="items-center flex space-x-3">
