@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 import cresol from "../assets/cresol.jpg";
 import sicoob from "../assets/sicoob.png";
-import boneco from "../assets/boneco-credito.png";
+// import boneco from "../assets/boneco-credito.png";
 
 // Estilo do Modal
 const modalStyles = {
