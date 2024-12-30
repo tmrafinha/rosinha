@@ -71,10 +71,11 @@ export function Ofertas() {
     // const openModal = () => setIsModalOpen(true);
 
     const closeModal = () => {
-        const ofertasSection = document.querySelector("h2.font-bold.text-2xl.my-8.mb-8"); // Seleciona o elemento "Ofertas encontradas"
+
         setIsModalOpen(false);
         setIsOfferLoading(true);
         setTimeout(() => {
+            const ofertasSection = document.querySelector("h2.font-bold.text-2xl.my-8.mb-8"); // Seleciona o elemento "Ofertas encontradas"
             setIsOfferAvaiable(true);
             setIsOfferLoading(false);
             ofertasSection?.scrollIntoView({ behavior: "smooth" }); // Rola suavemente para o elemento
