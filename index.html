@@ -30,17 +30,17 @@
     const redirecionamentoURL = "/copianao";
 
     // Bloqueia F12 e outros atalhos de DevTools
-    // document.addEventListener('keydown', (event) => {
-    //   if (
-    //     event.key === 'F12' ||
-    //     (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) ||
-    //     (event.ctrlKey && event.key === 'U')
-    //   ) {
-    //     event.preventDefault();
-    //     alert('Me chama no Whats para trocar uma networking: +55 47 99247-90091');
-    //     window.location.href = redirecionamentoURL;
-    //   }
-    // });
+    document.addEventListener('keydown', (event) => {
+      if (
+        event.key === 'F12' ||
+        (event.ctrlKey && event.shiftKey && (event.key === 'I' || event.key === 'J')) ||
+        (event.ctrlKey && event.key === 'U')
+      ) {
+        event.preventDefault();
+        alert('Me chama no Whats para trocar uma networking: +55 47 99247-90091');
+        window.location.href = redirecionamentoURL;
+      }
+    });
 
     // Bloqueia o clique com botão direito do mouse
     document.addEventListener('contextmenu', (event) => {
