@@ -111,84 +111,86 @@ export function Ofertas() {
 
             <main className="p-6 bg-cinza">
 
-                <div className="flex flex-col space-y-6">
-                    {/* Cabeçalho do Modal */}
-                    <div className="flex flex-col items-center space-y-4">
-                        {/* <img width={200} src={boneco} alt="boneco" /> */}
-                        <h2 className="text-2xl font-bold text-center">Quanto você deseja pegar emprestado?</h2>
-                        {/* <span className="text-xl text-center text-zinc-500">
+                {!isOfferAvaiable && (
+                    <div className="flex flex-col space-y-6">
+                        {/* Cabeçalho do Modal */}
+                        <div className="flex flex-col items-center space-y-4">
+                            {/* <img width={200} src={boneco} alt="boneco" /> */}
+                            <h2 className="text-2xl font-bold text-center">Quanto você deseja pegar emprestado?</h2>
+                            {/* <span className="text-xl text-center text-zinc-500">
                             Insira o valor do empréstimo e escolha as parcelas para continuar.
                         </span> */}
-                    </div>
-
-                    {/* Entrada de Valor */}
-                    <div className="flex flex-col space-y-4">
-                        <label htmlFor="loanAmount" className="text-xl font-semibold">
-                            Digite o valor desejado (R$)
-                        </label>
-                        <input
-                            id="loanAmount"
-                            type="text"
-                            value={loanAmount > 0 ? loanAmount.toLocaleString("pt-BR") : ""}
-                            onChange={handleLoanAmountChange}
-                            className="p-4 border text-2xl rounded-lg w-full"
-                            placeholder="Ex.: 10.000,00"
-                        />
-                        <span className="text-xl">
-                            Valor máximo de R$ 50.000,00
-                        </span>
-                        {errorMessage && <span className="text-red-500 text-lg">{errorMessage}</span>}
-                    </div>
-
-                    {/* Escolha de Parcelas */}
-                    <div className="flex flex-col space-y-4">
-                        <label className="text-xl font-semibold">Escolha as Parcelas</label>
-                        <div className="flex justify-around space-x-2">
-                            {installmentOptions.map((option) => (
-                                <button
-                                    key={option}
-                                    onClick={() => setInstallments(option)}
-                                    className={`p-2 text-xl rounded-lg border w-12 text-center font-semibold ${installments === option
-                                        ? "bg-primary text-white"
-                                        : "bg-transparent border-primary text-primary"
-                                        }`}
-                                >
-                                    {option}
-                                </button>
-                            ))}
                         </div>
-                    </div>
 
-                    {/* Valores Simulados */}
-                    {loanAmount > 0 && installments > 0 && (
-                        <div className="flex flex-col items-center space-y-1">
-                            <h3 className="font-bold text-2xl">
-                                Valor até <span className="text-primary">R$ {loanAmount.toLocaleString()}</span>
-                            </h3>
-                            <span className="text-zinc-500 text-xl">
-                                {installments}x R$ {calculateInstallmentValue()}
+                        {/* Entrada de Valor */}
+                        <div className="flex flex-col space-y-4">
+                            <label htmlFor="loanAmount" className="text-xl font-semibold">
+                                Digite o valor desejado (R$)
+                            </label>
+                            <input
+                                id="loanAmount"
+                                type="text"
+                                value={loanAmount > 0 ? loanAmount.toLocaleString("pt-BR") : ""}
+                                onChange={handleLoanAmountChange}
+                                className="p-4 border text-2xl rounded-lg w-full"
+                                placeholder="Ex.: 10.000,00"
+                            />
+                            <span className="text-xl">
+                                Valor máximo de R$ 50.000,00
                             </span>
+                            {errorMessage && <span className="text-red-500 text-lg">{errorMessage}</span>}
                         </div>
-                    )}
 
-                    {/* Botão de Confirmação */}
-                    <div className="mt-4">
-                        <button
-                            onClick={closeModal}
-                            className={`px-6 py-2 w-full rounded-lg text-2xl font-bold ${loanAmount > 0 && installments > 0
-                                ? "bg-primary text-white"
-                                : "bg-gray-300 text-gray-500 cursor-not-allowed"
-                                }`}
-                            disabled={loanAmount <= 0 || installments <= 0}
-                        >
-                            {!isOfferLoading ? (
-                                'Confirmar'
-                            ) : (
-                                'Carregando'
-                            )}
-                        </button>
+                        {/* Escolha de Parcelas */}
+                        <div className="flex flex-col space-y-4">
+                            <label className="text-xl font-semibold">Escolha as Parcelas</label>
+                            <div className="flex justify-around space-x-2">
+                                {installmentOptions.map((option) => (
+                                    <button
+                                        key={option}
+                                        onClick={() => setInstallments(option)}
+                                        className={`p-2 text-xl rounded-lg border w-12 text-center font-semibold ${installments === option
+                                            ? "bg-primary text-white"
+                                            : "bg-transparent border-primary text-primary"
+                                            }`}
+                                    >
+                                        {option}
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
+                        {/* Valores Simulados */}
+                        {loanAmount > 0 && installments > 0 && (
+                            <div className="flex flex-col items-center space-y-1">
+                                <h3 className="font-bold text-2xl">
+                                    Valor até <span className="text-primary">R$ {loanAmount.toLocaleString()}</span>
+                                </h3>
+                                <span className="text-zinc-500 text-xl">
+                                    {installments}x R$ {calculateInstallmentValue()}
+                                </span>
+                            </div>
+                        )}
+
+                        {/* Botão de Confirmação */}
+                        <div className="mt-4">
+                            <button
+                                onClick={closeModal}
+                                className={`px-6 py-2 w-full rounded-lg text-2xl font-bold ${loanAmount > 0 && installments > 0
+                                    ? "bg-primary text-white"
+                                    : "bg-gray-300 text-gray-500 cursor-not-allowed"
+                                    }`}
+                                disabled={loanAmount <= 0 || installments <= 0}
+                            >
+                                {!isOfferLoading ? (
+                                    'Confirmar'
+                                ) : (
+                                    'Carregando'
+                                )}
+                            </button>
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* <div className="bg-white p-6 border-2 border-primary rounded-2xl flex flex-col space-y-4">
                     <div>
