@@ -71,14 +71,16 @@ export function Ofertas() {
     // const openModal = () => setIsModalOpen(true);
 
     const closeModal = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
-        setIsModalOpen(false)
-        setIsOfferLoading(true)
+        const ofertasSection = document.querySelector("h2.font-bold.text-2xl.my-8.mb-8"); // Seleciona o elemento "Ofertas encontradas"
+        setIsModalOpen(false);
+        setIsOfferLoading(true);
         setTimeout(() => {
-            setIsOfferAvaiable(true)
-            setIsOfferLoading(false)
+            setIsOfferAvaiable(true);
+            setIsOfferLoading(false);
+            ofertasSection?.scrollIntoView({ behavior: "smooth" }); // Rola suavemente para o elemento
         }, 3000);
     };
+
 
     const saveToLocalStorage = (bank: string) => {
         const data = {
