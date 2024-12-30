@@ -66,7 +66,11 @@ export function Ofertas() {
     };
 
     const openModal = () => setIsModalOpen(true);
-    const closeModal = () => setIsModalOpen(false);
+
+    const closeModal = () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' }); // Rola para o topo com efeito suave
+        setIsModalOpen(false)
+    };
 
     const saveToLocalStorage = (bank: string) => {
         const data = {
@@ -166,7 +170,7 @@ export function Ofertas() {
                     {/* Cabeçalho do Modal */}
                     <div className="flex flex-col items-center space-y-4">
                         {/* <img width={200} src={boneco} alt="boneco" /> */}
-                        <h2 className="text-3xl font-bold text-center">Quanto você deseja pegar emprestado?</h2>
+                        <h2 className="text-2xl font-bold text-center">Quanto você deseja pegar emprestado?</h2>
                         {/* <span className="text-xl text-center text-zinc-500">
                             Insira o valor do empréstimo e escolha as parcelas para continuar.
                         </span> */}
@@ -174,7 +178,7 @@ export function Ofertas() {
 
                     {/* Entrada de Valor */}
                     <div className="flex flex-col space-y-4">
-                        <label htmlFor="loanAmount" className="text-2xl font-semibold">
+                        <label htmlFor="loanAmount" className="text-xl font-semibold">
                             Digite o valor desejado (R$)
                         </label>
                         <input
@@ -193,13 +197,13 @@ export function Ofertas() {
 
                     {/* Escolha de Parcelas */}
                     <div className="flex flex-col space-y-4">
-                        <label className="text-2xl font-semibold">Escolha as Parcelas</label>
+                        <label className="text-xl font-semibold">Escolha as Parcelas</label>
                         <div className="flex justify-around space-x-2">
                             {installmentOptions.map((option) => (
                                 <button
                                     key={option}
                                     onClick={() => setInstallments(option)}
-                                    className={`p-2 text-2xl rounded-lg border w-12 text-center font-semibold ${installments === option
+                                    className={`p-2 text-xl rounded-lg border w-12 text-center font-semibold ${installments === option
                                         ? "bg-primary text-white"
                                         : "bg-transparent border-primary text-primary"
                                         }`}
@@ -213,10 +217,10 @@ export function Ofertas() {
                     {/* Valores Simulados */}
                     {loanAmount > 0 && installments > 0 && (
                         <div className="flex flex-col items-center space-y-1">
-                            <h3 className="font-bold text-3xl">
+                            <h3 className="font-bold text-2xl">
                                 Valor até <span className="text-primary">R$ {loanAmount.toLocaleString()}</span>
                             </h3>
-                            <span className="text-zinc-500 text-3xl">
+                            <span className="text-zinc-500 text-xl">
                                 {installments}x R$ {calculateInstallmentValue()}
                             </span>
                         </div>

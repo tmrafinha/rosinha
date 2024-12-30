@@ -159,7 +159,7 @@ export function Emprestimo() {
                 </h1>
 
                 {step === 1 && (
-                    <div className="bg-white rounded-lg p-6 space-y-6 mb-20">
+                    <div className="bg-white rounded-lg p-6 space-y-6 mb-96">
                         <div className="flex flex-col space-y-3">
                             <label htmlFor="estado" className="text-xl font-bold text-zinc-700">Estado</label>
                             <select
@@ -243,7 +243,7 @@ export function Emprestimo() {
                 )}
 
                 {step === 2 && (
-                    <div className="bg-white rounded-lg p-6 space-y-6">
+                    <div className="bg-white rounded-lg p-6 space-y-6 mb-20">
                         <div className="flex flex-col space-y-3">
                             <label htmlFor="objetivo" className="text-xl font-bold text-zinc-700">Qual o objetivo do empréstimo?</label>
                             <select
@@ -266,7 +266,7 @@ export function Emprestimo() {
                             </select>
                         </div>
 
-                        <div className="flex flex-col space-y-3">
+                        <div className="flex flex-col space-y-3 mb-20">
                             <label htmlFor="pagamentoDia" className="text-xl font-bold text-zinc-700">Qual é o dia do seu pagamento?</label>
                             <select
                                 id="pagamentoDia"
@@ -284,7 +284,7 @@ export function Emprestimo() {
                         </div>
 
 
-                        <div className="flex flex-col space-y-3">
+                        <div className="flex flex-col space-y-3 mb-20">
                             <label htmlFor="escolaridade" className="text-xl font-bold text-zinc-700">Qual sua escolaridade?</label>
                             <select
                                 id="escolaridade"
