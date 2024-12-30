@@ -169,7 +169,7 @@ export function Resumo() {
 
                 <button onClick={() => {
                     navigate("/carregandoemprestimo")
-                }} className="w-full bg-emerald-500 text-white text-3xl animate-bounce font-semibold">
+                }} className="w-full bg-emerald-500 text-white text-xl animate-bounce font-semibold">
                     Pedir Empréstimo
                 </button>
 

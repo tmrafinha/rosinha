@@ -112,7 +112,7 @@ export function TermosEmprestimo() {
                     navigate("/gerente")
                     window.scrollTo({ top: 0, behavior: 'smooth' })
                 }
-                } className="bg-emerald-500 w-full animate-bounce text-white text-3xl px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark">
+                } className="bg-emerald-500 w-full animate-bounce text-white text-xl px-6 py-3 rounded-lg font-semibold hover:bg-primary-dark">
                     Aceitar e Confirmar
                 </button>
                 {/* <button className="bg-gray-200 w-full text-gray-700 text-xl px-6 py-3 rounded-lg font-semibold hover:bg-gray-400">

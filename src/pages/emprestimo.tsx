@@ -243,7 +243,7 @@ export function Emprestimo() {
                 )}
 
                 {step === 2 && (
-                    <div className="bg-white rounded-lg p-6 space-y-6 mb-20">
+                    <div className="bg-white rounded-lg p-6 space-y-6 mb-48">
                         <div className="flex flex-col space-y-3">
                             <label htmlFor="objetivo" className="text-xl font-bold text-zinc-700">Qual o objetivo do empréstimo?</label>
                             <select
@@ -469,8 +469,8 @@ export function Emprestimo() {
             <div className="flex items-center justify-between bg-white p-8 fixed bottom-0 w-full shadow-lg">
                 <div>
                     <span className="text-lg text-zinc-500">Total do empréstimo</span>
-                    <div className="font-bold text-3xl">{formatReal(loanData?.loanAmount)}</div>
-                    <span className="text-zinc-600 text-2xl">{loanData?.installments}x de R${loanData?.installmentCount}</span>
+                    <div className="font-bold text-xl">{formatReal(loanData?.loanAmount)}</div>
+                    <span className="text-zinc-600 text-xl">{loanData?.installments}x de R${loanData?.installmentCount}</span>
                 </div>
 
                 {loanData?.bank == "Cresol" ? (
