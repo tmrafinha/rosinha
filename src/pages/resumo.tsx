@@ -3,7 +3,7 @@ import sicoob from "../assets/sicoob.png";
 import { loanData } from "../types/loanData";
 import logo from "../assets/serasa-verde.png";
 import { useState, useEffect } from "react";
-import {  GrUp } from "react-icons/gr";
+import { GrUp } from "react-icons/gr";
 import { UserData } from "../types/userData";
 import { IoMenu } from "react-icons/io5";
 import { IoIosArrowBack } from "react-icons/io";
@@ -93,7 +93,7 @@ export function Resumo() {
                     </div>
                     <div className="flex items-center justify-between">
                         {loanData?.bank == "Cresol" && (
-                            <img src={cresol} width={150} alt="" />
+                            <img src={cresol} width={90} alt="" />
                         )}
 
                         {loanData?.bank == "Sicoob" && (

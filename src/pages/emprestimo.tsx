@@ -474,9 +474,9 @@ export function Emprestimo() {
                 </div>
 
                 {loanData?.bank == "Cresol" ? (
-                    <img src={cresol} width={180} alt="cresol" />
+                    <img src={cresol} width={100} alt="cresol" />
                 ) : (
-                    <img src={sicoob} width={120} alt="cresol" />
+                    <img src={sicoob} width={80} alt="cresol" />
                 )}
 
 
